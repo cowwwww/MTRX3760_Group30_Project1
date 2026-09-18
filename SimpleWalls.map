@@ -1,0 +1,22 @@
+# ============================================================================
+# SimpleWalls.map  -  the room walls for the MTRX3760 Lab 2 wall-following
+# example. 
+#
+# A single named closed loop, "room": the walls the robot follows. It is a
+# rectangle with a notch cut into the top edge, giving one inside corner (at
+# the notch) as well as the outside corners. The starting pose sits near the
+# top left, facing right along the top wall.
+#
+# Coordinates are in the space the renderer draws in (x right, y down, in an
+# 800 x 600 window); headings are in degrees clockwise from +x. The file
+# format (loop / startpose / vertex) is described at the top of CLoopReader.h.
+# ============================================================================
+
+loop room
+    startpose 150 140 90
+    vertex 100 100
+    vertex 400 100
+    vertex 400 200
+    vertex 700 200
+    vertex 700 500
+    vertex 100 500

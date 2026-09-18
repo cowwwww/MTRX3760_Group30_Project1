@@ -1,0 +1,24 @@
+# ============================================================================
+# SimpleLine.map  -  the floor line for the MTRX3760 Lab 2 line-following
+# example. One of several possible worlds, not "the" world.
+#
+# A single named closed loop, "line": a line marked on the floor for the robot
+# to follow. It sits inside the SimpleWalls room, never touching a wall. The
+# loop is an asymmetric seven-sided figure with one inside (concave) corner, so
+# the robot turns both ways as it goes around. The starting pose sits on the
+# first vertex, facing along the first edge.
+#
+# Coordinates are in the space the renderer draws in (x right, y down, in an
+# 800 x 600 window); headings are in degrees clockwise from +x. The file
+# format (loop / startpose / vertex) is described at the top of CLoopReader.h.
+# ============================================================================
+
+loop line
+    startpose 205 315 331
+    vertex 205 315
+    vertex 315 255
+    vertex 430 300
+    vertex 560 258
+    vertex 648 378
+    vertex 500 455
+    vertex 258 435
