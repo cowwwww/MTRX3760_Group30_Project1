@@ -1,0 +1,13 @@
+# Distances from laser origin (metres); speeds m/s and rad/s. Restart after editing.
+wall_distance: 0.30
+forward_speed: 0.10
+turn_speed: 0.60
+search_speed: 0.08
+search_turn_speed: 0.28
+front_stop: 0.40
+front_release: 0.50
+lost_wall: 0.65
+distance_gain: 1.5
+heading_gain: 1.2
+scan_timeout: 0.50
+laser_yaw: 0.0
