@@ -1,134 +1,59 @@
-MTRX3760 Project 1 - Group 30
+MTRX3760 Project 1 - ROS controller
 
-What changed
-------------
-The uploaded repository was a Lab 2 raylib simulator, not a ROS application.
-Project 1 now builds a turtlebot3_drive executable in mtrx3760_project1.
-It subscribes to scan and odom, publishes cmd_vel and trajectory, and uses
-one reusable C++ controller for simulation and the physical robot.
-The original code and original CMakeLists.txt are preserved in ../A1 simulation.
-This A2 ROS directory contains the modified ROS package and its tests.
+This directory contains the wall-following code, ROS build files, startup
+files, and controller settings. Bring up the robot or lab simulation
+separately before starting the controller. Only one controller should
+publish to cmd_vel at a time.
 
-Local controller checks (no ROS needed)
---------------------------------------
-From this A2 ROS directory:
-  cmake -S . -B build -DPROJECT1_ROS_VERSION=
-  cmake --build build -j4
-  ctest --test-dir build --output-on-failure
-
-The tests cover steering, angular indexing, invalid and stale scans, corner
-turning, and maze exits. A noisy 5 Hz case includes the laser's rear offset.
-These are controller regressions, NOT Gazebo or physical demo evidence.
-ROS adapters and Gazebo launches still need building/running on the lab PC;
-ROS and Gazebo were unavailable on the Mac used to make these changes.
-
-ROS 2 Humble (Ubuntu 22.04 / Gazebo Classic)
-------------------------------------------
-Install the lab's TurtleBot3 packages and matching humble simulation branch.
+ROS 2
+-----
 Copy the contents of A2 ROS into ~/turtlebot3_ws/src/mtrx3760_project1.
-The package.xml file must be directly inside that mtrx3760_project1 directory.
-Use a path without spaces for the ROS workspace/package copy.
+Use a workspace/package path without spaces. For Humble:
   source /opt/ros/humble/setup.bash
   cd ~/turtlebot3_ws
   rosdep install --from-paths src --ignore-src -r -y
   colcon build --symlink-install --packages-select mtrx3760_project1
   source install/setup.bash
-  export TURTLEBOT3_MODEL=waffle
-  ros2 launch mtrx3760_project1 maze_humble.launch.py
-
-The maze launch starts Gazebo, a camera-equipped TurtleBot3, the controller,
-and RViz. Start beside the bottom wall, facing +x. The exit is the opening
-at the lower right. The controller uses only laser readings to steer.
-It continues wall following after exiting; use Ctrl-C to finish the run.
-Do not also run the stock turtlebot3_drive, teleop, or a navigation controller.
-Only one controller should publish cmd_vel.
-
-For an already running simulation or physical robot (bring it up first):
   ros2 launch mtrx3760_project1 wall_follower.launch.py
-Use use_sim_time:=true for a separately launched simulation.
-Topics can be remapped with scan_topic:=..., cmd_vel_topic:=..., odom_topic:=...
 
-ROS 2 Jazzy
------------
-Build with the sourced Jazzy environment and the same colcon command.
-Start the lab's Jazzy Gazebo world or physical robot separately, then:
-  ros2 launch mtrx3760_project1 wall_follower.launch.py stamped_cmd_vel:=true
-The included maze_humble launch specifically requires Gazebo Classic and
-is not a Jazzy Gazebo launch. Match stamped_cmd_vel to the actual cmd_vel type:
+For Jazzy, source /opt/ros/jazzy/setup.bash before building. Match the
+stamped_cmd_vel launch argument to the robot's actual cmd_vel message type:
   ros2 topic type /cmd_vel
-Use true for geometry_msgs/msg/TwistStamped, false for geometry_msgs/msg/Twist.
+Use stamped_cmd_vel:=true for geometry_msgs/msg/TwistStamped; the default
+false uses geometry_msgs/msg/Twist. For a simulation, add use_sim_time:=true.
+Topics can be changed with scan_topic:=..., cmd_vel_topic:=..., odom_topic:=...
 
-ROS 1 Noetic (Ubuntu 20.04 / Gazebo Classic)
-------------------------------------------
-Copy the contents of A2 ROS into ~/catkin_ws/src/mtrx3760_project1.
-The package.xml file must be directly inside that directory. Then:
+ROS 1 Noetic
+------------
+Copy the contents of A2 ROS into ~/catkin_ws/src/mtrx3760_project1:
   source /opt/ros/noetic/setup.bash
   cd ~/catkin_ws
   rosdep install --from-paths src --ignore-src -r -y
   catkin_make
   source devel/setup.bash
-  roslaunch mtrx3760_project1 maze_noetic.launch
-
-For an already running robot or simulation:
   roslaunch mtrx3760_project1 wall_follower.launch
-The launch uses geometry_msgs/Twist and relative scan/cmd_vel/odom topics.
 
-Tuning and use on the robot
---------------------------
+Settings and operation
+----------------------
 Edit config/wall_follower_ros1.yaml or config/wall_follower_ros2.yaml and
-restart the controller. Use the same values in both files if comparing ROS
-versions. Distances are in metres from the laser origin, not the chassis.
-Default speed is 0.10 m/s; target right-wall distance is 0.30 m. Start beside
-a wall on the robot's right. front_stop/front_release provide turn hysteresis.
-If the robot oscillates, reduce gains/speed; verify the physical footprint
-and stopping margin when setting distance thresholds. Wall following cannot
-solve floating-room mazes. The camera is for observation, not steering.
-laser_yaw is a fixed rotational offset; the adapter assumes a horizontal
-laser rigidly mounted on the robot. No TF transformation of scans is done.
-The controller stops before valid data arrives, after invalid scans, and
-when scan arrivals are more than scan_timeout seconds apart. The watchdog
-uses steady time so a paused simulation clock cannot suppress it. Ctrl-C
-publishes a zero command before ROS shutdown. A process crash or network
-failure still relies on the robot base's own command timeout.
+restart the controller. Start beside a wall on the robot's right. Distances
+are in metres from the laser origin; default speed is 0.10 m/s and target
+wall distance is 0.30 m. laser_yaw is the fixed laser-to-robot rotation in
+radians; the controller assumes a horizontal laser and does not transform
+scans using TF. Validate settings against the physical robot in the lab.
+The controller stops on invalid or stale laser data. Ctrl-C publishes zero
+velocity before shutdown. A crash or network failure relies on the robot
+base's own command timeout.
 
-RViz / functionality evidence
------------------------------
-The supplied RViz configurations show scan, trajectory, and camera.
-Use odom as the fixed frame. trajectory is nav_msgs/Path drawn from odometry,
-not a preprogrammed route. ROS 2 LaserScan should use Best Effort reliability;
-Path uses Reliable / Transient Local so a late RViz gets the existing path.
-Camera names differ by model/package version: select the actual image topic
-in RViz if its panel is blank (ros2 topic list or rostopic list).
-Capture actual Gazebo and RViz screenshots showing LiDAR, camera, and the
-complete maze trajectory. The local tests do not replace these screenshots
-or the live physical corner-following demonstration required by the brief.
-The path keeps up to 10,000 poses separated by at least 3 cm. Restart the
-controller for a fresh run; changing the odometry frame or reversing its
-message timestamps also clears the trail.
+The node subscribes to scan and odom and publishes cmd_vel and trajectory.
+trajectory is an odometry-based nav_msgs/Path for viewing in the lab's RViz
+setup (fixed frame: odom). On ROS 2, use Reliable / Transient Local for Path
+and Best Effort for LaserScan. Bring up LiDAR and camera through the lab's
+robot or simulation setup; this package does not launch them.
 
-Code structure
---------------
-include/project1/WallFollower.h and src/WallFollower.cpp: sensor sectors,
-settings validation, and right-wall controller (no ROS or graphics dependency).
-src/turtlebot3_drive_ros1.cpp / src/turtlebot3_drive_ros2.cpp: topic I/O,
-parameter loading, steady-time watchdog calls, and odometry trail recording.
-worlds/maze.csv and worlds/project1_maze.world: matching regression and
-Gazebo maze geometry. Keep them consistent when editing walls.
-Build the original simulator separately, from the repository root:
-  cmake -S "A1 simulation" -B "A1 simulation/build"
-  cmake --build "A1 simulation/build" -j4
-  cd "A1 simulation/build"
-  ./robot_simulator
-It requires raylib and is not the Project 1 Gazebo demonstration.
-
-References checked for integration
-----------------------------------
-https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/
-https://emanual.robotis.com/docs/en/platform/turtlebot3/bringup/
-https://github.com/ROBOTIS-GIT/turtlebot3_simulations/tree/humble/turtlebot3_gazebo
-https://github.com/ROBOTIS-GIT/turtlebot3_simulations/tree/noetic/turtlebot3_gazebo
-
-Before submission, replace the placeholder maintainer email in package.xml.
-Commit any further tested changes before creating a git bundle: uncommitted
-files are not included in bundles. Gazebo and physical demo evidence must
-come from actual lab runs.
+Build the controller library locally without ROS, from this directory:
+  cmake -S . -B build -DPROJECT1_ROS_VERSION=
+  cmake --build build -j4
+This only checks the standalone C++ library. The ROS adapters and physical
+robot still require building and validation in the lab environment.
+Replace the placeholder maintainer email in package.xml before submission.
