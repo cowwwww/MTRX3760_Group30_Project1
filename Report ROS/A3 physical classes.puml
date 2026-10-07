@@ -1,5 +1,5 @@
 @startuml
-title A2 ROS 2 executable — refactored class design
+title A3 physical ROS 2 executable — refactored class design
 skinparam classAttributeIconSize 0
 hide members
 class "rclcpp::Node" as ROSNode <<ROS>>

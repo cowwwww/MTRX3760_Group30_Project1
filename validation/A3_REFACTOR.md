@@ -4,6 +4,12 @@ The refactor separates responsibilities in the physical Jazzy controller and the
 simulation controller. It preserves both existing right-wall algorithms. A1 and
 A2 remain separate executables with separate control strategies.
 
+**Folder clarification:** the final code now lives in `A3 Refactor/Physical ROS`
+and `A3 Refactor/Simulation/tb3_maze`. Original A1/A2 packages are restored from
+`ed92004` for comparison and excluded from automatic colcon discovery. See
+`../A3 Refactor/README.md` for the final build paths. The earlier evidence below
+records the paths/revisions used before this folder clarification.
+
 ## Before and after
 
 Baseline: `ed9200438d0fa73787733dccec85b87fb23e82cb`, the version already on main
@@ -74,8 +80,10 @@ when their saved poses are replayed; `exit_replay.json` contains the results.
 
 ## Reproduce
 
-The general build/test commands in `OFFLINE_TESTS_2026-10-07.md` still apply.
-The Jazzy suite now includes the six trajectory cases automatically.
+`OFFLINE_TESTS_2026-10-07.md` describes the earlier baseline and its build paths.
+For the final version, use `A3 Refactor/Physical ROS` as the physical source path
+and the explicit simulation source paths in `A3 Refactor/README.md`.
+The final Jazzy suite includes the six trajectory cases automatically.
 
 ```bash
 source /opt/ros/jazzy/setup.bash
@@ -94,7 +102,7 @@ After the refactor has been merged and pulled, run from the repository root:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
-cp -a "A2 ROS/." ~/mtrx3760_ws/src/mtrx3760_project1/
+cp -a "A3 Refactor/Physical ROS/." ~/mtrx3760_ws/src/mtrx3760_project1/
 cd ~/mtrx3760_ws
 colcon build --symlink-install --packages-select mtrx3760_project1
 source install/setup.bash
@@ -108,15 +116,15 @@ guide afterwards: match robot middleware/domain, inspect actual topic types,
 verify manual motion, and launch with the observed Twist/TwistStamped choice.
 The currently installed physical workspace was not changed by this refactor work.
 
-Robot data was not needed for this structural refactor. The refactored A2 must
+Robot data was not needed for this structural refactor. The A3 physical package must
 still undergo an autonomous physical right-wall/corner/maze trial before it is
 described as the demonstrated final version. Physical scan orientation, timing,
 noise, wall material and tuning remain matters for robot testing.
 
 ## Design diagrams and report wording
 
-`Report ROS/A2 classes.puml` and `Report ROS/A1 classes.puml` provide separate
-simplified UML diagrams with class relationships and no member lists. The A2 ROS
+`Report ROS/A3 physical classes.puml` and `Report ROS/A3 simulation classes.puml` provide separate
+simplified UML diagrams with class relationships and no member lists. The physical ROS
 node diagram now labels actual topic names. These are design sources; render and
 review them using the unit's diagram standard before putting them into the PDF.
 

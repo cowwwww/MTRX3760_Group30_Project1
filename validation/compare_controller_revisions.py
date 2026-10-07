@@ -36,23 +36,31 @@ def main():
     for label, revision in [('baseline', args.baseline), ('candidate', args.candidate)]:
         sha = subprocess.check_output(['git','rev-parse',revision],cwd=repo,text=True).strip()
         report[label+'_sha'] = sha
+        # A3's final packages moved out of the historical A1/A2 folders.
+        # Select paths from each revision so old evidence remains reproducible.
+        has_a3 = subprocess.run(
+            ['git', 'cat-file', '-e', sha+':A3 Refactor/Physical ROS/CMakeLists.txt'],
+            cwd=repo, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0
+        physical_root = 'A3 Refactor/Physical ROS' if has_a3 else 'A2 ROS'
+        simulation_root = 'A3 Refactor/Simulation/tb3_maze' if has_a3 else 'A1 Maze Simulation/tb3_maze'
+        report[label+'_source_roots'] = [physical_root, simulation_root]
         source = output / (label+'_source')
         source.mkdir(exist_ok=True)
-        archive = subprocess.check_output(['git','archive',sha,'A2 ROS','A1 Maze Simulation/tb3_maze'],cwd=repo)
+        archive = subprocess.check_output(['git','archive',sha,physical_root,simulation_root],cwd=repo)
         with tarfile.open(fileobj=io.BytesIO(archive)) as handle:
             handle.extractall(source, filter='data')
         with (output/(label+'_build.log')).open('w') as log:
             def run(command):
                 subprocess.run(command,check=True,stdout=log,stderr=subprocess.STDOUT)
             build = output / (label+'_core')
-            run(['cmake','-S',str(source/'A2 ROS'),'-B',str(build),'-DPROJECT1_ROS_VERSION=',
+            run(['cmake','-S',str(source/physical_root),'-B',str(build),'-DPROJECT1_ROS_VERSION=',
                  '-DBUILD_TESTING=OFF','-DCMAKE_BUILD_TYPE=Debug'])
             run(['cmake','--build',str(build),'-j4'])
             exe = output/(label+'_a2_trace')
-            run(['c++','-std=c++14','-O0','-I'+str(source/'A2 ROS/include'),str(trace),
+            run(['c++','-std=c++14','-O0','-I'+str(source/physical_root/'include'),str(trace),
                  str(build/'libwall_controller.a'),'-o',str(exe)])
             (output/(label+'_a2_trace.txt')).write_bytes(subprocess.check_output([str(exe)]))
-            package = source/'A1 Maze Simulation/tb3_maze'
+            package = source/simulation_root
             sources = [package/'src/c_robot.cpp',package/'src/c_sensor.cpp']
             strategy = package/'src/c_right_wall_follower_robot.cpp'
             if strategy.exists(): sources.append(strategy)

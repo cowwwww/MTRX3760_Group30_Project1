@@ -1,0 +1,13 @@
+<launch>
+  <!-- Use after bringing up the physical robot or a separate Gazebo world. -->
+  <arg name="scan_topic" default="scan"/>
+  <arg name="cmd_vel_topic" default="cmd_vel"/>
+  <arg name="odom_topic" default="odom"/>
+  <arg name="params_file" default="$(find mtrx3760_project1)/config/wall_follower_ros1.yaml"/>
+  <node pkg="mtrx3760_project1" type="turtlebot3_drive" name="project1_wall_follower" output="screen">
+    <rosparam command="load" file="$(arg params_file)"/>
+    <remap from="scan" to="$(arg scan_topic)"/>
+    <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/>
+    <remap from="odom" to="$(arg odom_topic)"/>
+  </node>
+</launch>

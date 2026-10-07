@@ -1,5 +1,11 @@
 # Offline validation — 7 October 2026
 
+**Historical baseline evidence:** the commands and recorded results below refer
+to the pre-refactor A1/A2 version. Those source snapshots are preserved, with
+`COLCON_IGNORE` markers excluding them from normal discovery. For final A3 builds
+and current source paths, use `../A3 Refactor/README.md` and `A3_REFACTOR.md`.
+To reproduce these original results exactly, use a separate checkout of `ed92004`.
+
 These checks exercise the real project controller classes and the compiled ROS 2
 adapter using generated inputs, and run A1 through the default Gazebo maze.
 They provide software and simulation evidence; physical maze performance remains unverified.

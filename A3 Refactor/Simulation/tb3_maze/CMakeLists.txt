@@ -1,6 +1,6 @@
 ################################################################################
 # Our MTRX3760 Project 1 code: the wall-following robot and the maze world.
-# The third-party TurtleBot3 packages stay untouched in ../tb3_third_parties;
+# Third-party packages stay in A1 Maze Simulation/tb3_third_parties;
 # this package depends on turtlebot3_gazebo and launches its robot and bridges.
 ################################################################################
 cmake_minimum_required(VERSION 3.8)
@@ -27,6 +27,7 @@ include_directories(include)
 add_executable(turtlebot3_drive
   src/turtlebot3_drive.cpp
   src/c_robot.cpp
+  src/c_right_wall_follower_robot.cpp
   src/c_sensor.cpp
 )
 target_link_libraries(turtlebot3_drive
@@ -50,6 +51,7 @@ if(BUILD_TESTING)
   ament_add_gtest(right_wall_follower_test
     test/right_wall_follower_test.cpp
     src/c_robot.cpp
+    src/c_right_wall_follower_robot.cpp
     src/c_sensor.cpp
   )
   target_link_libraries(right_wall_follower_test ${sensor_msgs_TARGETS})

@@ -1,9 +1,4 @@
-HISTORICAL A2 VERSION — for the final demo use A3 Refactor/Physical ROS.
-See A3 Refactor/README.md. The instructions below describe the old version.
-Remove the copied COLCON_IGNORE marker only when deliberately testing this
-version in a separate workspace.
-
-MTRX3760 Project 1 - ROS controller
+MTRX3760 Project 1 - A3 final physical ROS controller
 
 This directory contains the wall-following code, ROS build files, startup
 files, and controller settings. Bring up the robot or lab simulation
@@ -12,17 +7,16 @@ publish to cmd_vel at a time.
 
 ROS 2
 -----
-Copy the contents of A2 ROS into ~/turtlebot3_ws/src/mtrx3760_project1.
-Use a workspace/package path without spaces. For Humble:
-  source /opt/ros/humble/setup.bash
+Copy the contents of A3 Refactor/Physical ROS into ~/turtlebot3_ws/src/mtrx3760_project1.
+Use a workspace/package path without spaces. For the confirmed Jazzy setup:
+  source /opt/ros/jazzy/setup.bash
   cd ~/turtlebot3_ws
   rosdep install --from-paths src --ignore-src -r -y
   colcon build --symlink-install --packages-select mtrx3760_project1
   source install/setup.bash
   ros2 launch mtrx3760_project1 wall_follower.launch.py
 
-For Jazzy, source /opt/ros/jazzy/setup.bash before building. Match the
-stamped_cmd_vel launch argument to the robot's actual cmd_vel message type:
+Match the stamped_cmd_vel launch argument to the robot's actual cmd_vel message type:
   ros2 topic type /cmd_vel
 Use stamped_cmd_vel:=true for geometry_msgs/msg/TwistStamped; the default
 false uses geometry_msgs/msg/Twist. For a simulation, add use_sim_time:=true.
@@ -30,7 +24,7 @@ Topics can be changed with scan_topic:=..., cmd_vel_topic:=..., odom_topic:=...
 
 ROS 1 Noetic
 ------------
-Copy the contents of A2 ROS into ~/catkin_ws/src/mtrx3760_project1:
+Copy the contents of A3 Refactor/Physical ROS into ~/catkin_ws/src/mtrx3760_project1:
   source /opt/ros/noetic/setup.bash
   cd ~/catkin_ws
   rosdep install --from-paths src --ignore-src -r -y
@@ -62,3 +56,9 @@ Build the controller library locally without ROS, from this directory:
 This only checks the standalone C++ library. The ROS adapters and physical
 robot still require building and validation in the lab environment.
 Replace the placeholder maintainer email in package.xml before submission.
+
+After pulling the final A3 package, copy the complete A3 Refactor/Physical ROS package into the workspace
+again and rebuild. The build now compiles several source files; replacing only
+WallFollower.cpp or the entry point will leave an incomplete package.
+See README.md for the class/file layout and validation/A3_REFACTOR.md at the
+repository root for before/after evidence.

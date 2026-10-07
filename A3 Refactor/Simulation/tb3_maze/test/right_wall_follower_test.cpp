@@ -1,5 +1,5 @@
 // Direction regressions using the production LiDAR, waypoint and wheel code.
-#include "tb3_maze/c_robot.h"
+#include "tb3_maze/c_right_wall_follower_robot.h"
 
 #include <gtest/gtest.h>
 

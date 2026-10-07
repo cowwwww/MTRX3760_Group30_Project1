@@ -1,5 +1,5 @@
 @startuml
-title A1 Gazebo executable — refactored class design
+title A3 simulation executable — refactored class design
 skinparam classAttributeIconSize 0
 hide members
 class "rclcpp::Node" as ROSNode <<ROS>>

@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <world name="default">
+    <physics type="ode">
+      <real_time_update_rate>1000.0</real_time_update_rate>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>150</iters>
+          <precon_iters>0</precon_iters>
+          <sor>1.400000</sor>
+          <use_dynamic_moi_rescaling>1</use_dynamic_moi_rescaling>
+        </solver>
+        <constraints>
+          <cfm>0.00001</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>2000.000000</contact_max_correcting_vel>
+          <contact_surface_layer>0.01000</contact_surface_layer>
+        </constraints>
+      </ode>
+    </physics>
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin
+      filename="gz-sim-imu-system"
+      name="gz::sim::systems::Imu">
+    </plugin>
+
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane</uri>
+    </include>
+
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun</uri>
+    </include>
+
+    <!--
+      default_maze: 6 x 4 cells, 0.8 m per cell (4.8 m x 3.2 m), centred on the
+      world origin. Walls are 0.05 m thick and 0.5 m high. Every wall connects to the outer wall (a "perfect"
+      maze with no floating rooms), so wall following can always solve it. The exit is the gap in the
+      top right of the east wall. Start the robot in the bottom left cell facing +x
+      (x = -2.0, y = -1.3, yaw 0).
+
+      +===+===+===+===+===+===+
+      |           |       |    
+      +   +===+   +   +   +   +
+      |   |           |       |
+      +   +===+===+===+===+   +
+      |           |           |
+      +===+===+   +   +===+===+
+      |           |           |
+      +===+===+===+===+===+===+
+    -->
+    <model name="default_maze">
+      <static>true</static>
+      <link name="walls">
+        <collision name="wall_0_collision">
+          <pose>0.000 -1.600 0.25 0 0 0</pose>
+          <geometry><box><size>4.850 0.050 0.5</size></box></geometry>
+        </collision>
+        <visual name="wall_0_visual">
+          <pose>0.000 -1.600 0.25 0 0 0</pose>
+          <geometry><box><size>4.850 0.050 0.5</size></box></geometry>
+          <material><ambient>0.8 0.7 0.5 1</ambient><diffuse>0.8 0.7 0.5 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+        </visual>
+        <collision name="wall_1_collision">
+          <pose>-1.600 -0.800 0.25 0 0 0</pose>
+          <geometry><box><size>1.650 0.050 0.5</size></box></geometry>
+        </collision>
+        <visual name="wall_1_visual">
+          <pose>-1.600 -0.800 0.25 0 0 0</pose>
+          <geometry><box><size>1.650 0.050 0.5</size></box></geometry>
+          <material><ambient>0.8 0.7 0.5 1</ambient><diffuse>0.8 0.7 0.5 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+        </visual>
+        <collision name="wall_2_collision">
+          <pose>1.600 -0.800 0.25 0 0 0</pose>
+          <geometry><box><size>1.650 0.050 0.5</size></box></geometry>
+        </collision>
+        <visual name="wall_2_visual">
+          <pose>1.600 -0.800 0.25 0 0 0</pose>
+          <geometry><box><size>1.650 0.050 0.5</size></box></geometry>
+          <material><ambient>0.8 0.7 0.5 1</ambient><diffuse>0.8 0.7 0.5 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+        </visual>
+        <collision name="wall_3_collision">
+          <pose>0.000 0.000 0.25 0 0 0</pose>
+          <geometry><box><size>3.250 0.050 0.5</size></box></geometry>
+        </collision>
+        <visual name="wall_3_visual">
+          <pose>0.000 0.000 0.25 0 0 0</pose>
+          <geometry><box><size>3.250 0.050 0.5</size></box></geometry>
+          <material><ambient>0.8 0.7 0.5 1</ambient><diffuse>0.8 0.7 0.5 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+        </visual>
+        <collision name="wall_4_collision">
+          <pose>-1.200 0.800 0.25 0 0 0</pose>
+          <geometry><box><size>0.850 0.050 0.5</size></box></geometry>
+        </collision>
+        <visual name="wall_4_visual">
+          <pose>-1.200 0.800 0.25 0 0 0</pose>
+          <geometry><box><size>0.850 0.050 0.5</size></box></geometry>
+          <material><ambient>0.8 0.7 0.5 1</ambient><diffuse>0.8 0.7 0.5 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+        </visual>
+        <collision name="wall_5_collision">
+          <pose>0.000 1.600 0.25 0 0 0</pose>
+          <geometry><box><size>4.850 0.050 0.5</size></box></geometry>
+        </collision>
+        <visual name="wall_5_visual">
+          <pose>0.000 1.600 0.25 0 0 0</pose>
+          <geometry><box><size>4.850 0.050 0.5</size></box></geometry>
+          <material><ambient>0.8 0.7 0.5 1</ambient><diffuse>0.8 0.7 0.5 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+        </visual>
+        <collision name="wall_6_collision">
+          <pose>-2.400 0.000 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 3.250 0.5</size></box></geometry>
+        </collision>
+        <visual name="wall_6_visual">
+          <pose>-2.400 0.000 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 3.250 0.5</size></box></geometry>
+          <material><ambient>0.8 0.7 0.5 1</ambient><diffuse>0.8 0.7 0.5 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+        </visual>
+        <collision name="wall_7_collision">
+          <pose>-1.600 0.400 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 0.850 0.5</size></box></geometry>
+        </collision>
+        <visual name="wall_7_visual">
+          <pose>-1.600 0.400 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 0.850 0.5</size></box></geometry>
+          <material><ambient>0.8 0.7 0.5 1</ambient><diffuse>0.8 0.7 0.5 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+        </visual>
+        <collision name="wall_8_collision">
+          <pose>0.000 -0.800 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 1.650 0.5</size></box></geometry>
+        </collision>
+        <visual name="wall_8_visual">
+          <pose>0.000 -0.800 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 1.650 0.5</size></box></geometry>
+          <material><ambient>0.8 0.7 0.5 1</ambient><diffuse>0.8 0.7 0.5 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+        </visual>
+        <collision name="wall_9_collision">
+          <pose>0.000 1.200 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 0.850 0.5</size></box></geometry>
+        </collision>
+        <visual name="wall_9_visual">
+          <pose>0.000 1.200 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 0.850 0.5</size></box></geometry>
+          <material><ambient>0.8 0.7 0.5 1</ambient><diffuse>0.8 0.7 0.5 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+        </visual>
+        <collision name="wall_10_collision">
+          <pose>0.800 0.400 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 0.850 0.5</size></box></geometry>
+        </collision>
+        <visual name="wall_10_visual">
+          <pose>0.800 0.400 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 0.850 0.5</size></box></geometry>
+          <material><ambient>0.8 0.7 0.5 1</ambient><diffuse>0.8 0.7 0.5 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+        </visual>
+        <collision name="wall_11_collision">
+          <pose>1.600 1.200 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 0.850 0.5</size></box></geometry>
+        </collision>
+        <visual name="wall_11_visual">
+          <pose>1.600 1.200 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 0.850 0.5</size></box></geometry>
+          <material><ambient>0.8 0.7 0.5 1</ambient><diffuse>0.8 0.7 0.5 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+        </visual>
+        <collision name="wall_12_collision">
+          <pose>2.400 -0.400 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 2.450 0.5</size></box></geometry>
+        </collision>
+        <visual name="wall_12_visual">
+          <pose>2.400 -0.400 0.25 0 0 0</pose>
+          <geometry><box><size>0.050 2.450 0.5</size></box></geometry>
+          <material><ambient>0.8 0.7 0.5 1</ambient><diffuse>0.8 0.7 0.5 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
