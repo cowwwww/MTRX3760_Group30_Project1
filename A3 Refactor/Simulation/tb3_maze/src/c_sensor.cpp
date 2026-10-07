@@ -6,6 +6,7 @@
 
 #include "tb3_maze/c_sensor.h"
 
+#include <algorithm>
 #include <cmath>
 
 // =============================================================================
@@ -44,6 +45,8 @@ float CSensor::GetSensorAngle( float aRobotAngle ) const
 // =============================================================================
 
 const int CLidar::mkBridgeRays = 2;
+const float CLidar::mkMinimumCoverageFraction = 0.70f;
+const float CLidar::mkMinimumUsableFraction = 0.60f;
 
 //-----------------------------------------------------------------------------
 CLidar::CLidar( float aMountAngleDegrees )
@@ -59,7 +62,16 @@ CLidar::CLidar( float aMountAngleDegrees )
 //-----------------------------------------------------------------------------
 bool CLidar::HasReading() const
 {
-    return ( !mRanges.empty() ) && ( mAngleIncrement > 0.0f ) && ( mRangeMax > mRangeMin );
+    if( mRanges.empty() || !std::isfinite( mAngleMin ) ||
+        !std::isfinite( mAngleIncrement ) || mAngleIncrement <= 0.0f ||
+        !std::isfinite( mRangeMin ) || !std::isfinite( mRangeMax ) ||
+        mRangeMin < 0.0f || mRangeMax <= mRangeMin || !std::isfinite( mMountAngle ) )
+    {
+        return false;
+    }
+
+    return std::any_of( mRanges.begin(), mRanges.end(),
+        [this]( float aRange ) { return IsUsable( aRange ); } );
 }
 
 //-----------------------------------------------------------------------------
@@ -70,6 +82,48 @@ void CLidar::Sense( const sensor_msgs::msg::LaserScan& arScan )
     mRangeMin = arScan.range_min;
     mRangeMax = arScan.range_max;
     mRanges = arScan.ranges;
+}
+
+//-----------------------------------------------------------------------------
+bool CLidar::HasUsableSector( float aCentreDegrees, float aHalfWidthDegrees ) const
+{
+    if( !HasReading() || !std::isfinite( aCentreDegrees ) ||
+        !std::isfinite( aHalfWidthDegrees ) || aHalfWidthDegrees <= 0.0f ||
+        aHalfWidthDegrees > 180.0f )
+    {
+        return false;
+    }
+
+    const float Centre = aCentreDegrees * kDegreesToRadians;
+    const float HalfWidth = aHalfWidthDegrees * kDegreesToRadians;
+    std::size_t Total = 0;
+    std::size_t Usable = 0;
+    float NearestAngle = float( M_PI );
+
+    for( std::size_t Index = 0; Index < mRanges.size(); ++Index )
+    {
+        const float Angle = GetRobotAngle( mAngleMin + float( Index ) * mAngleIncrement );
+        if( !std::isfinite( Angle ) )
+        {
+            return false;
+        }
+        const float Difference = std::fabs( std::remainder( Angle - Centre, 2.0f * float( M_PI ) ) );
+        if( Difference <= HalfWidth + 1e-6f )
+        {
+            ++Total;
+            NearestAngle = std::min( NearestAngle, Difference );
+            if( IsUsable( mRanges[Index] ) )
+            {
+                ++Usable;
+            }
+        }
+    }
+
+    // Coverage and return validity are separate: a full sector of NaNs is
+    // unknown, while the same sector of +infinity is observed open space.
+    const double ExpectedRays = 2.0 * HalfWidth / mAngleIncrement;
+    return Total > 0 && Total >= mkMinimumCoverageFraction * ExpectedRays &&
+        Usable >= mkMinimumUsableFraction * Total && NearestAngle <= HalfWidth / 2.0f;
 }
 
 //-----------------------------------------------------------------------------
@@ -93,6 +147,11 @@ float CLidar::GetDistance( float aAngleDegrees ) const
 //-----------------------------------------------------------------------------
 float CLidar::GetNearestDistance( float aCentreDegrees, float aHalfWidthDegrees ) const
 {
+    if( !HasUsableSector( aCentreDegrees, aHalfWidthDegrees ) )
+    {
+        return 0.0f;
+    }
+
     float Centre = aCentreDegrees * kDegreesToRadians;
     float HalfWidth = aHalfWidthDegrees * kDegreesToRadians;
 
@@ -229,9 +288,14 @@ bool CLidar::IsInSector( int aIndex, float aCentre, float aHalfWidth ) const
 //-----------------------------------------------------------------------------
 bool CLidar::IsReturn( float aRange ) const
 {
-    // Comparisons with NaN are false, so NaN is excluded here too, and +infinity
-    // (no return) fails the upper limit.
-    return ( aRange >= mRangeMin ) && ( aRange <= mRangeMax );
+    return std::isfinite( aRange ) && aRange > 0.0f &&
+        aRange >= mRangeMin && aRange <= mRangeMax;
+}
+
+//-----------------------------------------------------------------------------
+bool CLidar::IsUsable( float aRange ) const
+{
+    return ( std::isinf( aRange ) && aRange > 0.0f ) || IsReturn( aRange );
 }
 
 //-----------------------------------------------------------------------------

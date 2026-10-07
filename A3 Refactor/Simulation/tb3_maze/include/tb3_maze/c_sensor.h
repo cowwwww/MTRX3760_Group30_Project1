@@ -14,7 +14,7 @@
 // angle measured from the robot's heading, and back - so that geometry lives
 // here. Whether the sensor has produced anything usable yet is the one thing
 // that differs between sensor types (a lidar needs a scan with rays in it, a
-// camera would need an image), so HasReading() is the only virtual.
+// camera would need an image), so HasReading() is the sensing customisation point.
 //
 // Angles in this file are in degrees at every public function, counted
 // COUNTER-CLOCKWISE from the robot's heading, as ROS counts them: 0 is
@@ -33,9 +33,10 @@
 // A ray counts as open when it is a real distance at least as long as the
 // clear distance asked for, or "no return" (+infinity in Gazebo and the LDS:
 // nothing within range). An invalid reading (NaN, below the minimum range, or
-// the 0.0 the real LDS reports for a dropout) is never open, so a bad ray can
-// only ever make the robot more cautious. The scan is assumed to cover the
-// full circle, as the TurtleBot3's does.
+// the 0.0 the real LDS reports for a dropout) is never open. HasUsableSector()
+// distinguishes sufficient observations from missing or mostly invalid data;
+// an unknown sector must not be treated as free space. The scan is assumed to
+// cover the full circle, as the TurtleBot3's does.
 //-----------------------------------------------------------------------------
 
 #ifndef C_SENSOR_H
@@ -99,6 +100,8 @@ class CLidar : public CSensor
         explicit CLidar( float aMountAngleDegrees );
 
         //---CSensor's virtual---
+        // Finite, positive-step scan geometry and at least one in-range return
+        // or positive-infinity no-return reading. Does not establish coverage.
         bool HasReading() const override;
 
         //---Sensing---
@@ -106,12 +109,18 @@ class CLidar : public CSensor
         void Sense( const sensor_msgs::msg::LaserScan& arScan );
 
         //---Access---
+        // Requires rays near the sector centre, at least 70% of the expected
+        // angular coverage, and at least 60% usable readings within that coverage.
+        // Positive infinity is usable; isolated invalid rays are tolerated.
+        bool HasUsableSector( float aCentreDegrees, float aHalfWidthDegrees ) const;
+
         // Distance in metres along the ray nearest to aAngleDegrees. The
         // maximum range if that ray has no return or an invalid reading.
         float GetDistance( float aAngleDegrees ) const;
 
         // Distance in metres to the nearest return within aHalfWidthDegrees
-        // either side of aCentreDegrees. The maximum range if there is none.
+        // either side of aCentreDegrees. Maximum range for valid no-return data;
+        // zero when the sector lacks usable coverage, so unknown is not clear.
         float GetNearestDistance( float aCentreDegrees, float aHalfWidthDegrees ) const;
 
         // The gaps between aFromDegrees and aToDegrees: each run of rays that
@@ -138,6 +147,9 @@ class CLidar : public CSensor
         // Whether aRange is a real measurement, as opposed to no return or an invalid reading.
         bool IsReturn( float aRange ) const;
 
+        // An in-range positive return or positive infinity (valid no return).
+        bool IsUsable( float aRange ) const;
+
         // Whether aRange is open for at least aDistance metres.
         bool IsClear( float aRange, float aDistance ) const;
 
@@ -151,6 +163,8 @@ class CLidar : public CSensor
 
         //---Consts---
         static const int mkBridgeRays;   // blocked rays in a row that still do not split a gap
+        static const float mkMinimumCoverageFraction;
+        static const float mkMinimumUsableFraction;
 
         //---Latest scan---
         float mAngleMin;         // radians, angle of ray 0 in the sensor's frame

@@ -43,8 +43,9 @@ class CRobot
         //---Simulation---
         // One pass of the whole sequence: the lidar takes arScan, the algorithm
         // chooses where to go, and the wheel speeds are set to drive there.
-        // arPose is where the robot was when the scan was taken. The robot
-        // stops if the lidar has nothing usable to go on.
+        // arPose is the latest available odometry pose. Unusable scans or
+        // insufficient front coverage stop both wheels and clear old targets;
+        // usable data permits a fresh waypoint to be chosen on the next update.
         void Update( const sensor_msgs::msg::LaserScan& arScan, const CPose& arPose );
 
         //---Waypoints---

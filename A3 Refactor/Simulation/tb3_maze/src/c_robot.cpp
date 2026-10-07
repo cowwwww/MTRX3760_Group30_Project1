@@ -49,14 +49,15 @@ CRobot::~CRobot()
 //-----------------------------------------------------------------------------
 void CRobot::Update( const sensor_msgs::msg::LaserScan& arScan, const CPose& arPose )
 {
-    // Data in: take the new scan.
     mLidar.Sense( arScan );
 
-    // Stop unless there is something to go on.
     SetWheelSpeeds( 0.0f, 0.0f );
 
-    if( !mLidar.HasReading() )
+    if( !mLidar.HasUsableSector( 0.0f, mkFrontHalfAngle ) )
     {
+        // A pre-fault target is not evidence that the route is still clear.
+        // Recovery must choose again from the current scan and pose.
+        mWaypoints.clear();
         return;
     }
 
@@ -68,7 +69,6 @@ void CRobot::Update( const sensor_msgs::msg::LaserScan& arScan, const CPose& arP
         UpdateWaypoints( ToOdomFrame( arPose, Target ), arPose );
     }
 
-    // How to get there.
     DriveToWaypoint( arPose );
 }
 

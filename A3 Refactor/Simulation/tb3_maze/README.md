@@ -64,5 +64,21 @@ These checks cover competing openings, right-edge clearance and dead-end orderin
 
 Motion constants are in `src/c_robot.cpp`; strategy constants are in `src/c_right_wall_follower_robot.cpp`.
 
-**Conventions.** Angles are in degrees counted counter-clockwise from the robot's heading, as ROS does (+90 is left, -90 is right). A positive turn rate is a left turn. Wheel speeds are in m/s, limited to 0.22 m/s, and the wheel base is 0.160 m. Waypoints are in the `odom` frame.
+**Invalid scans and recovery.** A scan needs finite metadata, a positive angular
+step, valid range limits, and usable data in the front sector (20 degrees either
+side of straight ahead). The sector requires at least 70% of its expected rays,
+a ray within 10 degrees of its centre, and at least 60% usable readings among
+the rays present. These tolerances allow isolated dropouts while rejecting
+missing or mostly corrupt front data. They are implementation choices, not
+additional assignment marking requirements.
 
+A usable reading is a positive finite distance within the reported range limits,
+or positive infinity meaning no obstacle returned within range. NaN, negative
+infinity, zero and out-of-range finite values are invalid. When the scan or front
+coverage is unusable, both wheels stop and the waypoint history is cleared.
+The next usable scan chooses a fresh target from that scan and the latest pose;
+the robot does not resume its pre-fault waypoint. Valid open-space scans still
+permit movement. This check runs when a scan arrives; it does not add a timeout
+for scans that cease arriving.
+
+**Conventions.** Angles are in degrees counted counter-clockwise from the robot's heading, as ROS does (+90 is left, -90 is right). A positive turn rate is a left turn. Wheel speeds are in m/s, limited to 0.22 m/s, and the wheel base is 0.160 m. Waypoints are in the `odom` frame.
