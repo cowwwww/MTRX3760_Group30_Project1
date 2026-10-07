@@ -1,0 +1,14 @@
+{
+  "ground_truth_samples": 1309,
+  "route_length_m": 16.546572440068246,
+  "last_ground_truth_m": [
+    2.6020639847998983,
+    0.8517864378338579
+  ],
+  "last_simulation_time_s": 130.114,
+  "minimum_sampled_lidar_return_m": 0.11999999731779099,
+  "max_abs_command_linear_m_s": 0.14993916451931,
+  "max_abs_command_angular_rad_s": 1.2000000476837158,
+  "collision_verification": "Not established: no contact sensor was recorded.",
+  "route_length_note": "Approximate polyline length sampled at about 10 Hz wall time."
+}

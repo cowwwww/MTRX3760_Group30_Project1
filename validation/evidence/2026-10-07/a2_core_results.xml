@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Linux-c++"
+	tests="26"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname="james-MS-7B89"
+	time="0"
+	timestamp="2026-10-07T15:33:08"
+	>
+	<testcase name="controller_default_settings" classname="controller_default_settings" time="0.00156537" status="run">
+		<properties/>
+		<system-out>PASS default_settings
+</system-out>
+	</testcase>
+	<testcase name="controller_invalid_settings" classname="controller_invalid_settings" time="0.00230864" status="run">
+		<properties/>
+		<system-out>PASS invalid_settings
+</system-out>
+	</testcase>
+	<testcase name="controller_invalid_ordering" classname="controller_invalid_ordering" time="0.00120838" status="run">
+		<properties/>
+		<system-out>PASS invalid_ordering
+</system-out>
+	</testcase>
+	<testcase name="controller_no_scan" classname="controller_no_scan" time="0.00112405" status="run">
+		<properties/>
+		<system-out>PASS no_scan
+</system-out>
+	</testcase>
+	<testcase name="controller_straight_wall" classname="controller_straight_wall" time="0.00120833" status="run">
+		<properties/>
+		<system-out>PASS straight_wall
+</system-out>
+	</testcase>
+	<testcase name="controller_close_wall" classname="controller_close_wall" time="0.00129158" status="run">
+		<properties/>
+		<system-out>PASS close_wall
+</system-out>
+	</testcase>
+	<testcase name="controller_distant_wall" classname="controller_distant_wall" time="0.001465" status="run">
+		<properties/>
+		<system-out>PASS distant_wall
+</system-out>
+	</testcase>
+	<testcase name="controller_wall_heading" classname="controller_wall_heading" time="0.00169691" status="run">
+		<properties/>
+		<system-out>PASS wall_heading
+</system-out>
+	</testcase>
+	<testcase name="controller_lost_wall" classname="controller_lost_wall" time="0.00152304" status="run">
+		<properties/>
+		<system-out>PASS lost_wall
+</system-out>
+	</testcase>
+	<testcase name="controller_blocked_front_priority" classname="controller_blocked_front_priority" time="0.00155047" status="run">
+		<properties/>
+		<system-out>PASS blocked_front_priority
+</system-out>
+	</testcase>
+	<testcase name="controller_corner_hysteresis" classname="controller_corner_hysteresis" time="0.00151097" status="run">
+		<properties/>
+		<system-out>PASS corner_hysteresis
+</system-out>
+	</testcase>
+	<testcase name="controller_stale_scan" classname="controller_stale_scan" time="0.0016139" status="run">
+		<properties/>
+		<system-out>PASS stale_scan
+</system-out>
+	</testcase>
+	<testcase name="controller_time_reversal" classname="controller_time_reversal" time="0.0012656" status="run">
+		<properties/>
+		<system-out>PASS time_reversal
+</system-out>
+	</testcase>
+	<testcase name="controller_invalid_scan_time" classname="controller_invalid_scan_time" time="0.00127731" status="run">
+		<properties/>
+		<system-out>PASS invalid_scan_time
+</system-out>
+	</testcase>
+	<testcase name="controller_corrupt_sector" classname="controller_corrupt_sector" time="0.00134316" status="run">
+		<properties/>
+		<system-out>PASS corrupt_sector
+</system-out>
+	</testcase>
+	<testcase name="controller_isolated_dropout" classname="controller_isolated_dropout" time="0.00122806" status="run">
+		<properties/>
+		<system-out>PASS isolated_dropout
+</system-out>
+	</testcase>
+	<testcase name="controller_front_minimum" classname="controller_front_minimum" time="0.0012132" status="run">
+		<properties/>
+		<system-out>PASS front_minimum
+</system-out>
+	</testcase>
+	<testcase name="controller_side_median" classname="controller_side_median" time="0.00120382" status="run">
+		<properties/>
+		<system-out>PASS side_median
+</system-out>
+	</testcase>
+	<testcase name="controller_no_returns" classname="controller_no_returns" time="0.00126447" status="run">
+		<properties/>
+		<system-out>PASS no_returns
+</system-out>
+	</testcase>
+	<testcase name="controller_malformed_metadata" classname="controller_malformed_metadata" time="0.0015908" status="run">
+		<properties/>
+		<system-out>PASS malformed_metadata
+</system-out>
+	</testcase>
+	<testcase name="controller_out_of_range" classname="controller_out_of_range" time="0.00142156" status="run">
+		<properties/>
+		<system-out>PASS out_of_range
+</system-out>
+	</testcase>
+	<testcase name="controller_missing_coverage" classname="controller_missing_coverage" time="0.00118087" status="run">
+		<properties/>
+		<system-out>PASS missing_coverage
+</system-out>
+	</testcase>
+	<testcase name="controller_zero_to_two_pi" classname="controller_zero_to_two_pi" time="0.00130163" status="run">
+		<properties/>
+		<system-out>PASS zero_to_two_pi
+</system-out>
+	</testcase>
+	<testcase name="controller_descending_scan" classname="controller_descending_scan" time="0.00124158" status="run">
+		<properties/>
+		<system-out>PASS descending_scan
+</system-out>
+	</testcase>
+	<testcase name="controller_rotated_lidar" classname="controller_rotated_lidar" time="0.00170477" status="run">
+		<properties/>
+		<system-out>PASS rotated_lidar
+</system-out>
+	</testcase>
+	<testcase name="controller_velocity_bounds" classname="controller_velocity_bounds" time="0.0847272" status="run">
+		<properties/>
+		<system-out>PASS velocity_bounds
+</system-out>
+	</testcase>
+</testsuite>

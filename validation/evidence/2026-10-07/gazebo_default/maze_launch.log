@@ -1,0 +1,93 @@
+[INFO] [launch]: All log files can be found below [WORKSPACE]/output/offline_validation/gazebo/default_maze_recorded_run/ros_logs/2026-10-07-15-44-08-578377-james-MS-7B89-18296
+[INFO] [launch]: Default logging verbosity is set to INFO
+urdf_file_name : turtlebot3_burger_cam.urdf
+[INFO] [gazebo-1]: process started with pid [18308]
+[INFO] [gazebo-2]: process started with pid [18309]
+[INFO] [create-3]: process started with pid [18311]
+[INFO] [parameter_bridge-4]: process started with pid [18313]
+[INFO] [image_bridge-5]: process started with pid [18314]
+[INFO] [robot_state_publisher-6]: process started with pid [18315]
+[robot_state_publisher-6] [WARN] [1791348248.981096214] [rcl]: ROS_LOCALHOST_ONLY is deprecated but still honored if it is enabled. Use ROS_AUTOMATIC_DISCOVERY_RANGE and ROS_STATIC_PEERS instead.
+[robot_state_publisher-6] [WARN] [1791348248.981109714] [rcl]: 'localhost_only' is enabled, 'automatic_discovery_range' and 'static_peers' will be ignored.
+[create-3] [WARN] [1791348248.992132033] [rcl]: ROS_LOCALHOST_ONLY is deprecated but still honored if it is enabled. Use ROS_AUTOMATIC_DISCOVERY_RANGE and ROS_STATIC_PEERS instead.
+[create-3] [WARN] [1791348248.992576026] [rcl]: 'localhost_only' is enabled, 'automatic_discovery_range' and 'static_peers' will be ignored.
+[robot_state_publisher-6] [INFO] [1791348248.994240568] [robot_state_publisher]: Robot initialized
+[image_bridge-5] [WARN] [1791348249.000886775] [rcl]: ROS_LOCALHOST_ONLY is deprecated but still honored if it is enabled. Use ROS_AUTOMATIC_DISCOVERY_RANGE and ROS_STATIC_PEERS instead.
+[image_bridge-5] [WARN] [1791348249.000902465] [rcl]: 'localhost_only' is enabled, 'automatic_discovery_range' and 'static_peers' will be ignored.
+[parameter_bridge-4] [WARN] [1791348249.001072737] [rcl]: ROS_LOCALHOST_ONLY is deprecated but still honored if it is enabled. Use ROS_AUTOMATIC_DISCOVERY_RANGE and ROS_STATIC_PEERS instead.
+[parameter_bridge-4] [WARN] [1791348249.001082837] [rcl]: 'localhost_only' is enabled, 'automatic_discovery_range' and 'static_peers' will be ignored.
+[create-3] [INFO] [1791348249.001535250] [ros_gz_sim]: Requesting list of world names.
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[create-3] [INFO] [1791348249.628874584] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-3]: process has finished cleanly [pid 18311]
+[parameter_bridge-4] [INFO] [1791348250.011334436] [ros_gz_bridge]: Creating GZ->ROS Bridge: [clock (gz.msgs.Clock) -> clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1791348250.012458694] [ros_gz_bridge]: Creating GZ->ROS Bridge: [joint_states (gz.msgs.Model) -> joint_states (sensor_msgs/msg/JointState)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1791348250.014460908] [ros_gz_bridge]: Creating GZ->ROS Bridge: [odom (gz.msgs.Odometry) -> odom (nav_msgs/msg/Odometry)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1791348250.015401535] [ros_gz_bridge]: Creating GZ->ROS Bridge: [tf (gz.msgs.Pose_V) -> tf (tf2_msgs/msg/TFMessage)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1791348250.016110400] [ros_gz_bridge]: Creating ROS->GZ Bridge: [cmd_vel (geometry_msgs/msg/TwistStamped) -> cmd_vel (gz.msgs.Twist)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1791348250.016579723] [ros_gz_bridge]: Creating GZ->ROS Bridge: [imu (gz.msgs.IMU) -> imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1791348250.017230348] [ros_gz_bridge]: Creating GZ->ROS Bridge: [scan (gz.msgs.LaserScan) -> scan (sensor_msgs/msg/LaserScan)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1791348250.017573100] [ros_gz_bridge]: Creating GZ->ROS Bridge: [camera/camera_info (gz.msgs.CameraInfo) -> camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file::/ComponentInspector/ComponentInspector.qml:251:3: QML Dialog: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:413:17: QML ToolButton: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file:///usr/lib/x86_64-linux-gnu/qt5/qml/QtQuick/Dialogs/DefaultFileDialog.qml:309:21: QML Button: Binding loop detected for property "implicitHeight"[0m[1;33m[0m
+[gazebo-2] [1;33m[GUI] [Wrn] [Application.cc:908] [0m[1;33m[QT] file::/WorldStats/WorldStats.qml:53:3: QML RowLayout: Binding loop detected for property "x"[0m[1;33m[0m
+[gazebo-2] libEGL warning: pci id for fd 104: 10de:2187, driver (null)
+[gazebo-2] 
+[gazebo-2] pci id for fd 105: 10de:2187, driver (null)
+[gazebo-2] pci id for fd 106: 10de:2187, driver (null)
+[gazebo-2] libEGL warning: egl: failed to create dri2 screen
+[gazebo-2] libEGL warning: pci id for fd 104: 10de:2187, driver (null)
+[gazebo-2] 
+[gazebo-2] pci id for fd 105: 10de:2187, driver (null)
+[gazebo-2] pci id for fd 106: 10de:2187, driver (null)
+[gazebo-2] libEGL warning: egl: failed to create dri2 screen
+[gazebo-2] libEGL warning: pci id for fd 104: 10de:2187, driver (null)
+[gazebo-2] 
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="turtlebot3_burger_cam"]/link[@name="base_scan"]/sensor[@name="hls_lfcd_lds"]/gz_frame_id:[WORKSPACE]/output/offline_validation/gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/models/turtlebot3_burger_cam/model.sdf:L141]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="turtlebot3_burger_cam"]/link[@name="camera_link"]/sensor[@name="camera"]/gz_frame_id:[WORKSPACE]/output/offline_validation/gazebo/install/turtlebot3_gazebo/share/turtlebot3_gazebo/models/turtlebot3_burger_cam/model.sdf:L344]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-2] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="turtlebot3_burger_cam"]/link[@name="base_scan"]/sensor[@name="hls_lfcd_lds"]/gz_frame_id:<data-string>:L163]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-2] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="turtlebot3_burger_cam"]/link[@name="camera_link"]/sensor[@name="camera"]/gz_frame_id:<data-string>:L363]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] libEGL warning: pci id for fd 72: 10de:2187, driver (null)
+[gazebo-1] 
+[gazebo-1] pci id for fd 73: 10de:2187, driver (null)
+[gazebo-1] pci id for fd 74: 10de:2187, driver (null)
+[gazebo-1] libEGL warning: egl: failed to create dri2 screen
+[gazebo-1] libEGL warning: pci id for fd 72: 10de:2187, driver (null)
+[gazebo-1] 
+[gazebo-1] pci id for fd 73: 10de:2187, driver (null)
+[gazebo-1] pci id for fd 74: 10de:2187, driver (null)
+[gazebo-1] libEGL warning: egl: failed to create dri2 screen
+[gazebo-1] libEGL warning: pci id for fd 72: 10de:2187, driver (null)
+[gazebo-1] 
+[parameter_bridge-4] [INFO] [1791348252.353397769] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/TwistStamped to Gazebo gz.msgs.Twist (showing msg only once per type)
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[parameter_bridge-4] [INFO] [1791348383.691256695] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [robot_state_publisher-6]: sending signal 'SIGINT' to process[robot_state_publisher-6]
+[INFO] [image_bridge-5]: sending signal 'SIGINT' to process[image_bridge-5]
+[INFO] [parameter_bridge-4]: sending signal 'SIGINT' to process[parameter_bridge-4]
+[INFO] [gazebo-2]: sending signal 'SIGINT' to process[gazebo-2]
+[INFO] [gazebo-1]: sending signal 'SIGINT' to process[gazebo-1]
+[image_bridge-5] [INFO] [1791348383.692276083] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[robot_state_publisher-6] [INFO] [1791348383.692564705] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[robot_state_publisher-6] [INFO] [1791348383.694548158] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[image_bridge-5] [INFO] [1791348383.694909761] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [parameter_bridge-4]: process has finished cleanly [pid 18313]
+[ERROR] [gazebo-1]: process has died [pid 18308, exit code -2, cmd 'ruby /opt/ros/jazzy/opt/gz_tools_vendor/bin/gz sim -r -s -v2 [WORKSPACE]/output/offline_validation/gazebo/install/tb3_maze/share/tb3_maze/worlds/default_maze.world --force-version 8'].
+[INFO] [launch]: process[gazebo-1] was required: shutting down launched system
+[ERROR] [gazebo-2]: process has died [pid 18309, exit code -2, cmd 'ruby /opt/ros/jazzy/opt/gz_tools_vendor/bin/gz sim -g -v2  --force-version 8'].
+[INFO] [launch]: process[gazebo-2] was required: shutting down launched system
+[INFO] [image_bridge-5]: process has finished cleanly [pid 18314]
+[INFO] [robot_state_publisher-6]: process has finished cleanly [pid 18315]

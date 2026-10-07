@@ -1,0 +1,51 @@
+Start testing: Oct 07 15:38 AEDT
+----------------------------------------------------------
+1/1 Testing: right_wall_follower_test
+1/1 Test: right_wall_follower_test
+Command: "/usr/bin/python3" "-u" "/opt/ros/jazzy/share/ament_cmake_test/cmake/run_test.py" "[WORKSPACE]/output/simulation_validation/build/tb3_maze/test_results/tb3_maze/right_wall_follower_test.gtest.xml" "--package-name" "tb3_maze" "--output-file" "[WORKSPACE]/output/simulation_validation/build/tb3_maze/ament_cmake_gtest/right_wall_follower_test.txt" "--command" "[WORKSPACE]/output/simulation_validation/build/tb3_maze/right_wall_follower_test" "--gtest_output=xml:[WORKSPACE]/output/simulation_validation/build/tb3_maze/test_results/tb3_maze/right_wall_follower_test.gtest.xml"
+Directory: [WORKSPACE]/output/simulation_validation/build/tb3_maze
+"right_wall_follower_test" start time: Oct 07 15:38 AEDT
+Output:
+----------------------------------------------------------
+-- run_test.py: invoking following command in '[WORKSPACE]/output/simulation_validation/build/tb3_maze':
+ - [WORKSPACE]/output/simulation_validation/build/tb3_maze/right_wall_follower_test --gtest_output=xml:[WORKSPACE]/output/simulation_validation/build/tb3_maze/test_results/tb3_maze/right_wall_follower_test.gtest.xml
+Running main() from /opt/ros/jazzy/src/gtest_vendor/src/gtest_main.cc
+[==========] Running 8 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 8 tests from RightWallFollower
+[ RUN      ] RightWallFollower.ChoosesRightOpeningWhenBothSidesAreAvailable
+[       OK ] RightWallFollower.ChoosesRightOpeningWhenBothSidesAreAvailable (0 ms)
+[ RUN      ] RightWallFollower.ChoosesRightOpeningForZeroToTwoPiScan
+[       OK ] RightWallFollower.ChoosesRightOpeningForZeroToTwoPiScan (0 ms)
+[ RUN      ] RightWallFollower.FollowsRightEdgeOfOneWideOpening
+[       OK ] RightWallFollower.FollowsRightEdgeOfOneWideOpening (0 ms)
+[ RUN      ] RightWallFollower.KeepsAimInsideNarrowRightOpening
+[       OK ] RightWallFollower.KeepsAimInsideNarrowRightOpening (0 ms)
+[ RUN      ] RightWallFollower.PrefersRightRearOpeningAtDeadEnd
+[       OK ] RightWallFollower.PrefersRightRearOpeningAtDeadEnd (0 ms)
+[ RUN      ] RightWallFollower.TakesLeftPassageWhenItIsTheOnlyPassage
+[       OK ] RightWallFollower.TakesLeftPassageWhenItIsTheOnlyPassage (0 ms)
+[ RUN      ] RightWallFollower.CanTurnLeftWhenOnlyRearLeftIsOpen
+[       OK ] RightWallFollower.CanTurnLeftWhenOnlyRearLeftIsOpen (0 ms)
+[ RUN      ] RightWallFollower.CorrectsAwayFromCloseRightWallAndTowardsDistantRightWall
+[       OK ] RightWallFollower.CorrectsAwayFromCloseRightWallAndTowardsDistantRightWall (0 ms)
+[----------] 8 tests from RightWallFollower (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 8 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 8 tests.
+-- run_test.py: return code 0
+-- run_test.py: inject classname prefix into gtest result file '[WORKSPACE]/output/simulation_validation/build/tb3_maze/test_results/tb3_maze/right_wall_follower_test.gtest.xml'
+-- run_test.py: verify result file '[WORKSPACE]/output/simulation_validation/build/tb3_maze/test_results/tb3_maze/right_wall_follower_test.gtest.xml'
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"right_wall_follower_test" end time: Oct 07 15:38 AEDT
+"right_wall_follower_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 15:38 AEDT
+
+gtest =   0.09 sec*proc
+

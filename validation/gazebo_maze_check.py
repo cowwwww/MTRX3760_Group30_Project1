@@ -180,7 +180,7 @@ def main():
         report = dict(state, result=result, initial_world=initial_world,
                       initial_odom=initial_odom, wall_seconds=time.monotonic()-started,
                       hardware=False, ros_domain=202, gz_partition=os.environ['GZ_PARTITION'],
-                      world='default_maze', model='burger_cam', controller='tb3_maze/turtlebot3_drive',
+                      world_name='default_maze', model='burger_cam', controller='tb3_maze/turtlebot3_drive',
                       exit_criterion='Ground-truth x > 2.60 m and 0.85 < y < 1.55 m')
         (output / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
         node.destroy_node()

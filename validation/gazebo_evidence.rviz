@@ -1,0 +1,74 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Global Options:
+    Background Color: 25; 25; 25
+    Fixed Frame: odom
+    Frame Rate: 30
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 0.5
+      Plane Cell Count: 20
+      Color: 80; 80; 80
+    - Class: rviz_default_plugins/LaserScan
+      Name: Live LiDAR
+      Enabled: true
+      Topic:
+        Value: /scan
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        Depth: 5
+      Color Transformer: FlatColor
+      Color: 255; 180; 60
+      Position Transformer: XYZ
+      Style: Points
+      Size (Pixels): 3
+      Decay Time: 0
+    - Class: rviz_default_plugins/Odometry
+      Name: Recorded odometry trail
+      Enabled: true
+      Topic:
+        Value: /odom
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        Depth: 10
+      Keep: 1000
+      Position Tolerance: 0.05
+      Angle Tolerance: 0.1
+      Covariance:
+        Value: false
+      Shape:
+        Value: Arrow
+        Color: 80; 190; 255
+        Alpha: 1
+        Head Length: 0.06
+        Head Radius: 0.03
+        Shaft Length: 0.06
+        Shaft Radius: 0.015
+    - Class: rviz_default_plugins/Image
+      Name: Simulation camera
+      Enabled: true
+      Image Topic: /camera/image_raw
+      Topic:
+        Value: /camera/image_raw
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        Depth: 5
+      Transport Hint: raw
+      Normalize Range: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Name: Current View
+      Target Frame: odom
+      Scale: 110
+      Angle: 0
+      X: 1.8
+      Y: 1.0
+Window Geometry:
+  Width: 1400
+  Height: 900

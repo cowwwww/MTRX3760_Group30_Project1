@@ -1,0 +1,9 @@
+{
+  "frame": "base_scan",
+  "rays": 360,
+  "angle_min": 0.0,
+  "angle_max": 6.28000020980835,
+  "angle_increment": 0.01749303564429283,
+  "range_min": 0.11999999731779099,
+  "range_max": 3.5
+}

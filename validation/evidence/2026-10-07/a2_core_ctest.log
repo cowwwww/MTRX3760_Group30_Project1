@@ -1,0 +1,419 @@
+Start testing: Oct 07 15:33 AEDT
+----------------------------------------------------------
+1/26 Testing: controller_default_settings
+1/26 Test: controller_default_settings
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "default_settings"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_default_settings" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS default_settings
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_default_settings" end time: Oct 07 15:33 AEDT
+"controller_default_settings" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/26 Testing: controller_invalid_settings
+2/26 Test: controller_invalid_settings
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "invalid_settings"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_invalid_settings" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS invalid_settings
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_invalid_settings" end time: Oct 07 15:33 AEDT
+"controller_invalid_settings" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/26 Testing: controller_invalid_ordering
+3/26 Test: controller_invalid_ordering
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "invalid_ordering"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_invalid_ordering" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS invalid_ordering
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_invalid_ordering" end time: Oct 07 15:33 AEDT
+"controller_invalid_ordering" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/26 Testing: controller_no_scan
+4/26 Test: controller_no_scan
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "no_scan"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_no_scan" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS no_scan
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_no_scan" end time: Oct 07 15:33 AEDT
+"controller_no_scan" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/26 Testing: controller_straight_wall
+5/26 Test: controller_straight_wall
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "straight_wall"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_straight_wall" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS straight_wall
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_straight_wall" end time: Oct 07 15:33 AEDT
+"controller_straight_wall" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/26 Testing: controller_close_wall
+6/26 Test: controller_close_wall
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "close_wall"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_close_wall" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS close_wall
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_close_wall" end time: Oct 07 15:33 AEDT
+"controller_close_wall" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/26 Testing: controller_distant_wall
+7/26 Test: controller_distant_wall
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "distant_wall"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_distant_wall" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS distant_wall
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_distant_wall" end time: Oct 07 15:33 AEDT
+"controller_distant_wall" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/26 Testing: controller_wall_heading
+8/26 Test: controller_wall_heading
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "wall_heading"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_wall_heading" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS wall_heading
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_wall_heading" end time: Oct 07 15:33 AEDT
+"controller_wall_heading" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/26 Testing: controller_lost_wall
+9/26 Test: controller_lost_wall
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "lost_wall"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_lost_wall" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS lost_wall
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_lost_wall" end time: Oct 07 15:33 AEDT
+"controller_lost_wall" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/26 Testing: controller_blocked_front_priority
+10/26 Test: controller_blocked_front_priority
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "blocked_front_priority"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_blocked_front_priority" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS blocked_front_priority
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_blocked_front_priority" end time: Oct 07 15:33 AEDT
+"controller_blocked_front_priority" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/26 Testing: controller_corner_hysteresis
+11/26 Test: controller_corner_hysteresis
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "corner_hysteresis"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_corner_hysteresis" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS corner_hysteresis
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_corner_hysteresis" end time: Oct 07 15:33 AEDT
+"controller_corner_hysteresis" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/26 Testing: controller_stale_scan
+12/26 Test: controller_stale_scan
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "stale_scan"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_stale_scan" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS stale_scan
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_stale_scan" end time: Oct 07 15:33 AEDT
+"controller_stale_scan" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/26 Testing: controller_time_reversal
+13/26 Test: controller_time_reversal
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "time_reversal"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_time_reversal" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS time_reversal
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_time_reversal" end time: Oct 07 15:33 AEDT
+"controller_time_reversal" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/26 Testing: controller_invalid_scan_time
+14/26 Test: controller_invalid_scan_time
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "invalid_scan_time"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_invalid_scan_time" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS invalid_scan_time
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_invalid_scan_time" end time: Oct 07 15:33 AEDT
+"controller_invalid_scan_time" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/26 Testing: controller_corrupt_sector
+15/26 Test: controller_corrupt_sector
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "corrupt_sector"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_corrupt_sector" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS corrupt_sector
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_corrupt_sector" end time: Oct 07 15:33 AEDT
+"controller_corrupt_sector" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/26 Testing: controller_isolated_dropout
+16/26 Test: controller_isolated_dropout
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "isolated_dropout"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_isolated_dropout" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS isolated_dropout
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_isolated_dropout" end time: Oct 07 15:33 AEDT
+"controller_isolated_dropout" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/26 Testing: controller_front_minimum
+17/26 Test: controller_front_minimum
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "front_minimum"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_front_minimum" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS front_minimum
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_front_minimum" end time: Oct 07 15:33 AEDT
+"controller_front_minimum" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/26 Testing: controller_side_median
+18/26 Test: controller_side_median
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "side_median"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_side_median" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS side_median
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_side_median" end time: Oct 07 15:33 AEDT
+"controller_side_median" time elapsed: 00:00:00
+----------------------------------------------------------
+
+19/26 Testing: controller_no_returns
+19/26 Test: controller_no_returns
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "no_returns"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_no_returns" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS no_returns
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_no_returns" end time: Oct 07 15:33 AEDT
+"controller_no_returns" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/26 Testing: controller_malformed_metadata
+20/26 Test: controller_malformed_metadata
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "malformed_metadata"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_malformed_metadata" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS malformed_metadata
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_malformed_metadata" end time: Oct 07 15:33 AEDT
+"controller_malformed_metadata" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/26 Testing: controller_out_of_range
+21/26 Test: controller_out_of_range
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "out_of_range"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_out_of_range" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS out_of_range
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_out_of_range" end time: Oct 07 15:33 AEDT
+"controller_out_of_range" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/26 Testing: controller_missing_coverage
+22/26 Test: controller_missing_coverage
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "missing_coverage"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_missing_coverage" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS missing_coverage
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_missing_coverage" end time: Oct 07 15:33 AEDT
+"controller_missing_coverage" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/26 Testing: controller_zero_to_two_pi
+23/26 Test: controller_zero_to_two_pi
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "zero_to_two_pi"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_zero_to_two_pi" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS zero_to_two_pi
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_zero_to_two_pi" end time: Oct 07 15:33 AEDT
+"controller_zero_to_two_pi" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/26 Testing: controller_descending_scan
+24/26 Test: controller_descending_scan
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "descending_scan"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_descending_scan" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS descending_scan
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_descending_scan" end time: Oct 07 15:33 AEDT
+"controller_descending_scan" time elapsed: 00:00:00
+----------------------------------------------------------
+
+25/26 Testing: controller_rotated_lidar
+25/26 Test: controller_rotated_lidar
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "rotated_lidar"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_rotated_lidar" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS rotated_lidar
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"controller_rotated_lidar" end time: Oct 07 15:33 AEDT
+"controller_rotated_lidar" time elapsed: 00:00:00
+----------------------------------------------------------
+
+26/26 Testing: controller_velocity_bounds
+26/26 Test: controller_velocity_bounds
+Command: "[WORKSPACE]/output/offline_validation/core/wall_controller_tests" "velocity_bounds"
+Directory: [WORKSPACE]/output/offline_validation/core
+"controller_velocity_bounds" start time: Oct 07 15:33 AEDT
+Output:
+----------------------------------------------------------
+PASS velocity_bounds
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"controller_velocity_bounds" end time: Oct 07 15:33 AEDT
+"controller_velocity_bounds" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 07 15:33 AEDT

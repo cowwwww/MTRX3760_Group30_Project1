@@ -1,0 +1,34 @@
+{
+  "sim_time": 130.114,
+  "scan_count": 651,
+  "odom_count": 6505,
+  "camera_count": 3943,
+  "command_count": 649,
+  "odom": [
+    4.708140892786766,
+    2.1500744443835327,
+    -1.1456943205156855
+  ],
+  "world": "default_maze",
+  "v": 0.10874170064926147,
+  "w": -0.5040653347969055,
+  "scan_min": 0.16223765909671783,
+  "pose_count": 7695,
+  "result": "EXIT_REACHED",
+  "initial_world": [
+    -1.9999999978342955,
+    -1.2999999999993128
+  ],
+  "initial_odom": [
+    3.0253224036281676e-09,
+    -3.4186516879639704e-21,
+    -2.2600943344008067e-12
+  ],
+  "wall_seconds": 136.647639797,
+  "hardware": false,
+  "ros_domain": 202,
+  "gz_partition": "group30_offline_maze_check",
+  "model": "burger_cam",
+  "controller": "tb3_maze/turtlebot3_drive",
+  "exit_criterion": "Ground-truth x > 2.60 m and 0.85 < y < 1.55 m"
+}
