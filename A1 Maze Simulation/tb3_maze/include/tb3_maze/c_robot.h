@@ -1,61 +1,5 @@
-//-----------------------------------------------------------------------------
-// c_robot.h
-//
-// Every maze-solving algorithm for the TurtleBot3, in one file: CRobot, the
-// common base, plus the concrete robot derived from it. They are kept together
-// here because they are really one system - CRightWallFollowerRobot only ever
-// exists as "a CRobot that chooses its waypoints this particular way" - and
-// the header comments below (one per class, each marked by its own banner
-// further down) cover each of them in turn.
-//
-//
-// CRobot is the robot as the control program sees it: a lidar and a pose that
-// data comes in through, and two independently driven wheels that commands go
-// out through. It splits the job in two:
-//
-//         lidar + pose in  ->  WHERE to go  ->  HOW to get there  ->  wheel commands out
-//
-// WHERE to go is a waypoint, a point on the floor. Choosing it is the only
-// step that differs between maze-solving algorithms, so it is the only
-// virtual: ChooseWaypoint(). HOW to get there - turning toward the waypoint,
-// driving to it, slowing for anything in the way, and converting that to wheel
-// speeds - is the same for every algorithm and lives here. Adding another
-// algorithm (a different maze strategy, say) only means implementing
-// ChooseWaypoint() again, never touching CRobot itself.
-//
-// Waypoints are kept in the odom frame, so they stay where they were put as
-// the robot moves. CRobot remembers the current one and the two before it
-// (GetWaypoints()), which the ROS node draws in RViz. The algorithm is asked
-// for a waypoint on every scan, but the current one is only replaced when the
-// new one is somewhere genuinely different, or the robot has arrived. Without
-// that the robot would chase a target that creeps forward with it, and the
-// history would fill with near-identical points.
-//
-// The robot has no kinematics to advance: Gazebo (or the real robot) moves it.
-// The wheel speeds are therefore the program's output, not part of a
-// simulation, and CRobot limits them to what the hardware can do.
-//
-// Wheel speeds are the speed in metres per second each wheel's rim travels
-// along the ground. A positive turning rate is counter-clockwise (a left
-// turn), as in ROS, so the right wheel runs faster than the left to turn left.
-// (Lab 2's heading ran clockwise and its wheel speeds were distances per
-// update; the geometry is otherwise the same.)
-//
-// The lidar is treated as sitting at the robot's origin; on the Burger it is
-// really 3 cm behind it, which does not matter at this scale.
-//
-//
-// CRightWallFollowerRobot solves the maze with the right-hand rule: at every
-// choice of where to go, take the rightmost. It finds gaps in the lidar scan
-// (see CLidar::FindGaps) and aims just inside the right-hand edge of the
-// rightmost gap, maintaining mkEdgeClearance from the obstacle at that edge.
-//
-// Along a right wall it corrects towards or away from that wall. At a right
-// opening it curves into the opening; when the corridor turns left it takes
-// the available left passage. With no forward opening it searches the rear
-// sector, preferring its rightmost gap. Left openings do not win while there
-// is an available opening further right.
-//-----------------------------------------------------------------------------
+// Common robot motion, waypoint history and frame conversion.
+// Maze strategies derive from CRobot and implement ChooseWaypoint().
 
 #ifndef C_ROBOT_H
 #define C_ROBOT_H
@@ -181,31 +125,6 @@ class CRobot
         //---The wheels---
         float mLeftWheelSpeed;    // m/s
         float mRightWheelSpeed;   // m/s
-};
-
-//=============================================================================
-//===  CRightWallFollowerRobot  ================================================
-//=============================================================================
-class CRightWallFollowerRobot : public CRobot
-{
-    public:
-        //---Ctor---
-        CRightWallFollowerRobot();
-
-    protected:
-        //---CRobot's customisation point---
-        bool ChooseWaypoint( CPoint& arTarget ) override;
-
-    private:
-        //---What counts as a way to go---
-        static const float mkFieldOfView;         // degrees either side of straight ahead that are looked at first; under 90 so the way it came is never chosen
-        static const float mkClearDistance;       // metres a direction must be open for to count
-        static const float mkMinGapWidth;         // degrees a gap must span to be wide enough for the robot
-
-        //---Where in the rightmost gap to aim---
-        static const float mkEdgeClearance;       // metres to keep from whatever makes the gap's right edge
-        static const float mkOpenEdgeMargin;      // degrees inside the right edge if nothing makes it (it is the end of the sector)
-        static const float mkWaypointDistance;    // metres ahead, along that direction, that the waypoint is put
 };
 
 #endif

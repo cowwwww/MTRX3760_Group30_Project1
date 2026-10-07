@@ -148,7 +148,7 @@ lidar scan + pose  ->  ChooseWaypoint()  ->  drive to the waypoint  ->  wheel sp
 | `CSensor` | `src/c_sensor.cpp`, `include/.../c_sensor.h` | Base for a sensor mounted on the robot. Has the mount angle and a virtual `HasReading()`. |
 | `CLidar` | same files | The 360 degree LiDAR. Keeps the latest scan. `FindGaps()` returns the stretches of directions that are open for a given distance, with the distance to whatever ends each one. |
 | `CRobot` | `src/c_robot.cpp`, `include/.../c_robot.h` | Base for a maze algorithm. Keeps the waypoints (the current one and the two before it, in the odom frame), turns toward the current one, drives to it, slows for obstacles ahead, and converts that to wheel speeds. |
-| `CRightWallFollowerRobot` | same files | The first algorithm. Implements only `ChooseWaypoint()`. |
+| `CRightWallFollowerRobot` | `src/c_right_wall_follower_robot.cpp`, `include/.../c_right_wall_follower_robot.h` | Right-hand maze strategy. Implements only `ChooseWaypoint()`. |
 
 **To add another maze algorithm**, derive from `CRobot`, implement `ChooseWaypoint()` (read `GetLidar()`, put a point in the robot's frame in `arTarget`, and return true), and construct it in the `Turtlebot3Drive` constructor. Nothing else changes.
 
@@ -205,7 +205,9 @@ Paths are relative to `MTRX3760 - Sandbox`.
 | What | Path |
 |---|---|
 | Driver node | `tb3_maze/src/turtlebot3_drive.cpp`, `tb3_maze/include/tb3_maze/turtlebot3_drive.hpp` |
-| Robot control (`CRobot`, `CRightWallFollowerRobot`, `CSensor`, `CLidar`) | `tb3_maze/src/c_robot.cpp`, `c_sensor.cpp` and `tb3_maze/include/tb3_maze/c_robot.h`, `c_sensor.h` |
+| Robot motion (`CRobot`) | `tb3_maze/src/c_robot.cpp`, `tb3_maze/include/tb3_maze/c_robot.h` |
+| Maze strategy (`CRightWallFollowerRobot`) | `tb3_maze/src/c_right_wall_follower_robot.cpp`, `tb3_maze/include/tb3_maze/c_right_wall_follower_robot.h` |
+| Sensor processing (`CSensor`, `CLidar`) | `tb3_maze/src/c_sensor.cpp`, `tb3_maze/include/tb3_maze/c_sensor.h` |
 | Launch files (ours) | `tb3_maze/launch/` |
 | Worlds (test maze: `turtlebot3_maze_test.world`) | `tb3_maze/worlds/` |
 | RViz config | `tb3_maze/rviz/tb3_maze.rviz` |
@@ -213,7 +215,6 @@ Paths are relative to `MTRX3760 - Sandbox`.
 | Robot model (LiDAR, camera, DiffDrive), third party | `tb3_third_parties/turtlebot3_simulations/turtlebot3_gazebo/models/turtlebot3_burger_cam/model.sdf` |
 | Gazebo↔ROS topic bridge config, third party | `tb3_third_parties/turtlebot3_simulations/turtlebot3_gazebo/params/` |
 | Real-robot driver (for A2), third party | `tb3_third_parties/turtlebot3-main/turtlebot3_node/`, `tb3_third_parties/turtlebot3-main/turtlebot3_bringup/` |
-
 
 
 

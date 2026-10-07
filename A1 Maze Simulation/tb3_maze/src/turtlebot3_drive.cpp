@@ -19,6 +19,7 @@
 // wheel commands by choosing waypoints and driving to them (see c_robot.h).
 
 #include "tb3_maze/turtlebot3_drive.hpp"
+#include "tb3_maze/c_right_wall_follower_robot.h"
 
 #include <cmath>
 #include <memory>

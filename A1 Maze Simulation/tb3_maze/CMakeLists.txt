@@ -27,6 +27,7 @@ include_directories(include)
 add_executable(turtlebot3_drive
   src/turtlebot3_drive.cpp
   src/c_robot.cpp
+  src/c_right_wall_follower_robot.cpp
   src/c_sensor.cpp
 )
 target_link_libraries(turtlebot3_drive
@@ -50,6 +51,7 @@ if(BUILD_TESTING)
   ament_add_gtest(right_wall_follower_test
     test/right_wall_follower_test.cpp
     src/c_robot.cpp
+    src/c_right_wall_follower_robot.cpp
     src/c_sensor.cpp
   )
   target_link_libraries(right_wall_follower_test ${sensor_msgs_TARGETS})
