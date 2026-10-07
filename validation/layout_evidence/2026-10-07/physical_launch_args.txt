@@ -1,0 +1,25 @@
+Arguments (pass arguments as '<name>:=<value>'):
+
+    'use_sim_time':
+        no description given
+        (default: 'false')
+
+    'stamped_cmd_vel':
+        no description given
+        (default: 'false')
+
+    'scan_topic':
+        no description given
+        (default: 'scan')
+
+    'cmd_vel_topic':
+        no description given
+        (default: 'cmd_vel')
+
+    'odom_topic':
+        no description given
+        (default: 'odom')
+
+    'params_file':
+        no description given
+        (default: '/home/james/.codex/.chatgpt-projects/g-p-6aacc69e5690819185c3aad6edbce646/output/a3_layout_validation/physical/install/mtrx3760_project1/share/mtrx3760_project1/config/wall_follower_ros2.yaml')

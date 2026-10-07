@@ -1,0 +1,72 @@
+Internal ctest changing into directory: /home/james/.codex/.chatgpt-projects/g-p-6aacc69e5690819185c3aad6edbce646/output/a3_layout_validation/physical/build/mtrx3760_project1
+Test project /home/james/.codex/.chatgpt-projects/g-p-6aacc69e5690819185c3aad6edbce646/output/a3_layout_validation/physical/build/mtrx3760_project1
+      Start  1: controller_default_settings
+ 1/33 Test  #1: controller_default_settings .........   Passed    0.00 sec
+      Start  2: controller_invalid_settings
+ 2/33 Test  #2: controller_invalid_settings .........   Passed    0.00 sec
+      Start  3: controller_invalid_ordering
+ 3/33 Test  #3: controller_invalid_ordering .........   Passed    0.00 sec
+      Start  4: controller_no_scan
+ 4/33 Test  #4: controller_no_scan ..................   Passed    0.00 sec
+      Start  5: controller_straight_wall
+ 5/33 Test  #5: controller_straight_wall ............   Passed    0.00 sec
+      Start  6: controller_close_wall
+ 6/33 Test  #6: controller_close_wall ...............   Passed    0.00 sec
+      Start  7: controller_distant_wall
+ 7/33 Test  #7: controller_distant_wall .............   Passed    0.00 sec
+      Start  8: controller_wall_heading
+ 8/33 Test  #8: controller_wall_heading .............   Passed    0.00 sec
+      Start  9: controller_lost_wall
+ 9/33 Test  #9: controller_lost_wall ................   Passed    0.00 sec
+      Start 10: controller_blocked_front_priority
+10/33 Test #10: controller_blocked_front_priority ...   Passed    0.00 sec
+      Start 11: controller_corner_hysteresis
+11/33 Test #11: controller_corner_hysteresis ........   Passed    0.00 sec
+      Start 12: controller_stale_scan
+12/33 Test #12: controller_stale_scan ...............   Passed    0.00 sec
+      Start 13: controller_time_reversal
+13/33 Test #13: controller_time_reversal ............   Passed    0.00 sec
+      Start 14: controller_invalid_scan_time
+14/33 Test #14: controller_invalid_scan_time ........   Passed    0.00 sec
+      Start 15: controller_corrupt_sector
+15/33 Test #15: controller_corrupt_sector ...........   Passed    0.00 sec
+      Start 16: controller_isolated_dropout
+16/33 Test #16: controller_isolated_dropout .........   Passed    0.00 sec
+      Start 17: controller_front_minimum
+17/33 Test #17: controller_front_minimum ............   Passed    0.00 sec
+      Start 18: controller_side_median
+18/33 Test #18: controller_side_median ..............   Passed    0.00 sec
+      Start 19: controller_no_returns
+19/33 Test #19: controller_no_returns ...............   Passed    0.00 sec
+      Start 20: controller_malformed_metadata
+20/33 Test #20: controller_malformed_metadata .......   Passed    0.00 sec
+      Start 21: controller_out_of_range
+21/33 Test #21: controller_out_of_range .............   Passed    0.00 sec
+      Start 22: controller_missing_coverage
+22/33 Test #22: controller_missing_coverage .........   Passed    0.00 sec
+      Start 23: controller_zero_to_two_pi
+23/33 Test #23: controller_zero_to_two_pi ...........   Passed    0.00 sec
+      Start 24: controller_descending_scan
+24/33 Test #24: controller_descending_scan ..........   Passed    0.00 sec
+      Start 25: controller_rotated_lidar
+25/33 Test #25: controller_rotated_lidar ............   Passed    0.00 sec
+      Start 26: controller_velocity_bounds
+26/33 Test #26: controller_velocity_bounds ..........   Passed    0.08 sec
+      Start 27: trajectory_spacing
+27/33 Test #27: trajectory_spacing ..................   Passed    0.01 sec
+      Start 28: trajectory_capacity
+28/33 Test #28: trajectory_capacity .................   Passed    0.01 sec
+      Start 29: trajectory_invalid_data
+29/33 Test #29: trajectory_invalid_data .............   Passed    0.01 sec
+      Start 30: trajectory_frame_reset
+30/33 Test #30: trajectory_frame_reset ..............   Passed    0.01 sec
+      Start 31: trajectory_time_reset
+31/33 Test #31: trajectory_time_reset ...............   Passed    0.01 sec
+      Start 32: trajectory_pose_copy
+32/33 Test #32: trajectory_pose_copy ................   Passed    0.01 sec
+      Start 33: ros2_adapter_integration
+33/33 Test #33: ros2_adapter_integration ............   Passed    8.45 sec
+
+100% tests passed, 0 tests failed out of 33
+
+Total Test time (real) =   8.64 sec

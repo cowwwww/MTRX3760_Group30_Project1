@@ -1,0 +1,11 @@
+Internal ctest changing into directory: /home/james/.codex/.chatgpt-projects/g-p-6aacc69e5690819185c3aad6edbce646/output/a3_layout_validation/simulation/build/tb3_maze
+Test project /home/james/.codex/.chatgpt-projects/g-p-6aacc69e5690819185c3aad6edbce646/output/a3_layout_validation/simulation/build/tb3_maze
+    Start 1: right_wall_follower_test
+1/1 Test #1: right_wall_follower_test .........   Passed    0.06 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Label Time Summary:
+gtest    =   0.06 sec*proc (1 test)
+
+Total Test time (real) =   0.06 sec

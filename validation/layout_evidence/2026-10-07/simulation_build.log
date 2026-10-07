@@ -1,0 +1,8 @@
+Starting >>> turtlebot3_gazebo
+Starting >>> turtlebot3_description
+Finished <<< turtlebot3_description [0.96s]
+Finished <<< turtlebot3_gazebo [11.6s]
+Starting >>> tb3_maze
+Finished <<< tb3_maze [10.4s]
+
+Summary: 3 packages finished [22.1s]

@@ -51,9 +51,9 @@ The forward gap list is ordered from right to left, so the first gap wins. The r
 Build and run the direction regression checks:
 
 ```bash
-colcon --log-base ~/tb3_build/log test --build-base ~/tb3_build/build \
-  --install-base ~/tb3_build/install --packages-select tb3_maze --event-handlers console_direct+
-colcon test-result --test-result-base ~/tb3_build/build --verbose
+colcon --log-base ~/tb3_a3_build/log test --build-base ~/tb3_a3_build/build \
+  --install-base ~/tb3_a3_build/install --packages-select tb3_maze --event-handlers console_direct+
+colcon test-result --test-result-base ~/tb3_a3_build/build --verbose
 ```
 
 These checks cover competing openings, right-edge clearance and dead-end ordering. They do not replace a complete Gazebo maze run with LiDAR/camera/trajectory evidence.

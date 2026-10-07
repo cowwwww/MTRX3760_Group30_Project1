@@ -1,0 +1,272 @@
+{
+  "historical_snapshots": {
+    "reference_revision": "ed92004",
+    "all_identical": true,
+    "checked_files": [
+      {
+        "path": "A2 ROS/config/wall_follower_ros1.yaml",
+        "sha256": "9e56d78fcfebfcf67e2cfec1807cb65458f30b0a12e931193b34f3f88ae44367"
+      },
+      {
+        "path": "A2 ROS/config/wall_follower_ros2.yaml",
+        "sha256": "c487efde883c13bae759bff36094869f626739db4f27901503ecdfda4fdf9650"
+      },
+      {
+        "path": "A2 ROS/include/project1/WallFollower.h",
+        "sha256": "f57ae7c190a133759855df24f2c5be319f3c6bf309d63ba0439c32959bbf97d9"
+      },
+      {
+        "path": "A2 ROS/launch/wall_follower.launch",
+        "sha256": "a0c67816526c94cb11a2de6429cf934e5f24363926f4a538590f64bc98de5af0"
+      },
+      {
+        "path": "A2 ROS/launch/wall_follower.launch.py",
+        "sha256": "cdd8eb373dedcf875b73650ee96ff870c81a6afafd324f87a52051e8edf58d7b"
+      },
+      {
+        "path": "A2 ROS/package.xml",
+        "sha256": "452ea89965edb8df04eab2bc845ccc9a331b59a95c9302a91837046fc8e7ac6a"
+      },
+      {
+        "path": "A2 ROS/src/WallFollower.cpp",
+        "sha256": "efd11f0dad41faf8ad63baa37d6d3980d2a63279a9af4c25bc9718d0b006b2aa"
+      },
+      {
+        "path": "A2 ROS/src/turtlebot3_drive_ros1.cpp",
+        "sha256": "d06af8838662d9ec781508ae93db7a3451d1de56be69ae5246dda4b84b179c38"
+      },
+      {
+        "path": "A2 ROS/src/turtlebot3_drive_ros2.cpp",
+        "sha256": "4578545dc64f782792a5a73957a6b288edad81daf66ee95fb86980ed213f1cb5"
+      },
+      {
+        "path": "A2 ROS/test/ros2_integration_test.py",
+        "sha256": "379b21ff9313bf9543070145272f5ec0d5f8e72dec0da91c5469404f50cd137d"
+      },
+      {
+        "path": "A2 ROS/test/wall_controller_tests.cpp",
+        "sha256": "f74be25972acdf9ce58937f89acd056626da4177152364513cad17083743256f"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/include/tb3_maze/c_robot.h",
+        "sha256": "b074d1ed4fa4f5fbad4b6f43c763b9499dc9c7b081c4effd5ac97ee4532b9ae5"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/include/tb3_maze/c_sensor.h",
+        "sha256": "b87acbcabdca061e76ff4613cc8ba13eedd8024162377029a64dc76e5e31b7b8"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/include/tb3_maze/turtlebot3_drive.hpp",
+        "sha256": "3e3df94f5b5c19a61de4f7ea8329530b75f0b3b15c7cbc57176eabe6c7b9809e"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/launch/maze.launch.py",
+        "sha256": "699cebc2dd2a03ed817c27163079859fe2a2673be1617208b74200cb400e0d42"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/package.xml",
+        "sha256": "52bcc8fac8ed7479d21690ea3c1b57d1f51e6a268dd8573d8a07c3de46c49e5b"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/rviz/tb3_maze.rviz",
+        "sha256": "70c5df70d0881c2696f519d258bb42b37944f2ef404c43c2cc84509871c75a04"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/src/c_robot.cpp",
+        "sha256": "d713a0561f41b2d685680426be912c2ad2c9bd3e0bf14413732a94d13350fde5"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/src/c_sensor.cpp",
+        "sha256": "bd98ae21f5def0ecaef7f88785d2b416b791a2b4af04beba3148776acacc6204"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/src/turtlebot3_drive.cpp",
+        "sha256": "1e58585fc8780e8a132eac659dc015ec747f34d2070bef0057d5f7f0ab342857"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/test/right_wall_follower_test.cpp",
+        "sha256": "ca7f6fa514ab5b88b55bfa4fc258aebb9e44af981387389acce06a38d0128f87"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/worlds/default_maze.world",
+        "sha256": "64fa2058a0107c5b5296086ec12fba6569b83c58e5a545368cae9e32d885ac40"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/worlds/maze_1.world",
+        "sha256": "02cb3bb58058d11fd971fa6cb26c1d82983086993fdfc3d95a05fe556d7c46f1"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/worlds/maze_2.world",
+        "sha256": "58a0e8e91d5e34a7f3f1a97d91deb4250fca21848b1c75e3c318e8e07065f67c"
+      },
+      {
+        "path": "A1 Maze Simulation/tb3_maze/worlds/maze_3.world",
+        "sha256": "81ff280ecbe38bac1d0b627c5541912c00e413bae565c95e4b7a974a4d384347"
+      }
+    ]
+  },
+  "final_packages": {
+    "reference_revision": "a76e65a",
+    "all_identical": true,
+    "checked_files": [
+      {
+        "path": "A3 Refactor/Physical ROS/config/wall_follower_ros1.yaml",
+        "sha256": "9e56d78fcfebfcf67e2cfec1807cb65458f30b0a12e931193b34f3f88ae44367"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/config/wall_follower_ros2.yaml",
+        "sha256": "c487efde883c13bae759bff36094869f626739db4f27901503ecdfda4fdf9650"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/include/project1/ControlTypes.h",
+        "sha256": "7b31ad26cfa9f4868baffeb8d098141685405e482b2771a8f7209d95ab3149f1"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/include/project1/ScanProcessor.h",
+        "sha256": "fe022c6dbda758600d9082cc4f78b0f6ecf84bbad0ecf03ae91b609485196e76"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/include/project1/Settings.h",
+        "sha256": "b822260b0597c5d53ece6a354842eea6105f6f831de99fd6416552470ed4bb0f"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/include/project1/WallFollower.h",
+        "sha256": "429dcca3e319b609633b3be84f54f4a7a0c812d6266a6b908af190c3354850e1"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/include/project1/ros2/CommandPublisher.h",
+        "sha256": "edaa2c0fc45d1d8da45c2fecdc31c1275f02febfbc4bd371f11bb0660b02d8f8"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/include/project1/ros2/TrajectoryRecorder.h",
+        "sha256": "d0a31863cebe108e9bd69c3a1fb7cf7877781a900e4bd6dc5d919f2436c3fb03"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/include/project1/ros2/WallFollowerNode.h",
+        "sha256": "ea02d84572ef45e95bdb652759ba2da341b77f940f9af80aaf0ec41fa2fef605"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/launch/wall_follower.launch",
+        "sha256": "a0c67816526c94cb11a2de6429cf934e5f24363926f4a538590f64bc98de5af0"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/launch/wall_follower.launch.py",
+        "sha256": "cdd8eb373dedcf875b73650ee96ff870c81a6afafd324f87a52051e8edf58d7b"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/package.xml",
+        "sha256": "452ea89965edb8df04eab2bc845ccc9a331b59a95c9302a91837046fc8e7ac6a"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/src/ScanProcessor.cpp",
+        "sha256": "4fb7c9f0d57d9f1fee6c3da63cef6097eab36b77321f5be11a11bf175544e780"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/src/Settings.cpp",
+        "sha256": "c17f812c508c98094475fe8ab45ea597e2bf45c9d8be21c8006f5956097639ac"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/src/WallFollower.cpp",
+        "sha256": "1b9d9aba4e10a687dde74afaf1cd1ba1769c6fc56c64e241eb3a3edc610943eb"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/src/ros2/CommandPublisher.cpp",
+        "sha256": "aeeb69aba3fc6d5d8ad7f8c68c38d290ec571a0020e69d882ee1c5ee055018f3"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/src/ros2/TrajectoryRecorder.cpp",
+        "sha256": "9b27af98d14c0240b456a2afa59e4b79a937ac1e00d840f7eb39fe79edd83eda"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/src/ros2/WallFollowerNode.cpp",
+        "sha256": "763c9326adda013b1f55a8774a2fdfbd814fb7571785e0e40ca5d8d167a5ad21"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/src/turtlebot3_drive_ros1.cpp",
+        "sha256": "d06af8838662d9ec781508ae93db7a3451d1de56be69ae5246dda4b84b179c38"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/src/turtlebot3_drive_ros2.cpp",
+        "sha256": "72fd4a29279a30d336be54f591a47a69616f165254e4845a4ce153162d694d5d"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/test/ros2_integration_test.py",
+        "sha256": "379b21ff9313bf9543070145272f5ec0d5f8e72dec0da91c5469404f50cd137d"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/test/trajectory_recorder_tests.cpp",
+        "sha256": "125df6f60b292082f0de84fd6ede9ddcdaab44ba312e849289e38d4196c84d53"
+      },
+      {
+        "path": "A3 Refactor/Physical ROS/test/wall_controller_tests.cpp",
+        "sha256": "f74be25972acdf9ce58937f89acd056626da4177152364513cad17083743256f"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/include/tb3_maze/c_right_wall_follower_robot.h",
+        "sha256": "79ab3fd497bf039049ff1bf377931ebcec84beac6698735796a06fc9ea8bf5c6"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/include/tb3_maze/c_robot.h",
+        "sha256": "9468260031218100f7c1d25da3bcfcf7dc3f6af0d0f5c4f3d5cf0a236e12b6c8"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/include/tb3_maze/c_sensor.h",
+        "sha256": "b87acbcabdca061e76ff4613cc8ba13eedd8024162377029a64dc76e5e31b7b8"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/include/tb3_maze/turtlebot3_drive.hpp",
+        "sha256": "3e3df94f5b5c19a61de4f7ea8329530b75f0b3b15c7cbc57176eabe6c7b9809e"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/launch/maze.launch.py",
+        "sha256": "699cebc2dd2a03ed817c27163079859fe2a2673be1617208b74200cb400e0d42"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/package.xml",
+        "sha256": "52bcc8fac8ed7479d21690ea3c1b57d1f51e6a268dd8573d8a07c3de46c49e5b"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/rviz/tb3_maze.rviz",
+        "sha256": "70c5df70d0881c2696f519d258bb42b37944f2ef404c43c2cc84509871c75a04"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/src/c_right_wall_follower_robot.cpp",
+        "sha256": "dc3185fea6825a9ddd3782c7407807846ae2492e7b78966bb6fae671a6a045a0"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/src/c_robot.cpp",
+        "sha256": "065fce7cc85b857b5b8542d1dfedb3b224358b435d4ebd58e41259c7eabad5e8"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/src/c_sensor.cpp",
+        "sha256": "bd98ae21f5def0ecaef7f88785d2b416b791a2b4af04beba3148776acacc6204"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/src/turtlebot3_drive.cpp",
+        "sha256": "99b6ef1ff059071d1a02751212fe7d6e35c4a04a7ab732314aa812a73bb5b2da"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/test/right_wall_follower_test.cpp",
+        "sha256": "c2a8b74639ed878598d4712e3916d6f4209823c639f706359fd02fe56bcecacf"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/worlds/default_maze.world",
+        "sha256": "64fa2058a0107c5b5296086ec12fba6569b83c58e5a545368cae9e32d885ac40"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/worlds/maze_1.world",
+        "sha256": "02cb3bb58058d11fd971fa6cb26c1d82983086993fdfc3d95a05fe556d7c46f1"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/worlds/maze_2.world",
+        "sha256": "58a0e8e91d5e34a7f3f1a97d91deb4250fca21848b1c75e3c318e8e07065f67c"
+      },
+      {
+        "path": "A3 Refactor/Simulation/tb3_maze/worlds/maze_3.world",
+        "sha256": "81ff280ecbe38bac1d0b627c5541912c00e413bae565c95e4b7a974a4d384347"
+      }
+    ]
+  },
+  "tested_revision": "3103d5aa82ed3938147d3de1afd0d626435d825d",
+  "note": "Docs/scripts and historical COLCON_IGNORE markers intentionally differ. Final simulation CMake differs only in its dependency-location comment."
+}

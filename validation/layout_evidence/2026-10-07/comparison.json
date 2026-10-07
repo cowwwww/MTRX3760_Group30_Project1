@@ -1,0 +1,31 @@
+{
+  "baseline": "ed92004",
+  "candidate": "HEAD",
+  "seed": 30,
+  "sequential_inputs_per_controller": 2000,
+  "trace_source_sha256": "567dcd994e1d7e5d7ae230f91eb1eac20077f75d69a22a8b4139386f0c86c139",
+  "controllers": {
+    "a1": {
+      "identical": true,
+      "baseline_sha256": "7cdb288bb43795f9eecebee1b8b8b94c82b1c26a68b11f0fb6a993dbc1e840b8",
+      "candidate_sha256": "7cdb288bb43795f9eecebee1b8b8b94c82b1c26a68b11f0fb6a993dbc1e840b8",
+      "lines": 2000
+    },
+    "a2": {
+      "identical": true,
+      "baseline_sha256": "d79a057a4b74dd2860fe52d84ea9b82d212eeab8ffc8d66d6f306c87be6ceb72",
+      "candidate_sha256": "d79a057a4b74dd2860fe52d84ea9b82d212eeab8ffc8d66d6f306c87be6ceb72",
+      "lines": 2000
+    }
+  },
+  "baseline_sha": "ed9200438d0fa73787733dccec85b87fb23e82cb",
+  "baseline_source_roots": [
+    "A2 ROS",
+    "A1 Maze Simulation/tb3_maze"
+  ],
+  "candidate_sha": "3103d5aa82ed3938147d3de1afd0d626435d825d",
+  "candidate_source_roots": [
+    "A3 Refactor/Physical ROS",
+    "A3 Refactor/Simulation/tb3_maze"
+  ]
+}

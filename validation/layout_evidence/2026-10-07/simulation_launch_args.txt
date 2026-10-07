@@ -1,0 +1,17 @@
+Arguments (pass arguments as '<name>:=<value>'):
+
+    'world':
+        Which maze: the name of a world file in tb3_maze/worlds
+        (default: 'default_maze')
+
+    'x_pose':
+        Start x in metres; empty uses the maze's own start position
+        (default: '')
+
+    'y_pose':
+        Start y in metres; empty uses the maze's own start position
+        (default: '')
+
+    'use_sim_time':
+        Use the Gazebo clock
+        (default: 'true')
