@@ -1,0 +1,23 @@
+{
+  "baseline": "ed9200438d0fa73787733dccec85b87fb23e82cb",
+  "candidate": "36b2bb6",
+  "seed": 30,
+  "sequential_inputs_per_controller": 2000,
+  "trace_source_sha256": "567dcd994e1d7e5d7ae230f91eb1eac20077f75d69a22a8b4139386f0c86c139",
+  "controllers": {
+    "a1": {
+      "identical": true,
+      "baseline_sha256": "7cdb288bb43795f9eecebee1b8b8b94c82b1c26a68b11f0fb6a993dbc1e840b8",
+      "candidate_sha256": "7cdb288bb43795f9eecebee1b8b8b94c82b1c26a68b11f0fb6a993dbc1e840b8",
+      "lines": 2000
+    },
+    "a2": {
+      "identical": true,
+      "baseline_sha256": "d79a057a4b74dd2860fe52d84ea9b82d212eeab8ffc8d66d6f306c87be6ceb72",
+      "candidate_sha256": "d79a057a4b74dd2860fe52d84ea9b82d212eeab8ffc8d66d6f306c87be6ceb72",
+      "lines": 2000
+    }
+  },
+  "baseline_sha": "ed9200438d0fa73787733dccec85b87fb23e82cb",
+  "candidate_sha": "36b2bb6fdcb4783734173ad0d55eeea89461c4e5"
+}

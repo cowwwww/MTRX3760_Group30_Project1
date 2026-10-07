@@ -9,14 +9,14 @@ skinparam ArrowFontSize 12
 skinparam nodesep 40
 skinparam ranksep 55
 
-usecase "TurtleBot3Platform\n(Gazebo or hardware drivers)" as Platform
-usecase "WallFollowerNode" as Follower
+usecase "TurtleBot3 hardware drivers" as Platform
+usecase "project1_wall_follower\n(A2 WallFollowerNode)" as Follower
 usecase "Rviz" as Rviz
 
-Platform --> Follower : lidar_ranges
-Platform --> Follower : robot_odometry
-Follower --> Platform : drive_velocity_command
-Follower --> Rviz     : travelled_path
-Platform --> Rviz     : lidar_ranges
-Platform --> Rviz     : camera_image
+Platform --> Follower : /scan
+Platform --> Follower : /odom
+Follower --> Platform : /cmd_vel
+Follower --> Rviz     : /trajectory
+Platform --> Rviz     : /scan
+Platform --> Rviz     : camera image topic from bring-up
 @enduml

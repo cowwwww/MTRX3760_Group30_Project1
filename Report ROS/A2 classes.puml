@@ -1,0 +1,26 @@
+@startuml
+title A2 ROS 2 executable — refactored class design
+skinparam classAttributeIconSize 0
+hide members
+class "rclcpp::Node" as ROSNode <<ROS>>
+class "project1::ros2::WallFollowerNode" as Node
+class "project1::ros2::CommandPublisher" as Commands
+class "project1::ros2::TrajectoryRecorder" as Recorder
+class "project1::WallFollower" as Controller
+class "project1::Settings" as Settings
+class "project1::ScanProcessor" as ScanProcessor
+class "project1::LaserScan" as Scan
+class "project1::Velocity" as Velocity
+class "nav_msgs::msg::Path" as Path <<ROS>>
+ROSNode <|-- Node
+Node *-- Controller
+Node *-- Commands
+Node *-- Recorder
+Commands --> ROSNode : publisher and clock access
+Recorder *-- Path
+Controller *-- Settings
+Controller ..> ScanProcessor : sector measurements
+Controller ..> Scan : input
+Controller ..> Velocity : output
+Commands ..> Velocity
+@enduml

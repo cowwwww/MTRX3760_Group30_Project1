@@ -1,0 +1,39 @@
+{
+  "sim_time": 132.801,
+  "scan_count": 664,
+  "odom_count": 6640,
+  "camera_count": 4024,
+  "command_count": 662,
+  "odom": [
+    4.731825940675049,
+    2.178508192419158,
+    -1.2301572139015409
+  ],
+  "world": [
+    2.600749421959737,
+    0.6061171365008172
+  ],
+  "v": 0.14686071872711182,
+  "w": -0.038353726267814636,
+  "scan_min": 0.1535886973142624,
+  "pose_count": 7852,
+  "result": "EXIT_REACHED",
+  "initial_world": [
+    -1.9999999978342955,
+    -1.2999999999993128
+  ],
+  "initial_odom": [
+    3.0253224036281676e-09,
+    -3.4186516879639704e-21,
+    -2.2600943344008067e-12
+  ],
+  "wall_seconds": 138.82703577700158,
+  "hardware": false,
+  "ros_domain": 202,
+  "gz_partition": "group30_offline_maze_check",
+  "world_name": "default_maze",
+  "model": "burger_cam",
+  "controller": "tb3_maze/turtlebot3_drive",
+  "crossed_east_portal": true,
+  "exit_criterion": "Cross east opening at x=2.425, 0.825<y<1.575, then x>2.60 m"
+}

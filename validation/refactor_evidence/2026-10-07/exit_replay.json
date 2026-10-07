@@ -1,0 +1,18 @@
+{
+  "baseline": {
+    "verified_exit": {
+      "sim_time": 130.114,
+      "world_x": 2.6020639847998983,
+      "world_y": 0.8517864378338579
+    },
+    "method": "Replay recorded ground truth using the same portal-crossing criterion."
+  },
+  "first_refactored_run": {
+    "verified_exit": {
+      "sim_time": 132.085,
+      "world_x": 2.6007808641606416,
+      "world_y": 0.731396076300481
+    },
+    "method": "Replay recorded ground truth using the same portal-crossing criterion."
+  }
+}

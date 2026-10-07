@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Linux-c++"
+	tests="33"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname="james-MS-7B89"
+	time="8"
+	timestamp="2026-10-07T16:28:15"
+	>
+	<testcase name="controller_default_settings" classname="controller_default_settings" time="0.00179739" status="run">
+		<properties/>
+		<system-out>PASS default_settings
+</system-out>
+	</testcase>
+	<testcase name="controller_invalid_settings" classname="controller_invalid_settings" time="0.00186372" status="run">
+		<properties/>
+		<system-out>PASS invalid_settings
+</system-out>
+	</testcase>
+	<testcase name="controller_invalid_ordering" classname="controller_invalid_ordering" time="0.00156185" status="run">
+		<properties/>
+		<system-out>PASS invalid_ordering
+</system-out>
+	</testcase>
+	<testcase name="controller_no_scan" classname="controller_no_scan" time="0.00132376" status="run">
+		<properties/>
+		<system-out>PASS no_scan
+</system-out>
+	</testcase>
+	<testcase name="controller_straight_wall" classname="controller_straight_wall" time="0.00143702" status="run">
+		<properties/>
+		<system-out>PASS straight_wall
+</system-out>
+	</testcase>
+	<testcase name="controller_close_wall" classname="controller_close_wall" time="0.00136593" status="run">
+		<properties/>
+		<system-out>PASS close_wall
+</system-out>
+	</testcase>
+	<testcase name="controller_distant_wall" classname="controller_distant_wall" time="0.00132711" status="run">
+		<properties/>
+		<system-out>PASS distant_wall
+</system-out>
+	</testcase>
+	<testcase name="controller_wall_heading" classname="controller_wall_heading" time="0.00138568" status="run">
+		<properties/>
+		<system-out>PASS wall_heading
+</system-out>
+	</testcase>
+	<testcase name="controller_lost_wall" classname="controller_lost_wall" time="0.00130633" status="run">
+		<properties/>
+		<system-out>PASS lost_wall
+</system-out>
+	</testcase>
+	<testcase name="controller_blocked_front_priority" classname="controller_blocked_front_priority" time="0.00129947" status="run">
+		<properties/>
+		<system-out>PASS blocked_front_priority
+</system-out>
+	</testcase>
+	<testcase name="controller_corner_hysteresis" classname="controller_corner_hysteresis" time="0.00149127" status="run">
+		<properties/>
+		<system-out>PASS corner_hysteresis
+</system-out>
+	</testcase>
+	<testcase name="controller_stale_scan" classname="controller_stale_scan" time="0.00173117" status="run">
+		<properties/>
+		<system-out>PASS stale_scan
+</system-out>
+	</testcase>
+	<testcase name="controller_time_reversal" classname="controller_time_reversal" time="0.00170743" status="run">
+		<properties/>
+		<system-out>PASS time_reversal
+</system-out>
+	</testcase>
+	<testcase name="controller_invalid_scan_time" classname="controller_invalid_scan_time" time="0.00131827" status="run">
+		<properties/>
+		<system-out>PASS invalid_scan_time
+</system-out>
+	</testcase>
+	<testcase name="controller_corrupt_sector" classname="controller_corrupt_sector" time="0.00140456" status="run">
+		<properties/>
+		<system-out>PASS corrupt_sector
+</system-out>
+	</testcase>
+	<testcase name="controller_isolated_dropout" classname="controller_isolated_dropout" time="0.00133241" status="run">
+		<properties/>
+		<system-out>PASS isolated_dropout
+</system-out>
+	</testcase>
+	<testcase name="controller_front_minimum" classname="controller_front_minimum" time="0.00176991" status="run">
+		<properties/>
+		<system-out>PASS front_minimum
+</system-out>
+	</testcase>
+	<testcase name="controller_side_median" classname="controller_side_median" time="0.00140199" status="run">
+		<properties/>
+		<system-out>PASS side_median
+</system-out>
+	</testcase>
+	<testcase name="controller_no_returns" classname="controller_no_returns" time="0.00162706" status="run">
+		<properties/>
+		<system-out>PASS no_returns
+</system-out>
+	</testcase>
+	<testcase name="controller_malformed_metadata" classname="controller_malformed_metadata" time="0.00151911" status="run">
+		<properties/>
+		<system-out>PASS malformed_metadata
+</system-out>
+	</testcase>
+	<testcase name="controller_out_of_range" classname="controller_out_of_range" time="0.00170346" status="run">
+		<properties/>
+		<system-out>PASS out_of_range
+</system-out>
+	</testcase>
+	<testcase name="controller_missing_coverage" classname="controller_missing_coverage" time="0.00133833" status="run">
+		<properties/>
+		<system-out>PASS missing_coverage
+</system-out>
+	</testcase>
+	<testcase name="controller_zero_to_two_pi" classname="controller_zero_to_two_pi" time="0.00184595" status="run">
+		<properties/>
+		<system-out>PASS zero_to_two_pi
+</system-out>
+	</testcase>
+	<testcase name="controller_descending_scan" classname="controller_descending_scan" time="0.00174245" status="run">
+		<properties/>
+		<system-out>PASS descending_scan
+</system-out>
+	</testcase>
+	<testcase name="controller_rotated_lidar" classname="controller_rotated_lidar" time="0.00140602" status="run">
+		<properties/>
+		<system-out>PASS rotated_lidar
+</system-out>
+	</testcase>
+	<testcase name="controller_velocity_bounds" classname="controller_velocity_bounds" time="0.0840191" status="run">
+		<properties/>
+		<system-out>PASS velocity_bounds
+</system-out>
+	</testcase>
+	<testcase name="trajectory_spacing" classname="trajectory_spacing" time="0.0096786" status="run">
+		<properties/>
+		<system-out>PASS spacing
+</system-out>
+	</testcase>
+	<testcase name="trajectory_capacity" classname="trajectory_capacity" time="0.0154765" status="run">
+		<properties/>
+		<system-out>PASS capacity
+</system-out>
+	</testcase>
+	<testcase name="trajectory_invalid_data" classname="trajectory_invalid_data" time="0.00912758" status="run">
+		<properties/>
+		<system-out>PASS invalid_data
+</system-out>
+	</testcase>
+	<testcase name="trajectory_frame_reset" classname="trajectory_frame_reset" time="0.00923823" status="run">
+		<properties/>
+		<system-out>PASS frame_reset
+</system-out>
+	</testcase>
+	<testcase name="trajectory_time_reset" classname="trajectory_time_reset" time="0.00961572" status="run">
+		<properties/>
+		<system-out>PASS time_reset
+</system-out>
+	</testcase>
+	<testcase name="trajectory_pose_copy" classname="trajectory_pose_copy" time="0.00921299" status="run">
+		<properties/>
+		<system-out>PASS pose_copy
+</system-out>
+	</testcase>
+	<testcase name="ros2_adapter_integration" classname="ros2_adapter_integration" time="8.2744" status="run">
+		<properties/>
+		<system-out>test_invalid_configuration_exits_without_motion (__main__.AdapterTests.test_invalid_configuration_exits_without_motion) ... [WARN] [1791350895.542936475] [rcl]: ROS_LOCALHOST_ONLY is deprecated but still honored if it is enabled. Use ROS_AUTOMATIC_DISCOVERY_RANGE and ROS_STATIC_PEERS instead.
+[WARN] [1791350895.542946345] [rcl]: 'localhost_only' is enabled, 'automatic_discovery_range' and 'static_peers' will be ignored.
+ok
+test_path_retention_filtering_and_resets (__main__.AdapterTests.test_path_retention_filtering_and_resets) ... [WARN] [1791350895.947473465] [rcl]: ROS_LOCALHOST_ONLY is deprecated but still honored if it is enabled. Use ROS_AUTOMATIC_DISCOVERY_RANGE and ROS_STATIC_PEERS instead.
+[WARN] [1791350895.947479485] [rcl]: 'localhost_only' is enabled, 'automatic_discovery_range' and 'static_peers' will be ignored.
+ok
+test_sigint_zero_while_scans_are_fresh (__main__.AdapterTests.test_sigint_zero_while_scans_are_fresh) ... [WARN] [1791350898.294030590] [rcl]: ROS_LOCALHOST_ONLY is deprecated but still honored if it is enabled. Use ROS_AUTOMATIC_DISCOVERY_RANGE and ROS_STATIC_PEERS instead.
+[WARN] [1791350898.294037830] [rcl]: 'localhost_only' is enabled, 'automatic_discovery_range' and 'static_peers' will be ignored.
+ok
+test_stamped_yaw_frame_and_timestamp (__main__.AdapterTests.test_stamped_yaw_frame_and_timestamp) ... [WARN] [1791350899.490367818] [rcl]: ROS_LOCALHOST_ONLY is deprecated but still honored if it is enabled. Use ROS_AUTOMATIC_DISCOVERY_RANGE and ROS_STATIC_PEERS instead.
+[WARN] [1791350899.490375098] [rcl]: 'localhost_only' is enabled, 'automatic_discovery_range' and 'static_peers' will be ignored.
+ok
+test_twist_corrections_and_invalid_data (__main__.AdapterTests.test_twist_corrections_and_invalid_data) ... [WARN] [1791350900.690294267] [rcl]: ROS_LOCALHOST_ONLY is deprecated but still honored if it is enabled. Use ROS_AUTOMATIC_DISCOVERY_RANGE and ROS_STATIC_PEERS instead.
+[WARN] [1791350900.690302447] [rcl]: 'localhost_only' is enabled, 'automatic_discovery_range' and 'static_peers' will be ignored.
+ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 7.959s
+
+OK
+</system-out>
+	</testcase>
+</testsuite>

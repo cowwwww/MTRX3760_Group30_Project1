@@ -1,0 +1,63 @@
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclcpp: 28.1.22 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_cyclonedds_cpp: 2.2.4 (/opt/ros/jazzy/share/rmw_cyclonedds_cpp/cmake)
+-- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+-- Found sensor_msgs: 5.3.8 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+-- Found nav_msgs: 5.3.8 (/opt/ros/jazzy/share/nav_msgs/cmake)
+-- Configuring done (0.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: [WORKSPACE]/output/refactor_validation/workspace/build/mtrx3760_project1
+[  7%] Building CXX object CMakeFiles/wall_controller.dir/src/Settings.cpp.o
+[ 14%] Building CXX object CMakeFiles/wall_controller.dir/src/WallFollower.cpp.o
+[ 21%] Building CXX object CMakeFiles/wall_controller.dir/src/ScanProcessor.cpp.o
+[ 28%] Linking CXX static library libwall_controller.a
+[ 28%] Built target wall_controller
+[ 35%] Building CXX object CMakeFiles/wall_controller_tests.dir/test/wall_controller_tests.cpp.o
+[ 42%] Linking CXX executable wall_controller_tests
+[ 42%] Built target wall_controller_tests
+[ 50%] Building CXX object CMakeFiles/project1_ros2_adapter.dir/src/ros2/WallFollowerNode.cpp.o
+[ 57%] Building CXX object CMakeFiles/project1_ros2_adapter.dir/src/ros2/TrajectoryRecorder.cpp.o
+[ 64%] Building CXX object CMakeFiles/project1_ros2_adapter.dir/src/ros2/CommandPublisher.cpp.o
+[ 71%] Linking CXX static library libproject1_ros2_adapter.a
+[ 71%] Built target project1_ros2_adapter
+[ 78%] Building CXX object CMakeFiles/trajectory_recorder_tests.dir/test/trajectory_recorder_tests.cpp.o
+[ 85%] Building CXX object CMakeFiles/turtlebot3_drive.dir/src/turtlebot3_drive_ros2.cpp.o
+[ 92%] Linking CXX executable trajectory_recorder_tests
+[ 92%] Built target trajectory_recorder_tests
+[100%] Linking CXX executable turtlebot3_drive
+[100%] Built target turtlebot3_drive
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/lib/mtrx3760_project1/turtlebot3_drive
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/launch/wall_follower.launch
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/launch/wall_follower.launch.py
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/config/wall_follower_ros1.yaml
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/config/wall_follower_ros2.yaml
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/ament_index/resource_index/package_run_dependencies/mtrx3760_project1
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/ament_index/resource_index/parent_prefix_path/mtrx3760_project1
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/environment/ament_prefix_path.sh
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/environment/ament_prefix_path.dsv
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/environment/path.sh
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/environment/path.dsv
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/local_setup.bash
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/local_setup.sh
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/local_setup.zsh
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/local_setup.dsv
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/package.dsv
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/ament_index/resource_index/packages/mtrx3760_project1
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/cmake/mtrx3760_project1Config.cmake
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/cmake/mtrx3760_project1Config-version.cmake
+-- Symlinking: [WORKSPACE]/output/refactor_validation/workspace/install/mtrx3760_project1/share/mtrx3760_project1/package.xml

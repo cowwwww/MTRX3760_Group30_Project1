@@ -1,0 +1,25 @@
+@startuml
+title A1 Gazebo executable — refactored class design
+skinparam classAttributeIconSize 0
+hide members
+class "rclcpp::Node" as ROSNode <<ROS>>
+class Turtlebot3Drive
+abstract class CRobot
+class CRightWallFollowerRobot
+abstract class CSensor
+class CLidar
+class CPose
+class CPoint
+class CGap
+ROSNode <|-- Turtlebot3Drive
+Turtlebot3Drive *-- CRobot
+CRobot <|-- CRightWallFollowerRobot
+CRobot *-- CLidar
+CSensor <|-- CLidar
+Turtlebot3Drive *-- CPose
+CPose *-- CPoint
+CRobot *-- CPoint : waypoint history
+CRobot ..> CPose : motion input
+CLidar ..> CGap : produces
+CRightWallFollowerRobot ..> CGap : chooses
+@enduml

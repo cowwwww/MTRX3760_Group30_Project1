@@ -1,0 +1,3 @@
+[WARN] [1791350895.729385086] [rcl]: ROS_LOCALHOST_ONLY is deprecated but still honored if it is enabled. Use ROS_AUTOMATIC_DISCOVERY_RANGE and ROS_STATIC_PEERS instead.
+[WARN] [1791350895.729418496] [rcl]: 'localhost_only' is enabled, 'automatic_discovery_range' and 'static_peers' will be ignored.
+[FATAL] [1791350895.753261028] [project1_wall_follower]: Controller settings must be finite and positive

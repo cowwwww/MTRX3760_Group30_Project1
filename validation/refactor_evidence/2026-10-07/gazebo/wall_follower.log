@@ -1,0 +1,5 @@
+[WARN] [1791351226.888645771] [rcl]: ROS_LOCALHOST_ONLY is deprecated but still honored if it is enabled. Use ROS_AUTOMATIC_DISCOVERY_RANGE and ROS_STATIC_PEERS instead.
+[WARN] [1791351226.888681202] [rcl]: 'localhost_only' is enabled, 'automatic_discovery_range' and 'static_peers' will be ignored.
+[INFO] [1791351226.899555269] [turtlebot3_drive_node]: Turtlebot3 right wall follower has been initialised
+[INFO] [1791351360.998076019] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1791351360.998477017] [turtlebot3_drive_node]: Turtlebot3 right wall follower has been terminated

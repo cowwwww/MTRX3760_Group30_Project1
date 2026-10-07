@@ -1,0 +1,9 @@
+test_can_turn_outside_after_crossing_opening (__main__.MazeExitTests.test_can_turn_outside_after_crossing_opening) ... ok
+test_coarse_sample_crossing_uses_portal_intersection (__main__.MazeExitTests.test_coarse_sample_crossing_uses_portal_intersection) ... ok
+test_crossing_wall_or_starting_outside_is_not_exit (__main__.MazeExitTests.test_crossing_wall_or_starting_outside_is_not_exit) ... ok
+test_nonfinite_input_does_not_create_crossing (__main__.MazeExitTests.test_nonfinite_input_does_not_create_crossing) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

@@ -1,0 +1,3 @@
+[WARN] [1791350899.506786091] [rcl]: ROS_LOCALHOST_ONLY is deprecated but still honored if it is enabled. Use ROS_AUTOMATIC_DISCOVERY_RANGE and ROS_STATIC_PEERS instead.
+[WARN] [1791350899.506818001] [rcl]: 'localhost_only' is enabled, 'automatic_discovery_range' and 'static_peers' will be ignored.
+[INFO] [1791350899.517944025] [group30_offline.test_stamped_yaw_frame_and_timestamp.project1_wall_follower]: Right-wall follower ready; waiting for valid laser data
