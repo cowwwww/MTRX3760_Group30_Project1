@@ -8,7 +8,10 @@ add_compile_options(-Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic)
 
 # Plain CMake works without ROS or raylib; sourced ROS workspaces select their adapter.
 set(PROJECT1_ROS_VERSION "$ENV{ROS_VERSION}" CACHE STRING "ROS adapter: 1, 2, or empty")
-add_library(wall_controller src/WallFollower.cpp)
+add_library(wall_controller
+    src/Settings.cpp
+    src/ScanProcessor.cpp
+    src/WallFollower.cpp)
 target_include_directories(wall_controller PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 include(CTest)
@@ -35,13 +38,23 @@ if(PROJECT1_ROS_VERSION STREQUAL "2")
     find_package(sensor_msgs REQUIRED)
     find_package(geometry_msgs REQUIRED)
     find_package(nav_msgs REQUIRED)
+    add_library(project1_ros2_adapter STATIC
+        src/ros2/WallFollowerNode.cpp
+        src/ros2/CommandPublisher.cpp
+        src/ros2/TrajectoryRecorder.cpp)
+    target_link_libraries(project1_ros2_adapter wall_controller)
+    ament_target_dependencies(project1_ros2_adapter rclcpp sensor_msgs geometry_msgs nav_msgs)
     add_executable(turtlebot3_drive src/turtlebot3_drive_ros2.cpp)
-    target_link_libraries(turtlebot3_drive wall_controller)
-    ament_target_dependencies(turtlebot3_drive rclcpp sensor_msgs geometry_msgs nav_msgs)
+    target_link_libraries(turtlebot3_drive project1_ros2_adapter)
     install(TARGETS turtlebot3_drive DESTINATION lib/${PROJECT_NAME})
     install(DIRECTORY launch config DESTINATION share/${PROJECT_NAME})
     if(BUILD_TESTING)
         find_package(Python3 REQUIRED COMPONENTS Interpreter)
+        add_executable(trajectory_recorder_tests test/trajectory_recorder_tests.cpp)
+        target_link_libraries(trajectory_recorder_tests project1_ros2_adapter)
+        foreach(check spacing capacity invalid_data frame_reset time_reset pose_copy)
+            add_test(NAME trajectory_${check} COMMAND trajectory_recorder_tests ${check})
+        endforeach()
         add_test(NAME ros2_adapter_integration
             COMMAND ${Python3_EXECUTABLE}
                 ${CMAKE_CURRENT_SOURCE_DIR}/test/ros2_integration_test.py
