@@ -45,4 +45,14 @@ install(DIRECTORY launch worlds rviz
   DESTINATION share/${PROJECT_NAME}/
 )
 
+if(BUILD_TESTING)
+  find_package(ament_cmake_gtest REQUIRED)
+  ament_add_gtest(right_wall_follower_test
+    test/right_wall_follower_test.cpp
+    src/c_robot.cpp
+    src/c_sensor.cpp
+  )
+  target_link_libraries(right_wall_follower_test ${sensor_msgs_TARGETS})
+endif()
+
 ament_package()

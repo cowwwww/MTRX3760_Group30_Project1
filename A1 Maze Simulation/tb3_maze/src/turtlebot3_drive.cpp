@@ -25,7 +25,7 @@
 
 Turtlebot3Drive::Turtlebot3Drive()
 : Node("turtlebot3_drive_node"),
-  robot_(std::make_unique<CLeftWallFollowerRobot>()),
+  robot_(std::make_unique<CRightWallFollowerRobot>()),
   have_pose_(false)
 {
   /************************************************************
@@ -51,12 +51,12 @@ Turtlebot3Drive::Turtlebot3Drive()
   odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>(
     "odom", qos, std::bind(&Turtlebot3Drive::odom_callback, this, std::placeholders::_1));
 
-  RCLCPP_INFO(this->get_logger(), "Turtlebot3 left wall follower has been initialised");
+  RCLCPP_INFO(this->get_logger(), "Turtlebot3 right wall follower has been initialised");
 }
 
 Turtlebot3Drive::~Turtlebot3Drive()
 {
-  RCLCPP_INFO(this->get_logger(), "Turtlebot3 left wall follower has been terminated");
+  RCLCPP_INFO(this->get_logger(), "Turtlebot3 right wall follower has been terminated");
 }
 
 /********************************************************************************

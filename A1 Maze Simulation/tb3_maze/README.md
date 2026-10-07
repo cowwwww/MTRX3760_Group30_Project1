@@ -148,15 +148,27 @@ lidar scan + pose  ->  ChooseWaypoint()  ->  drive to the waypoint  ->  wheel sp
 | `CSensor` | `src/c_sensor.cpp`, `include/.../c_sensor.h` | Base for a sensor mounted on the robot. Has the mount angle and a virtual `HasReading()`. |
 | `CLidar` | same files | The 360 degree LiDAR. Keeps the latest scan. `FindGaps()` returns the stretches of directions that are open for a given distance, with the distance to whatever ends each one. |
 | `CRobot` | `src/c_robot.cpp`, `include/.../c_robot.h` | Base for a maze algorithm. Keeps the waypoints (the current one and the two before it, in the odom frame), turns toward the current one, drives to it, slows for obstacles ahead, and converts that to wheel speeds. |
-| `CLeftWallFollowerRobot` | same files | The first algorithm. Implements only `ChooseWaypoint()`. |
+| `CRightWallFollowerRobot` | same files | The first algorithm. Implements only `ChooseWaypoint()`. |
 
 **To add another maze algorithm**, derive from `CRobot`, implement `ChooseWaypoint()` (read `GetLidar()`, put a point in the robot's frame in `arTarget`, and return true), and construct it in the `Turtlebot3Drive` constructor. Nothing else changes.
 
-**What `CLeftWallFollowerRobot` does** (the left-hand rule, with no wall fitting). It finds the gaps in the scan within 70 degrees of straight ahead: the directions that are open for at least 0.90 m and wide enough for the robot. It takes the **leftmost** gap and puts a waypoint 0.5 m away, aimed just inside that gap's left edge. The aim keeps 0.25 m from whatever makes that edge, a distance and not an angle, so the margin does not shrink as the edge gets close. That one rule gives all of these:
-- **Along a wall on the left:** it holds about 0.25 m from it, parallel.
-- **At an opening on the left:** it passes the wall's tip 0.25 m away, then curves into the opening.
-- **Where the corridor turns right:** the only open direction is right, so it goes that way.
-- **At a dead end:** nothing is open ahead, so it looks behind and turns round.
+**What `CRightWallFollowerRobot` does** (the right-hand rule, with no wall fitting). It finds the gaps in the scan within 70 degrees of straight ahead: directions open for at least 0.90 m and wide enough for the robot. It takes the **rightmost** gap and puts a waypoint 0.5 m away, aimed inside that gap's right edge. The margin keeps 0.25 m from the obstacle at that edge and is capped at the gap midpoint so a narrow opening cannot be aimed across.
+- **Along a wall on the right:** it follows that boundary and corrects clearance.
+- **At an opening on the right:** it aims into that opening.
+- **Where the corridor turns left:** it takes the available left passage.
+- **At a dead end:** it searches the rear sector and prefers its rightmost gap.
+
+The forward gap list is ordered from right to left, so the first gap wins. The rear sector spans +70 to +290 degrees, running from the left through the back to the right, so the last gap wins there. The selected right-edge angle is increased by the clearance margin; a positive angular command is still a left turn under ROS conventions. This changes the steering decisions, not just the class name.
+
+Build and run the direction regression checks:
+
+```bash
+colcon --log-base ~/tb3_build/log test --build-base ~/tb3_build/build \
+  --install-base ~/tb3_build/install --packages-select tb3_maze --event-handlers console_direct+
+colcon test-result --test-result-base ~/tb3_build/build --verbose
+```
+
+These checks cover competing openings, right-edge clearance and dead-end ordering. They do not replace a complete Gazebo maze run with LiDAR/camera/trajectory evidence.
 
 **How a waypoint is kept.** The algorithm is asked for one on every scan, but the current waypoint is only replaced when the new one is more than 0.25 m from it, or the robot has reached it (within 0.12 m). That keeps the waypoints from creeping forward with the robot and keeps the history readable. With no waypoint at all the robot turns on the spot to the right.
 
@@ -193,7 +205,7 @@ Paths are relative to `MTRX3760 - Sandbox`.
 | What | Path |
 |---|---|
 | Driver node | `tb3_maze/src/turtlebot3_drive.cpp`, `tb3_maze/include/tb3_maze/turtlebot3_drive.hpp` |
-| Robot control (`CRobot`, `CLeftWallFollowerRobot`, `CSensor`, `CLidar`) | `tb3_maze/src/c_robot.cpp`, `c_sensor.cpp` and `tb3_maze/include/tb3_maze/c_robot.h`, `c_sensor.h` |
+| Robot control (`CRobot`, `CRightWallFollowerRobot`, `CSensor`, `CLidar`) | `tb3_maze/src/c_robot.cpp`, `c_sensor.cpp` and `tb3_maze/include/tb3_maze/c_robot.h`, `c_sensor.h` |
 | Launch files (ours) | `tb3_maze/launch/` |
 | Worlds (test maze: `turtlebot3_maze_test.world`) | `tb3_maze/worlds/` |
 | RViz config | `tb3_maze/rviz/tb3_maze.rviz` |

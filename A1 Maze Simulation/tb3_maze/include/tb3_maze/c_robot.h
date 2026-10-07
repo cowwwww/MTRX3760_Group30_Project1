@@ -3,7 +3,7 @@
 //
 // Every maze-solving algorithm for the TurtleBot3, in one file: CRobot, the
 // common base, plus the concrete robot derived from it. They are kept together
-// here because they are really one system - CLeftWallFollowerRobot only ever
+// here because they are really one system - CRightWallFollowerRobot only ever
 // exists as "a CRobot that chooses its waypoints this particular way" - and
 // the header comments below (one per class, each marked by its own banner
 // further down) cover each of them in turn.
@@ -20,7 +20,7 @@
 // virtual: ChooseWaypoint(). HOW to get there - turning toward the waypoint,
 // driving to it, slowing for anything in the way, and converting that to wheel
 // speeds - is the same for every algorithm and lives here. Adding another
-// algorithm (the right-hand rule, say) only means implementing
+// algorithm (a different maze strategy, say) only means implementing
 // ChooseWaypoint() again, never touching CRobot itself.
 //
 // Waypoints are kept in the odom frame, so they stay where they were put as
@@ -45,30 +45,16 @@
 // really 3 cm behind it, which does not matter at this scale.
 //
 //
-// CLeftWallFollowerRobot solves the maze with the left-hand rule: at every
-// choice of where to go, take the leftmost. It does it by looking at the
-// gaps in the lidar scan (see CLidar::FindGaps) - the directions that are open
-// for at least mkClearDistance - and aiming just inside the left-hand edge of
-// the leftmost one, so as to stay mkEdgeClearance metres from whatever makes
-// that edge.
+// CRightWallFollowerRobot solves the maze with the right-hand rule: at every
+// choice of where to go, take the rightmost. It finds gaps in the lidar scan
+// (see CLidar::FindGaps) and aims just inside the right-hand edge of the
+// rightmost gap, maintaining mkEdgeClearance from the obstacle at that edge.
 //
-// That one rule does all of the following, with no wall to fit and no
-// separate mode for any of them:
-//
-//   - Along a wall on its left, the leftmost open direction is the one that
-//     just grazes the wall. Aiming that far inside it holds the robot parallel
-//     to the wall at mkEdgeClearance. Too close and the aim swings away from
-//     the wall; too far and it swings toward it.
-//   - At an opening on the left, the open stretch's left edge sweeps round
-//     toward the opening as the wall's tip comes level. The margin is a
-//     distance, not an angle, so the robot passes the tip mkEdgeClearance away
-//     however near it gets, then curves into the opening round it.
-//   - Where the corridor turns right, the only open direction is to the right,
-//     so that is where it goes.
-//   - At a dead end nothing is open ahead, so it looks behind it and turns round.
-//
-// Openings to the right never win while there is anything open further left,
-// which is the left-hand rule.
+// Along a right wall it corrects towards or away from that wall. At a right
+// opening it curves into the opening; when the corridor turns left it takes
+// the available left passage. With no forward opening it searches the rear
+// sector, preferring its rightmost gap. Left openings do not win while there
+// is an available opening further right.
 //-----------------------------------------------------------------------------
 
 #ifndef C_ROBOT_H
@@ -106,7 +92,7 @@ class CRobot
         //---Ctor/Dtor---
         CRobot();
 
-        // Virtual: CLeftWallFollowerRobot is destroyed through this base
+        // Virtual: CRightWallFollowerRobot is destroyed through this base
         // whenever a CRobot holding one goes out of scope.
         virtual ~CRobot();
 
@@ -198,13 +184,13 @@ class CRobot
 };
 
 //=============================================================================
-//===  CLeftWallFollowerRobot  ================================================
+//===  CRightWallFollowerRobot  ================================================
 //=============================================================================
-class CLeftWallFollowerRobot : public CRobot
+class CRightWallFollowerRobot : public CRobot
 {
     public:
         //---Ctor---
-        CLeftWallFollowerRobot();
+        CRightWallFollowerRobot();
 
     protected:
         //---CRobot's customisation point---
@@ -216,9 +202,9 @@ class CLeftWallFollowerRobot : public CRobot
         static const float mkClearDistance;       // metres a direction must be open for to count
         static const float mkMinGapWidth;         // degrees a gap must span to be wide enough for the robot
 
-        //---Where in the leftmost gap to aim---
-        static const float mkEdgeClearance;       // metres to keep from whatever makes the gap's left edge
-        static const float mkOpenEdgeMargin;      // degrees inside the left edge if nothing makes it (it is the end of the sector)
+        //---Where in the rightmost gap to aim---
+        static const float mkEdgeClearance;       // metres to keep from whatever makes the gap's right edge
+        static const float mkOpenEdgeMargin;      // degrees inside the right edge if nothing makes it (it is the end of the sector)
         static const float mkWaypointDistance;    // metres ahead, along that direction, that the waypoint is put
 };
 
