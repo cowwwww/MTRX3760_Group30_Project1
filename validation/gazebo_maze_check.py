@@ -26,6 +26,7 @@ from PIL import Image
 from rclpy.qos import qos_profile_sensor_data
 from rosgraph_msgs.msg import Clock
 from sensor_msgs.msg import Image as RosImage, LaserScan
+from maze_exit import EastExitDetector
 
 
 def main():
@@ -119,6 +120,7 @@ def main():
     initial_odom = None
     next_sample = 0.0
     next_progress = 0.0
+    exit_detector = EastExitDetector()
     try:
         simulation = start('maze_launch', ['ros2', 'launch', 'tb3_maze', 'maze.launch.py'])
         pose_log = (output / 'ground_truth_reader.log').open('w')
@@ -154,7 +156,7 @@ def main():
                 wx, wy = state['world'] or (None, None)
                 rows.append([state['sim_time'], x, y, yaw, wx, wy, state['v'], state['w'],
                              state['scan_min']])
-                if wx is not None and wx > 2.60 and 0.85 < wy < 1.55:
+                if wx is not None and exit_detector.update(wx, wy):
                     result = 'EXIT_REACHED'
                     break
         print(result, flush=True)
@@ -181,7 +183,8 @@ def main():
                       initial_odom=initial_odom, wall_seconds=time.monotonic()-started,
                       hardware=False, ros_domain=202, gz_partition=os.environ['GZ_PARTITION'],
                       world_name='default_maze', model='burger_cam', controller='tb3_maze/turtlebot3_drive',
-                      exit_criterion='Ground-truth x > 2.60 m and 0.85 < y < 1.55 m')
+                      crossed_east_portal=exit_detector.crossed_portal,
+                      exit_criterion='Cross east opening at x=2.425, 0.825<y<1.575, then x>2.60 m')
         (output / 'result.json').write_text(json.dumps(report, indent=2) + '\n')
         node.destroy_node()
         rclpy.try_shutdown()
