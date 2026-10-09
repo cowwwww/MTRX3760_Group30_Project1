@@ -15,6 +15,7 @@ public:
         double distance = 0.0;
         bool valid = false;
         unsigned int usable = 0, total = 0;
+        unsigned int finiteEvidence = 0, noReturnEvidence = 0; // right-opening classification
     };
     // Uses scan angles, so both [-pi, pi] and [0, 2*pi] scans work.
     static Reading Sector(const LaserScan& scan, double centre,
