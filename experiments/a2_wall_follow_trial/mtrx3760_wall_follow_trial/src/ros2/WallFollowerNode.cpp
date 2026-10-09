@@ -55,6 +55,7 @@ Settings WallFollowerNode::ReadSettings()
     settings.brakingDeceleration = declare_parameter<double>("braking_deceleration", settings.brakingDeceleration);
     settings.commandLatency = declare_parameter<double>("command_latency", settings.commandLatency);
     settings.maxUnobservedSpan = declare_parameter<double>("max_unobserved_span", settings.maxUnobservedSpan);
+    settings.maxFrontUnobservedSpan = declare_parameter<double>("max_front_unobserved_span", settings.maxFrontUnobservedSpan);
     settings.cornerLookahead = declare_parameter<double>("corner_lookahead", settings.cornerLookahead);
     settings.cornerTimeout = declare_parameter<double>("corner_timeout", settings.cornerTimeout);
     settings.cornerMaxEntry = declare_parameter<double>("corner_max_entry", settings.cornerMaxEntry);
