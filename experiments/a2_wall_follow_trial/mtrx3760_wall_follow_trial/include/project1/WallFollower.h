@@ -43,7 +43,7 @@ private:
     std::string reason_="scan_missing",scanFailure_="scan_missing",odomFailure_="odom_missing";
     bool scanValid_=false,poseValid_=false,poseSeen_=false,headingValid_=false,wallKnown_=false;
     double lastScan_=0,poseTime_=0,wallTime_=0,now_=0;
-    double x_=0,y_=0,yaw_=0,wallAngle_=0,normalDistance_=0;
+    double x_=0,y_=0,yaw_=0,wallAngle_=0,cornerAngle_=0,normalDistance_=0;
     double wallHeading_=0,wallAnchorX_=0,wallAnchorY_=0;
     unsigned int gapScans_=0,nearScans_=0;
     double startX_=0,startY_=0,startYaw_=0,approachHeading_=0,targetHeading_=0,advanceGoal_=0;
