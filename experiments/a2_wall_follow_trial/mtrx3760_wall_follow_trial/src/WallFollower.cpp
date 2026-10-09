@@ -100,7 +100,8 @@ void WallFollower::InvalidateOdometry(const std::string& reason,bool latch)
 Velocity WallFollower::Hold(const std::string& reason)
 { reason_=reason; if(Manoeuvring()) progressTime_=now_; return Velocity(); }
 Velocity WallFollower::Fault(const std::string& reason) { state_=State::Stopped; return Hold(reason); }
-bool WallFollower::PivotSafe() const { return clearance_.pivotValid && clearance_.pivot>0; }
+bool WallFollower::PivotSafe() const
+{ return clearance_.pivotValid && std::isfinite(clearance_.pivot) && clearance_.pivot>0; }
 bool WallFollower::ForwardSafe(double speed) const
 {
     const double stop=settings_.clearanceMargin+speed*settings_.commandLatency+
