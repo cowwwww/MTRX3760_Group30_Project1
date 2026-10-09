@@ -10,7 +10,8 @@ void Settings::Validate() const
     const double positive[] = {wallDistance, forwardSpeed, turnSpeed, searchSpeed,
         searchTurnSpeed, frontStop, frontRelease, lostWall, distanceGain,
         headingGain, scanTimeout, bodyFront, bodyRear, bodyHalfWidth, clearanceMargin,
-        brakingDeceleration, commandLatency, maxUnobservedSpan, cornerLookahead,
+        brakingDeceleration, commandLatency, maxUnobservedSpan,
+        maxFrontUnobservedSpan, cornerLookahead,
         cornerTimeout, cornerMaxEntry};
     for (double value : positive)
     {
@@ -19,7 +20,10 @@ void Settings::Validate() const
     }
     if (!std::isfinite(laserYaw) || !std::isfinite(laserX) || !std::isfinite(laserY) ||
         laserX <= -bodyRear || laserX >= bodyFront || std::fabs(laserY) >= bodyHalfWidth ||
-        maxUnobservedSpan > bodyHalfWidth || commandLatency < scanTimeout ||
+        maxUnobservedSpan > bodyHalfWidth ||
+        maxFrontUnobservedSpan > bodyHalfWidth ||
+        maxFrontUnobservedSpan < maxUnobservedSpan ||
+        commandLatency < scanTimeout ||
         frontRelease <= frontStop ||
         lostWall <= wallDistance || searchSpeed > forwardSpeed ||
         searchTurnSpeed > turnSpeed)
