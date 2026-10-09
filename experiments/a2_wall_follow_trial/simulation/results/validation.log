@@ -1,0 +1,6 @@
+Both portable controller cores match the previous verified source manifest; production source unchanged.
+All 50 traces: no independent body-contact detection; commanded speeds within bounds.
+Four partial-loss pairs: masks are exactly 4/14 and 22/42; originals stop, refactor moves during loss and completes.
+Full-sector missing inputs: refactor commands zero during both persistent and 0.8 s transient episodes.
+All 11 new dead-end runs: approached cap, reversed heading, returned near branch entrance and resumed tracking.
+Known incomplete navigation is retained: attached_obstacle_06 and archived_settings_08; blind hold is separate.

@@ -1,0 +1,33 @@
+{
+  "created": "2026-10-09",
+  "baseline_commit": "5499600b51fbc0a720641ff3dad56b02d778594e",
+  "controller_changed": false,
+  "physical_validation": false,
+  "controllers": {
+    "original": {
+      "include/project1/ControlTypes.h": "7b31ad26cfa9f4868baffeb8d098141685405e482b2771a8f7209d95ab3149f1",
+      "include/project1/ScanProcessor.h": "fe022c6dbda758600d9082cc4f78b0f6ecf84bbad0ecf03ae91b609485196e76",
+      "include/project1/Settings.h": "b822260b0597c5d53ece6a354842eea6105f6f831de99fd6416552470ed4bb0f",
+      "include/project1/WallFollower.h": "429dcca3e319b609633b3be84f54f4a7a0c812d6266a6b908af190c3354850e1",
+      "src/ScanProcessor.cpp": "4fb7c9f0d57d9f1fee6c3da63cef6097eab36b77321f5be11a11bf175544e780",
+      "src/Settings.cpp": "c17f812c508c98094475fe8ab45ea597e2bf45c9d8be21c8006f5956097639ac",
+      "src/WallFollower.cpp": "1b9d9aba4e10a687dde74afaf1cd1ba1769c6fc56c64e241eb3a3edc610943eb"
+    },
+    "new": {
+      "include/project1/ControlTypes.h": "7b31ad26cfa9f4868baffeb8d098141685405e482b2771a8f7209d95ab3149f1",
+      "include/project1/ScanProcessor.h": "fa64b8b38c5363d82de72619db569d8f90a65eef8d2a4cb25d6292e1c0427e28",
+      "include/project1/Settings.h": "9a955db32687a1631a11b447fa996d375d685fbe8ea4196e251ede31e862ba4f",
+      "include/project1/WallFollower.h": "0efade63f8c2c77bf6e53556a8f718a98aa5b038f58df2699a7ef1751b7f121f",
+      "src/ScanProcessor.cpp": "29677ca76a8f1d78b37eb2b451abb471c137a2153dbc253c462664294bc6c0d4",
+      "src/Settings.cpp": "f3d9513e8c16e3564d3830183d88faa83ed5cc2f1acdc46de367998c3c6b8162",
+      "src/WallFollower.cpp": "b9f6b019186e21857dcffd087abcb1e94de25edd61e1d09a8bb72757f300295e"
+    }
+  },
+  "suite": {
+    "CMakeLists.txt": "996ac31d4e7a1512e1c7704f86691279aae34eaba1f6167cefc59984ec0ac6f9",
+    "scenario_runner.cpp": "8055dfbfac49259784ed375768f6cd589d8bd5db6947dc8543d237a517d98e34",
+    "simulation_geometry.h": "f566cefc7c6ffc32096027295325e290ff758f6173f053e30d2de647ea79ca60",
+    "run_suite.py": "a84071f84ce283db395df931135ea5b94da89c5170d47704d1b80e3eae4a8f9c",
+    "scenarios.json": "98d7209d1e4fb53d0911d4522e0276d6826c9567f0368680998b5526b3e2bf73"
+  }
+}

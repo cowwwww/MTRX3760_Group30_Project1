@@ -1,0 +1,35 @@
+# One starting profile for all 0.6-0.8 m trials; verify measured geometry first.
+# wall_distance is measured from the laser, approximately 0.161 m body clearance.
+project1_wall_follower_trial:
+  ros__parameters:
+    wall_distance: 0.25
+    forward_speed: 0.08
+    turn_speed: 0.60
+    search_speed: 0.05
+    search_turn_speed: 0.28
+    front_stop: 0.28
+    front_release: 0.38
+    lost_wall: 0.65
+    distance_gain: 1.5
+    heading_gain: 1.2
+    scan_timeout: 0.50
+    laser_yaw: 0.0
+    laser_x: -0.032
+    laser_y: 0.0
+    body_front: 0.038
+    body_rear: 0.102
+    body_half_width: 0.089
+    clearance_margin: 0.025
+    braking_deceleration: 0.20
+    command_latency: 0.50
+    # Empirically calibrated from the 2026-10-09 physical LiDAR recording:
+    # pivot blind spans reached 0.058 m; front spans reached 0.097 m.
+    # Obstacles, braking limits and all other safety checks remain active.
+    max_unobserved_span: 0.06
+    max_front_unobserved_span: 0.10
+    corner_lookahead: 0.30
+    corner_timeout: 30.0
+    corner_max_entry: 0.80
+    scan_frame: base_scan
+    stamped_cmd_vel: true
+    command_frame: base_link

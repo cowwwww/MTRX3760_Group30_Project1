@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.10)
+project(turtlebot_scenario_suite LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_compile_options(-Wall -Wextra -Wpedantic)
+foreach(version original new)
+  add_executable(${version}_runner scenario_runner.cpp
+    ${version}/src/Settings.cpp ${version}/src/ScanProcessor.cpp ${version}/src/WallFollower.cpp)
+  target_include_directories(${version}_runner PRIVATE ${version}/include)
+endforeach()
+target_compile_definitions(original_runner PRIVATE ORIGINAL_CONTROLLER)
