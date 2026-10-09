@@ -257,6 +257,21 @@ void NoReturnOpening()
     Require(!project1::ScanProcessor::Opening(scan,s,.25,0).valid,
             "Out-of-range unseen wall plane incorrectly counted as opening");
 
+    // Right after a completed bend, rays can hit scenery beyond the
+    // remembered wall plane *behind* the laser. They must not be mistaken
+    // for another right opening and initiate an unintended second turn.
+    scan.rangeMax=12;
+    std::fill(scan.ranges.begin(),scan.ranges.end(),
+              std::numeric_limits<float>::quiet_NaN());
+    for(std::size_t i=0;i<scan.ranges.size();++i)
+    {
+        const double a=scan.angleMin+i*scan.angleIncrement;
+        if(a>-1.85 && a<-1.65)
+            scan.ranges[i]=1.0f;
+    }
+    Require(!project1::ScanProcessor::Opening(scan,s,.25,0).valid,
+            "Rearward wall-plane intersections falsely trigger a second right turn");
+
     // Normal finite-return corner detection must retain its original
     // along-wall edge distance even if additional +inf rays are present.
     scan.rangeMax=12;
