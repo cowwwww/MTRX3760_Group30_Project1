@@ -184,6 +184,9 @@ void SettingsCheck()
     s=Settings(); s.maxUnobservedSpan=s.bodyHalfWidth*2; rejected=false;
     try { s.Validate(); } catch (const std::invalid_argument&) { rejected=true; }
     Require(rejected,"Unlimited missing-ray uncertainty accepted");
+    s=Settings(); s.maxFrontUnobservedSpan=s.bodyHalfWidth+s.clearanceMargin+.01; rejected=false;
+    try { s.Validate(); } catch (const std::invalid_argument&) { rejected=true; }
+    Require(rejected,"Unlimited front missing-ray uncertainty accepted");
 }
 void ScanGeometry()
 {
@@ -295,6 +298,42 @@ void NoReturnOpening()
     Require(mixed.valid && std::fabs(mixed.distance-finite.distance)<1e-9,
             "No-return rays changed original finite-hit turn-entry distance");
 }
+void PhysicalCoverageTolerance()
+{
+    Settings s; s.wallDistance=.25; s.frontStop=.28; s.frontRelease=.38;
+    Settings original=s; original.maxFrontUnobservedSpan=.08;
+    original.maxUnobservedSpan=.05;
+    // Represents the measured 0.08-0.097 m front-sector NaN gap on
+    // the actual robot. It is not a free-space measurement.
+    auto scan=Rays(Corridor(),{0,0},0,s);
+    Drop(scan,.32,.12);
+    const auto oldClear=project1::ScanProcessor::MeasureClearance(scan,original);
+    const auto newClear=project1::ScanProcessor::MeasureClearance(scan,s);
+    Require(oldClear.frontUnknownSpan>.08 && oldClear.frontUnknownSpan<.10,
+            "Fixture does not represent physical front blind spot");
+    Require(!oldClear.frontValid && newClear.frontValid,
+            "Small measured front blind patch still prevents motion");
+    WallFollower controller(s);
+    Require(At(controller,scan).linear>.07,
+            "Slightly wider front gap still causes a false stop");
+
+    // Truly wide missing patches still block motion.
+    scan=Rays(Corridor(),{0,0},0,s);
+    Drop(scan,.32,.21);
+    const auto blind=project1::ScanProcessor::MeasureClearance(scan,s);
+    Require(!blind.frontValid,"Large blind front gap must still stop movement");
+    Zero(At(controller,scan,1.1));
+
+    // Analogous small pivot gap: strict collision geometry still applies.
+    scan=Rays(Corridor(),{0,0},0,s);
+    Drop(scan,-2.0,.135);
+    const auto pivotOld=project1::ScanProcessor::MeasureClearance(scan,original);
+    const auto pivotNew=project1::ScanProcessor::MeasureClearance(scan,s);
+    Require(pivotOld.pivotUnknownSpan>.05 && pivotOld.pivotUnknownSpan<.06,
+            "Fixture does not represent physical pivot blind spot");
+    Require(!pivotOld.pivotValid && pivotNew.pivotValid && pivotNew.pivot>0,
+            "Small measured pivot gap still prevents a clear stationary turn");
+}
 void PhysicalRegression()
 {
     Settings s; s.wallDistance=.25; s.frontStop=.28; s.frontRelease=.38;
@@ -315,6 +354,15 @@ void PhysicalRegression()
 
     // Identical angular gap of genuine invalid NaNs must remain unobservable.
     for(auto& r:open.ranges) if(std::isinf(r)) r=std::numeric_limits<float>::quiet_NaN();
+    // Widen to a *genuinely excessive* blind sector: the new 0.10 m
+    // tolerance is deliberately not permission to ignore arbitrary NaNs.
+    for (std::size_t i=0;i<open.ranges.size();++i)
+    {
+        const double a=std::atan2(std::sin(open.angleMin+i*open.angleIncrement),
+                                  std::cos(open.angleMin+i*open.angleIncrement));
+        if(a>0.06 && a<0.50)
+            open.ranges[i]=std::numeric_limits<float>::quiet_NaN();
+    }
     c=project1::ScanProcessor::MeasureClearance(open,s);
     Require(!c.frontValid,"NaNs incorrectly treated as a verified clear path");
     Zero(At(follower,open,1.1));
@@ -420,7 +468,7 @@ int main(int argc,char** argv)
 {
     const std::map<std::string,std::function<void()>> checks={
         {"settings",SettingsCheck},{"scan_geometry",ScanGeometry},{"wall_heading",Heading},{"side_dropout",SideDropout},
-        {"no_return_opening",NoReturnOpening},{"physical_regression",PhysicalRegression},{"original_a2_cruise",OriginalA2Cruise},{"unknown_scan",Unknown},{"stale_inputs",Stale},{"obstacle_priority",ObstaclePriority},{"sensor_recovery",Recovery},
+        {"no_return_opening",NoReturnOpening},{"physical_coverage_tolerance",PhysicalCoverageTolerance},{"physical_regression",PhysicalRegression},{"original_a2_cruise",OriginalA2Cruise},{"unknown_scan",Unknown},{"stale_inputs",Stale},{"obstacle_priority",ObstaclePriority},{"sensor_recovery",Recovery},
         {"pose_jump",PoseJump},{"no_progress",NoProgress},{"corridor_widths",Widths},{"corner_approaches",Approaches},
         {"right_junction",Junction},{"end_wall",EndWall},{"second_corner",SecondCorner},{"corner_dropouts",CornerDropouts},
         {"obstacle_in_corner",ObstacleCorner},{"sensor_outage_corner",SensorOutage},{"dead_end",DeadEnd},{"bounds",Bounds}};
