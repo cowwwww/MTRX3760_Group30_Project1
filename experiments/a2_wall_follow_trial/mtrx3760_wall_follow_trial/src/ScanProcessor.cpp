@@ -135,6 +135,8 @@ ScanProcessor::Reading ScanProcessor::Opening(const LaserScan& scan,const Settin
     if (!std::isfinite(distance) || distance<=0.0 || !std::isfinite(heading)) return gap;
     const double tx=std::cos(heading),ty=std::sin(heading);
     unsigned int noReturnRun=0, longestNoReturnRun=0;
+    double finiteEdge=std::numeric_limits<double>::infinity();
+    double noReturnEdge=std::numeric_limits<double>::infinity();
     for (std::size_t i=0;i<scan.ranges.size();++i)
     {
         const double r=scan.ranges[i],a=scan.angleMin+i*scan.angleIncrement+s.laserYaw;
@@ -151,6 +153,7 @@ ScanProcessor::Reading ScanProcessor::Opening(const LaserScan& scan,const Settin
             noReturnRun=0;
             if (r*normal<distance+0.10) continue;
             ++gap.finiteEvidence;
+            finiteEdge=std::min(finiteEdge,along);
         }
         else
         {
@@ -165,13 +168,20 @@ ScanProcessor::Reading ScanProcessor::Opening(const LaserScan& scan,const Settin
             { noReturnRun=0; continue; }
             ++gap.noReturnEvidence;
             longestNoReturnRun=std::max(longestNoReturnRun,++noReturnRun);
+            noReturnEdge=std::min(noReturnEdge,along);
         }
         ++gap.usable;
-        gap.distance=std::min(gap.distance,along);
     }
-    // Existing finite-hit evidence works as before. No-return-only
-    // inference demands a continuous angular patch, not stray missing rays.
-    gap.valid=gap.finiteEvidence>=3 || longestNoReturnRun>=5;
+    // Preserve the original finite-hit edge measurement exactly when it
+    // exists. Only use the no-return estimate as a secondary fallback.
+    if (gap.finiteEvidence>=3)
+    {
+        gap.valid=true; gap.distance=finiteEdge;
+    }
+    else if (longestNoReturnRun>=5)
+    {
+        gap.valid=true; gap.distance=noReturnEdge;
+    }
     return gap;
 }
 }
