@@ -204,13 +204,35 @@ void Heading()
 {
     Settings s; WallFollower left(s),right(s);
     auto a=Rays(Corridor(),{0,0},.12,s); auto b=Rays(Corridor(),{0,0},-.12,s);
-    Require(At(left,a).angular<0 && At(right,b).angular>0,"Wall-heading correction wrong sign");
+    At(left,a); At(right,b);
+    const auto l=left.GetDiagnostics(1.0), r=right.GetDiagnostics(1.0);
+    Require(l.headingValid && r.headingValid,"Wall direction unavailable for corner extrapolation");
+    Require(l.wallHeading<0 && r.wallHeading>0,"Wall direction estimate wrong sign");
+    // A wall-heading estimate is no longer allowed to steer the robot in cruise.
+    Settings same=s; WallFollower nominal(same);
+    At(nominal,Rays(Corridor(),{0,0},0,s));
+    Require(nominal.GetDiagnostics(1.0).headingValid,"Straight wall heading invalid");
 }
 void SideDropout()
 {
     Settings s; WallFollower controller(s); auto scan=Rays(Corridor(),{0,0},0,s);
     Drop(scan,-pi/2,.09); Drop(scan,-pi/4,.09);
     const auto v=At(controller,scan); Require(v.linear>.07,"Narrow side/diagonal dropouts stop useful geometry");
+}
+void PhysicalObservability()
+{
+    Settings s; s.wallDistance=.25;
+    auto scan=Rays(Corridor(),{0,0},0,s);
+    // The observed robot had 57-75 mm of isolated forward ray uncertainty.
+    // Drop a small forward angular wedge but preserve the immediate side walls.
+    Drop(scan,0,.085);
+    const auto clearance=project1::ScanProcessor::MeasureClearance(scan,s);
+    Require(clearance.frontUnknownSpan< s.maxFrontUnobservedSpan,
+            "Small forward scan gap rejected");
+    Require(clearance.frontValid,"Small forward gap must not force intermittent hold");
+    Drop(scan,0,.30);
+    const auto lost=project1::ScanProcessor::MeasureClearance(scan,s);
+    Require(!lost.frontValid,"Large blind forward sector incorrectly permitted");
 }
 void Unknown()
 {
@@ -284,7 +306,7 @@ int main(int argc,char** argv)
 {
     const std::map<std::string,std::function<void()>> checks={
         {"settings",SettingsCheck},{"scan_geometry",ScanGeometry},{"wall_heading",Heading},{"side_dropout",SideDropout},
-        {"unknown_scan",Unknown},{"stale_inputs",Stale},{"obstacle_priority",ObstaclePriority},{"sensor_recovery",Recovery},
+        {"physical_observability",PhysicalObservability},{"unknown_scan",Unknown},{"stale_inputs",Stale},{"obstacle_priority",ObstaclePriority},{"sensor_recovery",Recovery},
         {"pose_jump",PoseJump},{"no_progress",NoProgress},{"corridor_widths",Widths},{"corner_approaches",Approaches},
         {"right_junction",Junction},{"end_wall",EndWall},{"second_corner",SecondCorner},{"corner_dropouts",CornerDropouts},
         {"obstacle_in_corner",ObstacleCorner},{"sensor_outage_corner",SensorOutage},{"dead_end",DeadEnd},{"bounds",Bounds}};
