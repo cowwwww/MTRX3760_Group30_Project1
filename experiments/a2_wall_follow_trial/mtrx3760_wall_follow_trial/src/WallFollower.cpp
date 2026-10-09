@@ -19,44 +19,41 @@ void WallFollower::UpdateScan(const LaserScan& scan,double now)
     if (!std::isfinite(now) || now<lastScan_) { InvalidateScan("scan_time_invalid"); return; }
     lastScan_=now;
     // A wider side median tolerates several missing rays without selecting a far wall.
-    right_=ScanProcessor::Sector(scan,-pi/2,15*pi/180,settings_.laserYaw,false);
+    right_=ScanProcessor::Sector(scan,-pi/2,5*pi/180,settings_.laserYaw,false);
     diagonal_=ScanProcessor::Sector(scan,-pi/4,5*pi/180,settings_.laserYaw,false);
     rear_=ScanProcessor::Sector(scan,-3*pi/4,5*pi/180,settings_.laserYaw,false);
     clearance_=ScanProcessor::MeasureClearance(scan,settings_);
     scanValid_=ScanProcessor::Sector(scan,0,pi,settings_.laserYaw,true).valid;
     scanFailure_="scan_invalid";
-    headingValid_=false; wallAngle_=0;
-    if (right_.valid && right_.distance<=settings_.lostWall && rear_.valid && rear_.distance<settings_.lostWall*1.5)
-    {
-        // Same two-ray triangle as A2, viewed behind rather than across an opening.
-        wallAngle_=std::atan2(right_.distance-rear_.distance*std::cos(pi/4),rear_.distance*std::sin(pi/4));
-        headingValid_=std::fabs(wallAngle_)<pi/3;
-        if (diagonal_.valid && diagonal_.distance<settings_.lostWall*1.5)
-        {
-            const double frontAngle=std::atan2(diagonal_.distance*std::cos(pi/4)-right_.distance,
-                                              diagonal_.distance*std::sin(pi/4));
-            // Disagreement means the rays may hit different walls at a corner.
-            if (std::fabs(frontAngle-wallAngle_)<0.12) wallAngle_=(wallAngle_+frontAngle)/2;
-            else headingValid_=false;
-        }
-    }
-    if (!headingValid_) wallAngle_=0;
+    // The original A2 steering angle and perpendicular distance are unchanged.
+    // This estimate is used only by normal right-wall tracking.
+    wallAngle_=0;
+    if (diagonal_.valid && diagonal_.distance<settings_.lostWall*1.5)
+        wallAngle_=std::atan2(diagonal_.distance*std::cos(pi/4)-right_.distance,
+                              diagonal_.distance*std::sin(pi/4));
     normalDistance_=right_.distance*std::cos(wallAngle_);
+
+    // This independent estimate is used ONLY to anchor/extrapolate a
+    // right-wall endpoint at a corner, never to steer or limit cruise speed.
+    cornerAngle_=0;
+    headingValid_=right_.valid && right_.distance<=settings_.lostWall &&
+        ScanProcessor::RightWallAngle(scan,settings_,right_.distance,cornerAngle_);
     if (!poseValid_ || !scanValid_) { gapScans_=nearScans_=0; return; }
     const double laserWorldX=x_+std::cos(yaw_)*settings_.laserX-std::sin(yaw_)*settings_.laserY;
     const double laserWorldY=y_+std::sin(yaw_)*settings_.laserX+std::cos(yaw_)*settings_.laserY;
     if (state_==State::WaitingForScan || state_==State::FollowWall)
     {
-        if (right_.valid && right_.distance<=settings_.lostWall && headingValid_ && std::fabs(wallAngle_)<pi/6)
+        if (right_.valid && right_.distance<=settings_.lostWall && headingValid_ && std::fabs(cornerAngle_)<pi/6)
         {
-            const double heading=yaw_-wallAngle_;
+            const double heading=yaw_-cornerAngle_;
+            const double cornerNormalDistance=right_.distance*std::cos(cornerAngle_);
             const double predicted=std::sin(wallHeading_)*(wallAnchorX_-laserWorldX)-
                                    std::cos(wallHeading_)*(wallAnchorY_-laserWorldY);
-            if (!wallKnown_ || std::fabs(normalDistance_-predicted)<0.08)
+            if (!wallKnown_ || std::fabs(cornerNormalDistance-predicted)<0.08)
             {
                 wallHeading_=heading; wallTime_=now; wallKnown_=true;
-                wallAnchorX_=laserWorldX+normalDistance_*std::sin(heading);
-                wallAnchorY_=laserWorldY-normalDistance_*std::cos(heading);
+                wallAnchorX_=laserWorldX+cornerNormalDistance*std::sin(heading);
+                wallAnchorY_=laserWorldY-cornerNormalDistance*std::cos(heading);
             }
         }
         const double distance=std::sin(wallHeading_)*(wallAnchorX_-laserWorldX)-
@@ -169,12 +166,24 @@ Velocity WallFollower::Command(double now)
         command.angular=Clamp(settings_.distanceGain*(settings_.wallDistance-normalDistance_)-
                               settings_.headingGain*wallAngle_,settings_.turnSpeed);
         command.linear=settings_.forwardSpeed*(1-0.5*std::fabs(command.angular)/settings_.turnSpeed);
-        if(!headingValid_ || gapScans_>0) command.linear=std::min(command.linear,settings_.searchSpeed);
+        // Corner-direction confidence must never gate straight-wall speed.
+        if(gapScans_>0) command.linear=std::min(command.linear,settings_.searchSpeed);
         if(!ForwardSafe(command.linear)) return Hold("braking_clearance_insufficient");
         reason_=headingValid_ ? "following_right_wall" : "following_with_distance_only";
     }
-    if(command.linear>0 && std::fabs(command.angular)>0.05 && !PivotSafe())
-        return Hold(clearance_.pivotValid ? "pivot_clearance_insufficient" : "pivot_unobserved");
+    // PivotSafe checks a *stationary* rotation envelope, not a moving arc.
+    // Preserve forward braking checks above. For forward right curves, also
+    // bound the side displacement over the latency-plus-braking horizon.
+    if (command.linear>0 && command.angular < -0.05)
+    {
+        const double horizon=settings_.commandLatency+
+                             command.linear/settings_.brakingDeceleration;
+        const double lateral=0.5*command.linear*std::fabs(command.angular)*horizon*horizon;
+        const double sideClearance=right_.distance-settings_.bodyHalfWidth-
+                                   std::fabs(settings_.laserY);
+        if (!right_.valid || sideClearance<=settings_.clearanceMargin+lateral)
+            return Hold("right_curve_clearance_insufficient");
+    }
     if(Manoeuvring() && now-progressTime_>3.0) return Fault("odometry_no_progress");
     return command;
 }
@@ -191,7 +200,7 @@ WallFollower::Diagnostics WallFollower::GetDiagnostics(double now) const
 {
     Diagnostics d; d.state=state_; d.reason=reason_; d.scanAge=now-lastScan_; d.odomAge=poseSeen_ ? now-poseTime_ : -1;
     d.frontClearance=clearance_.front; d.pivotClearance=clearance_.pivot;
-    d.wallDistance=normalDistance_; d.wallHeading=-wallAngle_; d.gapRays=opening_.usable;
+    d.wallDistance=normalDistance_; d.wallHeading=-cornerAngle_; d.gapRays=opening_.usable;
     d.gapScans=gapScans_; d.rightUsable=right_.usable; d.rightTotal=right_.total;
     d.frontValid=clearance_.frontValid; d.pivotValid=clearance_.pivotValid;
     d.rightValid=right_.valid; d.headingValid=headingValid_;
