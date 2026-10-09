@@ -25,23 +25,25 @@ void WallFollower::UpdateScan(const LaserScan& scan,double now)
     clearance_=ScanProcessor::MeasureClearance(scan,settings_);
     scanValid_=ScanProcessor::Sector(scan,0,pi,settings_.laserYaw,true).valid;
     scanFailure_="scan_invalid";
-    headingValid_=false; wallAngle_=0;
-    if (right_.valid && right_.distance<=settings_.lostWall && rear_.valid && rear_.distance<settings_.lostWall*1.5)
-    {
-        // Same two-ray triangle as A2, viewed behind rather than across an opening.
-        wallAngle_=std::atan2(right_.distance-rear_.distance*std::cos(pi/4),rear_.distance*std::sin(pi/4));
-        headingValid_=std::fabs(wallAngle_)<pi/3;
-        if (diagonal_.valid && diagonal_.distance<settings_.lostWall*1.5)
-        {
-            const double frontAngle=std::atan2(diagonal_.distance*std::cos(pi/4)-right_.distance,
-                                              diagonal_.distance*std::sin(pi/4));
-            // Disagreement means the rays may hit different walls at a corner.
-            if (std::fabs(frontAngle-wallAngle_)<0.12) wallAngle_=(wallAngle_+frontAngle)/2;
-            else headingValid_=false;
-        }
-    }
+    // Wall direction is solely for anchoring/extrapolating the wall at corners.
+    // It must not gate speed or enter ordinary corridor steering.
+    headingValid_=right_.valid && right_.distance<=settings_.lostWall &&
+        ScanProcessor::RightWallAngle(scan,settings_,right_.distance,wallAngle_);
     if (!headingValid_) wallAngle_=0;
-    normalDistance_=right_.distance*std::cos(wallAngle_);
+    normalDistance_=right_.distance;
+    if (right_.valid && right_.distance<=settings_.lostWall)
+    {
+        const double dt=now-lastRightTime_;
+        if (distanceRateReady_ && dt>0.03 && dt<0.3)
+        {
+            const double raw=(right_.distance-lastRightDistance_)/dt;
+            const double bounded=Clamp(raw,0.25);
+            filteredDistanceRate_=0.75*filteredDistanceRate_+0.25*bounded;
+        }
+        else filteredDistanceRate_=0;
+        lastRightDistance_=right_.distance; lastRightTime_=now; distanceRateReady_=true;
+    }
+    else { distanceRateReady_=false; filteredDistanceRate_=0; }
     if (!poseValid_ || !scanValid_) { gapScans_=nearScans_=0; return; }
     const double laserWorldX=x_+std::cos(yaw_)*settings_.laserX-std::sin(yaw_)*settings_.laserY;
     const double laserWorldY=y_+std::sin(yaw_)*settings_.laserX+std::cos(yaw_)*settings_.laserY;
@@ -167,9 +169,9 @@ Velocity WallFollower::Command(double now)
         if(!right_.valid || right_.distance>settings_.lostWall) return Hold("right_wall_unobserved");
         // The original A2 feedback equation and speed reduction.
         command.angular=Clamp(settings_.distanceGain*(settings_.wallDistance-normalDistance_)-
-                              settings_.headingGain*wallAngle_,settings_.turnSpeed);
+                              settings_.distanceRateGain*filteredDistanceRate_,settings_.turnSpeed);
         command.linear=settings_.forwardSpeed*(1-0.5*std::fabs(command.angular)/settings_.turnSpeed);
-        if(!headingValid_ || gapScans_>0) command.linear=std::min(command.linear,settings_.searchSpeed);
+        if(gapScans_>0) command.linear=std::min(command.linear,settings_.searchSpeed);
         if(!ForwardSafe(command.linear)) return Hold("braking_clearance_insufficient");
         reason_=headingValid_ ? "following_right_wall" : "following_with_distance_only";
     }
