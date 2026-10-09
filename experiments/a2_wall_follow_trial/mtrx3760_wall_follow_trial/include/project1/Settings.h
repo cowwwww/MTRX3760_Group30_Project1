@@ -23,8 +23,8 @@ struct Settings
     double bodyFront = 0.038, bodyRear = 0.102, bodyHalfWidth = 0.089;
     double clearanceMargin = 0.025;
     double brakingDeceleration = 0.20, commandLatency = 0.50;
-    double maxUnobservedSpan = 0.05; // required for stationary pivot clearance
-    double maxFrontUnobservedSpan = 0.08; // small front-sector no-return gaps
+    double maxUnobservedSpan = 0.06; // physical LiDAR pivot gap (~0.058 m)
+    double maxFrontUnobservedSpan = 0.10; // physical LiDAR front gap (~0.097 m)
     double cornerLookahead = 0.30, cornerTimeout = 30.0, cornerMaxEntry = 0.80;
     void Validate() const;
 };
