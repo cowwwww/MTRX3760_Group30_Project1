@@ -26,6 +26,9 @@ public:
         double frontUnknownSpan = 0.0, pivotUnknownSpan = 0.0;
     };
     static Clearance MeasureClearance(const LaserScan& scan, const Settings& settings);
+    // Estimate wall direction for corner-edge extrapolation only.
+    static bool RightWallAngle(const LaserScan& scan, const Settings& settings,
+                               double rightDistance, double& angle);
     // Finite returns beyond the predicted old wall support an opening.
     // distance is an upper bound on the edge's along-wall position from the laser.
     static Reading Opening(const LaserScan& scan, const Settings& settings,
