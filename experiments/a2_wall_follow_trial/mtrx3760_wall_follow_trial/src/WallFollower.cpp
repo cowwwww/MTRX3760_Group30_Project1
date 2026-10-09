@@ -64,6 +64,18 @@ void WallFollower::UpdateScan(const LaserScan& scan,double now)
                               std::cos(wallHeading_)*(wallAnchorY_-laserWorldY);
         opening_=wallKnown_ && now-wallTime_<0.75 ?
             ScanProcessor::Opening(scan,settings_,distance,Wrap(wallHeading_-yaw_)) : ScanProcessor::Reading();
+        // The original finite-return corner evidence remains unchanged.
+        // For no-return-only evidence, require that the nearby right wall
+        // really disappeared and that other current obstacle observations
+        // still support safe movement. A failed/missing right sector alone
+        // is NEVER sufficient evidence of a turn.
+        if (opening_.valid && opening_.finiteEvidence<3)
+        {
+            const bool nearRight=right_.valid && right_.distance<=settings_.lostWall;
+            if (nearRight || !clearance_.frontValid || !clearance_.pivotValid ||
+                !std::isfinite(clearance_.pivot))
+                opening_.valid=false;
+        }
         gapScans_=opening_.valid ? gapScans_+1 : 0;
     }
     if (state_==State::FindWall)
@@ -178,7 +190,10 @@ Velocity WallFollower::Command(double now)
     // PivotSafe checks a *stationary* rotation envelope, not a moving arc.
     // Preserve forward braking checks above. For forward right curves, also
     // bound the side displacement over the latency-plus-braking horizon.
-    if (command.linear>0 && command.angular < -0.05)
+    if (command.linear>0 && command.angular < -0.05 &&
+        (state_==State::FollowWall ||
+         (state_==State::FindWall && right_.valid &&
+          right_.distance<=settings_.lostWall)))
     {
         const double horizon=settings_.commandLatency+
                              command.linear/settings_.brakingDeceleration;
