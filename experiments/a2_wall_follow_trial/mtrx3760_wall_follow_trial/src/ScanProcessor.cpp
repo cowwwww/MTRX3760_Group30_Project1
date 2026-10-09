@@ -146,7 +146,10 @@ ScanProcessor::Reading ScanProcessor::Opening(const LaserScan& scan,const Settin
         const double normal=ty*std::cos(a)-tx*std::sin(a);
         if (normal<=1e-6) { noReturnRun=0; continue; }
         const double along=distance*(tx*std::cos(a)+ty*std::sin(a))/normal;
-        if (along < -s.bodyRear || along > s.cornerLookahead)
+        // A corner edge must lie in front of the laser. Returns crossing the
+        // remembered wall plane behind it (within the robot's rear overhang)
+        // can be from the just-passed junction; they are not a new opening.
+        if (along < 0.0 || along > s.cornerLookahead)
         { noReturnRun=0; continue; }
         if (finiteHit)
         {
