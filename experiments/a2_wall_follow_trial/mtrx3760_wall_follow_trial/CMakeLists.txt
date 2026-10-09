@@ -19,7 +19,7 @@ if(BUILD_TESTING)
     add_executable(wall_controller_tests test/wall_controller_tests.cpp)
     target_link_libraries(wall_controller_tests PRIVATE wall_controller)
     set(controller_checks
-        settings scan_geometry wall_heading side_dropout physical_regression original_a2_cruise unknown_scan stale_inputs
+        settings scan_geometry wall_heading side_dropout no_return_opening physical_regression original_a2_cruise unknown_scan stale_inputs
         obstacle_priority sensor_recovery pose_jump no_progress corridor_widths
         corner_approaches right_junction end_wall second_corner corner_dropouts
         obstacle_in_corner sensor_outage_corner dead_end bounds)
