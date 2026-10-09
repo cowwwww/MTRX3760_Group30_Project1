@@ -21,7 +21,9 @@ void Settings::Validate() const
     if (!std::isfinite(laserYaw) || !std::isfinite(laserX) || !std::isfinite(laserY) ||
         laserX <= -bodyRear || laserX >= bodyFront || std::fabs(laserY) >= bodyHalfWidth ||
         maxUnobservedSpan > bodyHalfWidth ||
-        maxFrontUnobservedSpan > bodyHalfWidth ||
+        // A small front-only gap can extend beyond half the body width;
+        // never allow it to exceed the footprint plus clearance margin.
+        maxFrontUnobservedSpan > bodyHalfWidth + clearanceMargin ||
         maxFrontUnobservedSpan < maxUnobservedSpan ||
         commandLatency < scanTimeout ||
         frontRelease <= frontStop ||
