@@ -212,6 +212,74 @@ void SideDropout()
     Drop(scan,-pi/2,.09); Drop(scan,-pi/4,.09);
     const auto v=At(controller,scan); Require(v.linear>.07,"Narrow side/diagonal dropouts stop useful geometry");
 }
+void NoReturnOpening()
+{
+    Settings s;
+    LaserScan scan;
+    scan.angleMin=-pi;
+    scan.angleIncrement=2*pi/720;
+    scan.rangeMin=.02;
+    scan.rangeMax=12;
+    scan.ranges.assign(720,std::numeric_limits<float>::quiet_NaN());
+    // A contiguous patch of positive infinity rays on the forward-right
+    // side supports a previously measured wall plane ending near the robot.
+    for(std::size_t i=0;i<scan.ranges.size();++i)
+    {
+        const double a=scan.angleMin+i*scan.angleIncrement;
+        if(a>-1.40 && a<-1.05)
+            scan.ranges[i]=std::numeric_limits<float>::infinity();
+    }
+    auto gap=project1::ScanProcessor::Opening(scan,s,.25,0);
+    Require(gap.valid && gap.finiteEvidence==0 && gap.noReturnEvidence>=5 &&
+            gap.distance>=0 && gap.distance<s.cornerLookahead,
+            "Contiguous right-front no-returns failed to support opening");
+
+    // A few isolated infinity readings must not indicate a corner.
+    std::fill(scan.ranges.begin(),scan.ranges.end(),
+              std::numeric_limits<float>::quiet_NaN());
+    for(std::size_t i=0;i<scan.ranges.size();++i)
+    {
+        const double a=scan.angleMin+i*scan.angleIncrement;
+        if(a>-1.30 && a<-1.28)
+            scan.ranges[i]=std::numeric_limits<float>::infinity();
+    }
+    Require(!project1::ScanProcessor::Opening(scan,s,.25,0).valid,
+            "Stray no-return rays incorrectly create right opening");
+
+    // No-return readings outside the LiDAR range cannot prove a gap.
+    scan.rangeMax=.20;
+    for(std::size_t i=0;i<scan.ranges.size();++i)
+    {
+        const double a=scan.angleMin+i*scan.angleIncrement;
+        if(a>-1.40 && a<-1.05)
+            scan.ranges[i]=std::numeric_limits<float>::infinity();
+    }
+    Require(!project1::ScanProcessor::Opening(scan,s,.25,0).valid,
+            "Out-of-range unseen wall plane incorrectly counted as opening");
+
+    // Normal finite-return corner detection must retain its original
+    // along-wall edge distance even if additional +inf rays are present.
+    scan.rangeMax=12;
+    std::fill(scan.ranges.begin(),scan.ranges.end(),
+              std::numeric_limits<float>::quiet_NaN());
+    for(std::size_t i=0;i<scan.ranges.size();++i)
+    {
+        const double a=scan.angleMin+i*scan.angleIncrement;
+        if(a>-1.30 && a<-1.05) scan.ranges[i]=1.0f;
+    }
+    const auto finite=project1::ScanProcessor::Opening(scan,s,.25,0);
+    Require(finite.valid && finite.finiteEvidence>=3,
+            "Previously valid finite-hit opening not recognised");
+    for(std::size_t i=0;i<scan.ranges.size();++i)
+    {
+        const double a=scan.angleMin+i*scan.angleIncrement;
+        if(a>-1.52 && a<-1.43)
+            scan.ranges[i]=std::numeric_limits<float>::infinity();
+    }
+    const auto mixed=project1::ScanProcessor::Opening(scan,s,.25,0);
+    Require(mixed.valid && std::fabs(mixed.distance-finite.distance)<1e-9,
+            "No-return rays changed original finite-hit turn-entry distance");
+}
 void PhysicalRegression()
 {
     Settings s; s.wallDistance=.25; s.frontStop=.28; s.frontRelease=.38;
@@ -337,7 +405,7 @@ int main(int argc,char** argv)
 {
     const std::map<std::string,std::function<void()>> checks={
         {"settings",SettingsCheck},{"scan_geometry",ScanGeometry},{"wall_heading",Heading},{"side_dropout",SideDropout},
-        {"physical_regression",PhysicalRegression},{"original_a2_cruise",OriginalA2Cruise},{"unknown_scan",Unknown},{"stale_inputs",Stale},{"obstacle_priority",ObstaclePriority},{"sensor_recovery",Recovery},
+        {"no_return_opening",NoReturnOpening},{"physical_regression",PhysicalRegression},{"original_a2_cruise",OriginalA2Cruise},{"unknown_scan",Unknown},{"stale_inputs",Stale},{"obstacle_priority",ObstaclePriority},{"sensor_recovery",Recovery},
         {"pose_jump",PoseJump},{"no_progress",NoProgress},{"corridor_widths",Widths},{"corner_approaches",Approaches},
         {"right_junction",Junction},{"end_wall",EndWall},{"second_corner",SecondCorner},{"corner_dropouts",CornerDropouts},
         {"obstacle_in_corner",ObstacleCorner},{"sensor_outage_corner",SensorOutage},{"dead_end",DeadEnd},{"bounds",Bounds}};
