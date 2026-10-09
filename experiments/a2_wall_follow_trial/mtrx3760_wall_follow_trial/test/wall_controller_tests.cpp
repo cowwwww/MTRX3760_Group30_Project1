@@ -212,6 +212,59 @@ void SideDropout()
     Drop(scan,-pi/2,.09); Drop(scan,-pi/4,.09);
     const auto v=At(controller,scan); Require(v.linear>.07,"Narrow side/diagonal dropouts stop useful geometry");
 }
+void PhysicalRegression()
+{
+    Settings s; s.wallDistance=.25; s.frontStop=.28; s.frontRelease=.38;
+    auto open=Rays(Corridor(),{0,0},0,s);
+    // Physical-LDS-style +inf means a ray observed no finite return.
+    // Deliberately create a 0.28-radian forward sector of +inf readings.
+    for (std::size_t i=0;i<open.ranges.size();++i)
+    {
+        const double a=std::atan2(std::sin(open.angleMin+i*open.angleIncrement),
+                                  std::cos(open.angleMin+i*open.angleIncrement));
+        if(a>0.14 && a<0.42) open.ranges[i]=std::numeric_limits<float>::infinity();
+    }
+    auto c=project1::ScanProcessor::MeasureClearance(open,s);
+    Require(c.frontValid,"Positive infinity from LDS incorrectly rejected as blind");
+    Require(c.pivotValid,"Positive infinity incorrectly invalidated pivot observability");
+    WallFollower follower(s);
+    Require(At(follower,open).linear>0,"No-return readings stopped unobstructed cruise");
+
+    // Identical angular gap of genuine invalid NaNs must remain unobservable.
+    for(auto& r:open.ranges) if(std::isinf(r)) r=std::numeric_limits<float>::quiet_NaN();
+    c=project1::ScanProcessor::MeasureClearance(open,s);
+    Require(!c.frontValid,"NaNs incorrectly treated as a verified clear path");
+    Zero(At(follower,open,1.1));
+
+    // The body may be too close to pivot, but still have space to move
+    // forwards while steering left away from the right wall.
+    auto close=Rays(Corridor(),{0,-.16},0,s);
+    WallFollower closeFollower(s);
+    const auto clearance=project1::ScanProcessor::MeasureClearance(close,s);
+    Require(clearance.pivot<0,"Test fixture should be too close for stationary pivot");
+    const auto moving=At(closeFollower,close);
+    Require(moving.linear>0 && moving.angular>0,
+            "Stationary-pivot envelope wrongly prohibited forward steering");
+}
+void OriginalA2Cruise()
+{
+    Settings s; s.wallDistance=.25; s.frontStop=.28; s.frontRelease=.38;
+    const auto scan=Rays(Corridor(),{0,0},.12,s);
+    const auto right=project1::ScanProcessor::Sector(scan,-pi/2,5*pi/180,s.laserYaw,false);
+    const auto diagonal=project1::ScanProcessor::Sector(scan,-pi/4,5*pi/180,s.laserYaw,false);
+    Require(right.valid && diagonal.valid,"Original A2 sectors unavailable");
+    double angle=0;
+    if(diagonal.distance<s.lostWall*1.5)
+        angle=std::atan2(diagonal.distance*std::cos(pi/4)-right.distance,
+                         diagonal.distance*std::sin(pi/4));
+    const double dist=right.distance*std::cos(angle);
+    const double expected=std::max(-s.turnSpeed,std::min(s.turnSpeed,
+        s.distanceGain*(s.wallDistance-dist)-s.headingGain*angle));
+    WallFollower follower(s);
+    const auto cmd=At(follower,scan);
+    Require(cmd.linear>0 && std::fabs(cmd.angular-expected)<1e-6,
+            "Normal steering diverges from last working A2 equation");
+}
 void Unknown()
 {
     Settings s; WallFollower controller(s); auto scan=Rays(Room(),{0,0},0,s);
@@ -284,7 +337,7 @@ int main(int argc,char** argv)
 {
     const std::map<std::string,std::function<void()>> checks={
         {"settings",SettingsCheck},{"scan_geometry",ScanGeometry},{"wall_heading",Heading},{"side_dropout",SideDropout},
-        {"unknown_scan",Unknown},{"stale_inputs",Stale},{"obstacle_priority",ObstaclePriority},{"sensor_recovery",Recovery},
+        {"physical_regression",PhysicalRegression},{"original_a2_cruise",OriginalA2Cruise},{"unknown_scan",Unknown},{"stale_inputs",Stale},{"obstacle_priority",ObstaclePriority},{"sensor_recovery",Recovery},
         {"pose_jump",PoseJump},{"no_progress",NoProgress},{"corridor_widths",Widths},{"corner_approaches",Approaches},
         {"right_junction",Junction},{"end_wall",EndWall},{"second_corner",SecondCorner},{"corner_dropouts",CornerDropouts},
         {"obstacle_in_corner",ObstacleCorner},{"sensor_outage_corner",SensorOutage},{"dead_end",DeadEnd},{"bounds",Bounds}};
