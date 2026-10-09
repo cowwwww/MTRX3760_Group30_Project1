@@ -23,6 +23,8 @@ project1_wall_follower_trial:
     braking_deceleration: 0.20
     command_latency: 0.50
     max_unobserved_span: 0.05
+    max_front_unobserved_span: 0.08
+    distance_rate_gain: 3.0
     corner_lookahead: 0.30
     corner_timeout: 30.0
     corner_max_entry: 0.80
