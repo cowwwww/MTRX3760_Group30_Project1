@@ -19,7 +19,11 @@ void WallFollower::UpdateScan(const LaserScan& scan,double now)
     if (!std::isfinite(now) || now<lastScan_) { InvalidateScan("scan_time_invalid"); return; }
     lastScan_=now;
     // A wider side median tolerates several missing rays without selecting a far wall.
+    // Prefer the same 5-degree right-sector measurement as the working A2.
+    // Only widen to 15 degrees when that narrow sector has insufficient returns.
     right_=ScanProcessor::Sector(scan,-pi/2,5*pi/180,settings_.laserYaw,false);
+    if (!right_.valid)
+        right_=ScanProcessor::Sector(scan,-pi/2,15*pi/180,settings_.laserYaw,false);
     diagonal_=ScanProcessor::Sector(scan,-pi/4,5*pi/180,settings_.laserYaw,false);
     rear_=ScanProcessor::Sector(scan,-3*pi/4,5*pi/180,settings_.laserYaw,false);
     clearance_=ScanProcessor::MeasureClearance(scan,settings_);
