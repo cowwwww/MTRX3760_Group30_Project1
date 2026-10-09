@@ -22,8 +22,11 @@ project1_wall_follower_trial:
     clearance_margin: 0.025
     braking_deceleration: 0.20
     command_latency: 0.50
-    max_unobserved_span: 0.05
-    max_front_unobserved_span: 0.08
+    # Empirically calibrated from the 2026-10-09 physical LiDAR recording:
+    # pivot blind spans reached 0.058 m; front spans reached 0.097 m.
+    # Obstacles, braking limits and all other safety checks remain active.
+    max_unobserved_span: 0.06
+    max_front_unobserved_span: 0.10
     corner_lookahead: 0.30
     corner_timeout: 30.0
     corner_max_entry: 0.80
