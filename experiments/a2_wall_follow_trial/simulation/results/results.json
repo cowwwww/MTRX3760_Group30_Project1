@@ -1,0 +1,3848 @@
+[
+  {
+    "name": "forced_right_06",
+    "version": "original",
+    "config": {
+      "width": 0.6
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 33.05,
+    "final_yaw": -90.681137,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 29.7,
+        "end_time": 31.7,
+        "angle_degrees": 65.2255154
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "25.3",
+        "state": "FindWall",
+        "reason": "unbounded_right_search",
+        "yaw_deg": "-90.0849088",
+        "x": "1.77151137",
+        "y": "-0.332066971"
+      },
+      {
+        "time": "29.7",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-160.332557",
+        "x": "1.6529827",
+        "y": "-0.502208068"
+      },
+      {
+        "time": "31.7",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-95.1070416",
+        "x": "1.64972156",
+        "y": "-0.503470789"
+      }
+    ],
+    "csv": "forced_right_06_original.csv"
+  },
+  {
+    "name": "forced_right_06",
+    "version": "new",
+    "config": {
+      "width": 0.6
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 39.5,
+    "final_yaw": -96.1301434,
+    "final_reason": "following_with_distance_only",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "14.9",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-0.89251573",
+        "x": "1.17397968",
+        "y": "-0.0440545874"
+      },
+      {
+        "time": "24.6",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.187959102",
+        "x": "1.65921639",
+        "y": "-0.046144555"
+      },
+      {
+        "time": "28.2",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3662308",
+        "x": "1.66271273",
+        "y": "-0.0462293486"
+      },
+      {
+        "time": "34.3",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1872836",
+        "x": "1.66337",
+        "y": "-0.345214522"
+      }
+    ],
+    "csv": "forced_right_06_new.csv"
+  },
+  {
+    "name": "forced_right_08",
+    "version": "original",
+    "config": {
+      "width": 0.8
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 29.1,
+    "final_yaw": -97.8587254,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      }
+    ],
+    "csv": "forced_right_08_original.csv"
+  },
+  {
+    "name": "forced_right_08",
+    "version": "new",
+    "config": {
+      "width": 0.8
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 40.2,
+    "final_yaw": -96.7225995,
+    "final_reason": "following_with_distance_only",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "15.1",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-2.6416394",
+        "x": "1.17084067",
+        "y": "-0.123041621"
+      },
+      {
+        "time": "24.9",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.185897653",
+        "x": "1.66105217",
+        "y": "-0.126354784"
+      },
+      {
+        "time": "28.5",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3641672",
+        "x": "1.66454852",
+        "y": "-0.126439452"
+      },
+      {
+        "time": "35",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1855057",
+        "x": "1.66515185",
+        "y": "-0.445424497"
+      }
+    ],
+    "csv": "forced_right_08_new.csv"
+  },
+  {
+    "name": "right_opening_06",
+    "version": "original",
+    "config": {
+      "width": 0.6,
+      "junction": true
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 33.05,
+    "final_yaw": -90.681137,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 29.7,
+        "end_time": 31.7,
+        "angle_degrees": 65.2255154
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "25.3",
+        "state": "FindWall",
+        "reason": "unbounded_right_search",
+        "yaw_deg": "-90.0849088",
+        "x": "1.77151137",
+        "y": "-0.332066971"
+      },
+      {
+        "time": "29.7",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-160.332557",
+        "x": "1.6529827",
+        "y": "-0.502208068"
+      },
+      {
+        "time": "31.7",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-95.1070416",
+        "x": "1.64972156",
+        "y": "-0.503470789"
+      }
+    ],
+    "csv": "right_opening_06_original.csv"
+  },
+  {
+    "name": "right_opening_06",
+    "version": "new",
+    "config": {
+      "width": 0.6,
+      "junction": true
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 39.5,
+    "final_yaw": -96.1301434,
+    "final_reason": "following_with_distance_only",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "14.9",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-0.89251573",
+        "x": "1.17397968",
+        "y": "-0.0440545874"
+      },
+      {
+        "time": "24.6",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.187959102",
+        "x": "1.65921639",
+        "y": "-0.046144555"
+      },
+      {
+        "time": "28.2",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3662308",
+        "x": "1.66271273",
+        "y": "-0.0462293486"
+      },
+      {
+        "time": "34.3",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1872836",
+        "x": "1.66337",
+        "y": "-0.345214522"
+      }
+    ],
+    "csv": "right_opening_06_new.csv"
+  },
+  {
+    "name": "right_opening_08",
+    "version": "original",
+    "config": {
+      "width": 0.8,
+      "junction": true
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 29.1,
+    "final_yaw": -97.8587254,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      }
+    ],
+    "csv": "right_opening_08_original.csv"
+  },
+  {
+    "name": "right_opening_08",
+    "version": "new",
+    "config": {
+      "width": 0.8,
+      "junction": true
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 40.2,
+    "final_yaw": -96.7225995,
+    "final_reason": "following_with_distance_only",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "15.1",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-2.6416394",
+        "x": "1.17084067",
+        "y": "-0.123041621"
+      },
+      {
+        "time": "24.9",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.185897653",
+        "x": "1.66105217",
+        "y": "-0.126354784"
+      },
+      {
+        "time": "28.5",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3641672",
+        "x": "1.66454852",
+        "y": "-0.126439452"
+      },
+      {
+        "time": "35",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1855057",
+        "x": "1.66515185",
+        "y": "-0.445424497"
+      }
+    ],
+    "csv": "right_opening_08_new.csv"
+  },
+  {
+    "name": "corner_partial_06",
+    "version": "original",
+    "config": {
+      "width": 0.6,
+      "fault": "partial"
+    },
+    "outcome": "navigation_incomplete",
+    "process_code": 0,
+    "completed": false,
+    "entered": false,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 180.0,
+    "final_yaw": -23.2953292,
+    "final_reason": "scan_sector_invalid",
+    "fault_scans": 1599,
+    "min_cap_gap": null,
+    "fault_zero_commands": true,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "20.2",
+        "state": "WaitingForScan",
+        "reason": "scan_sector_invalid",
+        "yaw_deg": "-22.5557198",
+        "x": "1.57091649",
+        "y": "-0.0911978026"
+      }
+    ],
+    "csv": "corner_partial_06_original.csv"
+  },
+  {
+    "name": "corner_partial_06",
+    "version": "new",
+    "config": {
+      "width": 0.6,
+      "fault": "partial"
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 39.5,
+    "final_yaw": -96.1301434,
+    "final_reason": "following_with_distance_only",
+    "fault_scans": 24,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": true,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "14.9",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-0.89251573",
+        "x": "1.17397968",
+        "y": "-0.0440545874"
+      },
+      {
+        "time": "24.6",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.187959102",
+        "x": "1.65921639",
+        "y": "-0.046144555"
+      },
+      {
+        "time": "28.2",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3662308",
+        "x": "1.66271273",
+        "y": "-0.0462293486"
+      },
+      {
+        "time": "34.3",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1872836",
+        "x": "1.66337",
+        "y": "-0.345214522"
+      }
+    ],
+    "csv": "corner_partial_06_new.csv"
+  },
+  {
+    "name": "corner_partial_08",
+    "version": "original",
+    "config": {
+      "width": 0.8,
+      "fault": "partial"
+    },
+    "outcome": "navigation_incomplete",
+    "process_code": 0,
+    "completed": false,
+    "entered": false,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 180.0,
+    "final_yaw": -23.3745633,
+    "final_reason": "scan_sector_invalid",
+    "fault_scans": 1597,
+    "min_cap_gap": null,
+    "fault_zero_commands": true,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "20.4",
+        "state": "WaitingForScan",
+        "reason": "scan_sector_invalid",
+        "yaw_deg": "-22.6345424",
+        "x": "1.57040812",
+        "y": "-0.184155562"
+      }
+    ],
+    "csv": "corner_partial_08_original.csv"
+  },
+  {
+    "name": "corner_partial_08",
+    "version": "new",
+    "config": {
+      "width": 0.8,
+      "fault": "partial"
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 40.2,
+    "final_yaw": -96.7225995,
+    "final_reason": "following_with_distance_only",
+    "fault_scans": 24,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": true,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "15.1",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-2.6416394",
+        "x": "1.17084067",
+        "y": "-0.123041621"
+      },
+      {
+        "time": "24.9",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.185897653",
+        "x": "1.66105217",
+        "y": "-0.126354784"
+      },
+      {
+        "time": "28.5",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3641672",
+        "x": "1.66454852",
+        "y": "-0.126439452"
+      },
+      {
+        "time": "35",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1855057",
+        "x": "1.66515185",
+        "y": "-0.445424497"
+      }
+    ],
+    "csv": "corner_partial_08_new.csv"
+  },
+  {
+    "name": "dead_end_1m_06",
+    "version": "original",
+    "config": {
+      "width": 0.6,
+      "dead-end": true,
+      "depth": 1
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 52.35,
+    "final_yaw": 89.7787596,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.106411561,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 29.7,
+        "end_time": 31.7,
+        "angle_degrees": 65.2255154
+      },
+      {
+        "start_time": 38.7,
+        "end_time": 41.3,
+        "angle_degrees": 86.99092374
+      },
+      {
+        "start_time": 42.7,
+        "end_time": 45.2,
+        "angle_degrees": 83.519003399
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "25.3",
+        "state": "FindWall",
+        "reason": "unbounded_right_search",
+        "yaw_deg": "-90.0849088",
+        "x": "1.77151137",
+        "y": "-0.332066971"
+      },
+      {
+        "time": "29.7",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-160.332557",
+        "x": "1.6529827",
+        "y": "-0.502208068"
+      },
+      {
+        "time": "31.7",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-95.1070416",
+        "x": "1.64972156",
+        "y": "-0.503470789"
+      },
+      {
+        "time": "38.7",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-89.6369934",
+        "x": "1.64442643",
+        "y": "-1.05355611"
+      },
+      {
+        "time": "41.3",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-2.64606966",
+        "x": "1.64466295",
+        "y": "-1.05912685"
+      },
+      {
+        "time": "42.7",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "0.460304401",
+        "x": "1.7499446",
+        "y": "-1.05847312"
+      },
+      {
+        "time": "45.2",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "83.9793078",
+        "x": "1.75551234",
+        "y": "-1.05822891"
+      }
+    ],
+    "csv": "dead_end_1m_06_original.csv"
+  },
+  {
+    "name": "dead_end_1m_06",
+    "version": "new",
+    "config": {
+      "width": 0.6,
+      "dead-end": true,
+      "depth": 1
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 59.3,
+    "final_yaw": 87.5374302,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.178439496,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 44.7,
+        "end_time": 50.2,
+        "angle_degrees": 186.6708552
+      },
+      {
+        "start_time": 54.5,
+        "end_time": 55.4,
+        "angle_degrees": 27.4033722
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "14.9",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-0.89251573",
+        "x": "1.17397968",
+        "y": "-0.0440545874"
+      },
+      {
+        "time": "24.6",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.187959102",
+        "x": "1.65921639",
+        "y": "-0.046144555"
+      },
+      {
+        "time": "28.2",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3662308",
+        "x": "1.66271273",
+        "y": "-0.0462293486"
+      },
+      {
+        "time": "34.3",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1872836",
+        "x": "1.66337",
+        "y": "-0.345214522"
+      },
+      {
+        "time": "44.7",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-89.6137699",
+        "x": "1.63821023",
+        "y": "-0.980604164"
+      },
+      {
+        "time": "50.2",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "97.0570853",
+        "x": "1.63844898",
+        "y": "-0.986190665"
+      },
+      {
+        "time": "54.5",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "46.4582749",
+        "x": "1.69866648",
+        "y": "-0.788107128"
+      },
+      {
+        "time": "55.4",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "73.8616471",
+        "x": "1.70100853",
+        "y": "-0.785510391"
+      }
+    ],
+    "csv": "dead_end_1m_06_new.csv"
+  },
+  {
+    "name": "dead_end_2m_06",
+    "version": "original",
+    "config": {
+      "width": 0.6,
+      "dead-end": true,
+      "depth": 2
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 77.4,
+    "final_yaw": 90.1650804,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.108632295,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 29.7,
+        "end_time": 31.7,
+        "angle_degrees": 65.2255154
+      },
+      {
+        "start_time": 51.2,
+        "end_time": 53.8,
+        "angle_degrees": 86.99987309000001
+      },
+      {
+        "start_time": 55.2,
+        "end_time": 57.7,
+        "angle_degrees": 83.515266648
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "25.3",
+        "state": "FindWall",
+        "reason": "unbounded_right_search",
+        "yaw_deg": "-90.0849088",
+        "x": "1.77151137",
+        "y": "-0.332066971"
+      },
+      {
+        "time": "29.7",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-160.332557",
+        "x": "1.6529827",
+        "y": "-0.502208068"
+      },
+      {
+        "time": "31.7",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-95.1070416",
+        "x": "1.64972156",
+        "y": "-0.503470789"
+      },
+      {
+        "time": "51.2",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-90.2715531",
+        "x": "1.64270683",
+        "y": "-2.04962972"
+      },
+      {
+        "time": "53.8",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-3.27168001",
+        "x": "1.64288175",
+        "y": "-2.05519232"
+      },
+      {
+        "time": "55.2",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-0.506879648",
+        "x": "1.7483737",
+        "y": "-2.05614915"
+      },
+      {
+        "time": "57.7",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "83.008387",
+        "x": "1.75394044",
+        "y": "-2.05599926"
+      }
+    ],
+    "csv": "dead_end_2m_06_original.csv"
+  },
+  {
+    "name": "dead_end_2m_06",
+    "version": "new",
+    "config": {
+      "width": 0.6,
+      "dead-end": true,
+      "depth": 2
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 84.4,
+    "final_yaw": 89.4909696,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.180081499,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 57.2,
+        "end_time": 62.7,
+        "angle_degrees": 186.673386
+      },
+      {
+        "start_time": 67.2,
+        "end_time": 68.1,
+        "angle_degrees": 27.437973399999997
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "14.9",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-0.89251573",
+        "x": "1.17397968",
+        "y": "-0.0440545874"
+      },
+      {
+        "time": "24.6",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.187959102",
+        "x": "1.65921639",
+        "y": "-0.046144555"
+      },
+      {
+        "time": "28.2",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3662308",
+        "x": "1.66271273",
+        "y": "-0.0462293486"
+      },
+      {
+        "time": "34.3",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1872836",
+        "x": "1.66337",
+        "y": "-0.345214522"
+      },
+      {
+        "time": "57.2",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-89.8027133",
+        "x": "1.64282334",
+        "y": "-1.97896351"
+      },
+      {
+        "time": "62.7",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "96.8706727",
+        "x": "1.64304372",
+        "y": "-1.98454911"
+      },
+      {
+        "time": "67.2",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "45.9013536",
+        "x": "1.70659116",
+        "y": "-1.77689284"
+      },
+      {
+        "time": "68.1",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "73.339327",
+        "x": "1.70895755",
+        "y": "-1.77431829"
+      }
+    ],
+    "csv": "dead_end_2m_06_new.csv"
+  },
+  {
+    "name": "dead_end_2m_08",
+    "version": "original",
+    "config": {
+      "width": 0.8,
+      "dead-end": true,
+      "depth": 2
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 76.05,
+    "final_yaw": 90.0579386,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.107408354,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 47.4,
+        "end_time": 50.0,
+        "angle_degrees": 86.98515929999999
+      },
+      {
+        "start_time": 53.8,
+        "end_time": 56.4,
+        "angle_degrees": 86.95891024
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "47.4",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-90.4594056",
+        "x": "1.65476251",
+        "y": "-2.15155803"
+      },
+      {
+        "time": "50",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-3.4742463",
+        "x": "1.65491896",
+        "y": "-2.1571383"
+      },
+      {
+        "time": "53.8",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-0.46507084",
+        "x": "1.95083435",
+        "y": "-2.15737716"
+      },
+      {
+        "time": "56.4",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "86.4938394",
+        "x": "1.95640782",
+        "y": "-2.15722274"
+      }
+    ],
+    "csv": "dead_end_2m_08_original.csv"
+  },
+  {
+    "name": "dead_end_2m_08",
+    "version": "new",
+    "config": {
+      "width": 0.8,
+      "dead-end": true,
+      "depth": 2
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 90.9,
+    "final_yaw": 89.7921882,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.148718376,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 58.0,
+        "end_time": 60.9,
+        "angle_degrees": 97.28094064
+      },
+      {
+        "start_time": 65.4,
+        "end_time": 68.9,
+        "angle_degrees": 117.527556
+      },
+      {
+        "start_time": 73.9,
+        "end_time": 74.6,
+        "angle_degrees": 20.995147600000003
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "15.1",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-2.6416394",
+        "x": "1.17084067",
+        "y": "-0.123041621"
+      },
+      {
+        "time": "24.9",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.185897653",
+        "x": "1.66105217",
+        "y": "-0.126354784"
+      },
+      {
+        "time": "28.5",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3641672",
+        "x": "1.66454852",
+        "y": "-0.126439452"
+      },
+      {
+        "time": "35",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1855057",
+        "x": "1.66515185",
+        "y": "-0.445424497"
+      },
+      {
+        "time": "58",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-89.9055304",
+        "x": "1.64267767",
+        "y": "-2.08294449"
+      },
+      {
+        "time": "60.9",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "7.37541024",
+        "x": "1.64288733",
+        "y": "-2.08852637"
+      },
+      {
+        "time": "65.4",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-19.9758298",
+        "x": "1.86153815",
+        "y": "-2.11483069"
+      },
+      {
+        "time": "68.9",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "97.5517262",
+        "x": "1.86486161",
+        "y": "-2.11591754"
+      },
+      {
+        "time": "73.9",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "54.0547128",
+        "x": "1.92447268",
+        "y": "-1.87937155"
+      },
+      {
+        "time": "74.6",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "75.0498604",
+        "x": "1.92643867",
+        "y": "-1.87648179"
+      }
+    ],
+    "csv": "dead_end_2m_08_new.csv"
+  },
+  {
+    "name": "dead_end_3m_08",
+    "version": "original",
+    "config": {
+      "width": 0.8,
+      "dead-end": true,
+      "depth": 3
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 101.3,
+    "final_yaw": 90.3182804,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.103135434,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 60.0,
+        "end_time": 62.6,
+        "angle_degrees": 87.00069569
+      },
+      {
+        "start_time": 66.5,
+        "end_time": 69.0,
+        "angle_degrees": 83.544708502
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "60",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-90.3468766",
+        "x": "1.64503505",
+        "y": "-3.15572546"
+      },
+      {
+        "time": "62.6",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-3.34618091",
+        "x": "1.64520266",
+        "y": "-3.16128733"
+      },
+      {
+        "time": "66.5",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "0.256604298",
+        "x": "1.94972831",
+        "y": "-3.16172666"
+      },
+      {
+        "time": "69",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "83.8013128",
+        "x": "1.95530934",
+        "y": "-3.1615005"
+      }
+    ],
+    "csv": "dead_end_3m_08_original.csv"
+  },
+  {
+    "name": "dead_end_3m_08",
+    "version": "new",
+    "config": {
+      "width": 0.8,
+      "dead-end": true,
+      "depth": 3
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 115.9,
+    "final_yaw": 89.9069868,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.151816424,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 70.5,
+        "end_time": 73.5,
+        "angle_degrees": 100.7384926
+      },
+      {
+        "start_time": 78.0,
+        "end_time": 81.5,
+        "angle_degrees": 117.49104700000001
+      },
+      {
+        "start_time": 86.4,
+        "end_time": 87.1,
+        "angle_degrees": 21.0247448
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "15.1",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-2.6416394",
+        "x": "1.17084067",
+        "y": "-0.123041621"
+      },
+      {
+        "time": "24.9",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.185897653",
+        "x": "1.66105217",
+        "y": "-0.126354784"
+      },
+      {
+        "time": "28.5",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3641672",
+        "x": "1.66454852",
+        "y": "-0.126439452"
+      },
+      {
+        "time": "35",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1855057",
+        "x": "1.66515185",
+        "y": "-0.445424497"
+      },
+      {
+        "time": "70.5",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-89.9701948",
+        "x": "1.64385662",
+        "y": "-3.08145338"
+      },
+      {
+        "time": "73.5",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "10.7682978",
+        "x": "1.64406073",
+        "y": "-3.08702938"
+      },
+      {
+        "time": "78",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-20.6163886",
+        "x": "1.8638491",
+        "y": "-3.11168916"
+      },
+      {
+        "time": "81.5",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "96.8746584",
+        "x": "1.86715987",
+        "y": "-3.11281416"
+      },
+      {
+        "time": "86.4",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "55.1847022",
+        "x": "1.92551471",
+        "y": "-2.87865833"
+      },
+      {
+        "time": "87.1",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "76.209447",
+        "x": "1.92742256",
+        "y": "-2.87572988"
+      }
+    ],
+    "csv": "dead_end_3m_08_new.csv"
+  },
+  {
+    "name": "dead_end_partial_06",
+    "version": "original",
+    "config": {
+      "width": 0.6,
+      "dead-end": true,
+      "depth": 2,
+      "fault": "partial"
+    },
+    "outcome": "navigation_incomplete",
+    "process_code": 0,
+    "completed": false,
+    "entered": false,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 180.0,
+    "final_yaw": -23.2953292,
+    "final_reason": "scan_sector_invalid",
+    "fault_scans": 1599,
+    "min_cap_gap": 2.11018356,
+    "fault_zero_commands": true,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "20.2",
+        "state": "WaitingForScan",
+        "reason": "scan_sector_invalid",
+        "yaw_deg": "-22.5557198",
+        "x": "1.57091649",
+        "y": "-0.0911978026"
+      }
+    ],
+    "csv": "dead_end_partial_06_original.csv"
+  },
+  {
+    "name": "dead_end_partial_06",
+    "version": "new",
+    "config": {
+      "width": 0.6,
+      "dead-end": true,
+      "depth": 2,
+      "fault": "partial"
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 84.4,
+    "final_yaw": 89.4909696,
+    "final_reason": "following_right_wall",
+    "fault_scans": 24,
+    "min_cap_gap": 0.180081499,
+    "fault_zero_commands": false,
+    "fault_motion": true,
+    "left_turn_episodes": [
+      {
+        "start_time": 57.2,
+        "end_time": 62.7,
+        "angle_degrees": 186.673386
+      },
+      {
+        "start_time": 67.2,
+        "end_time": 68.1,
+        "angle_degrees": 27.437973399999997
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "14.9",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-0.89251573",
+        "x": "1.17397968",
+        "y": "-0.0440545874"
+      },
+      {
+        "time": "24.6",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.187959102",
+        "x": "1.65921639",
+        "y": "-0.046144555"
+      },
+      {
+        "time": "28.2",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3662308",
+        "x": "1.66271273",
+        "y": "-0.0462293486"
+      },
+      {
+        "time": "34.3",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1872836",
+        "x": "1.66337",
+        "y": "-0.345214522"
+      },
+      {
+        "time": "57.2",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-89.8027133",
+        "x": "1.64282334",
+        "y": "-1.97896351"
+      },
+      {
+        "time": "62.7",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "96.8706727",
+        "x": "1.64304372",
+        "y": "-1.98454911"
+      },
+      {
+        "time": "67.2",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "45.9013536",
+        "x": "1.70659116",
+        "y": "-1.77689284"
+      },
+      {
+        "time": "68.1",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "73.339327",
+        "x": "1.70895755",
+        "y": "-1.77431829"
+      }
+    ],
+    "csv": "dead_end_partial_06_new.csv"
+  },
+  {
+    "name": "dead_end_partial_08",
+    "version": "original",
+    "config": {
+      "width": 0.8,
+      "dead-end": true,
+      "depth": 2,
+      "fault": "partial"
+    },
+    "outcome": "navigation_incomplete",
+    "process_code": 0,
+    "completed": false,
+    "entered": false,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 180.0,
+    "final_yaw": -23.3745633,
+    "final_reason": "scan_sector_invalid",
+    "fault_scans": 1597,
+    "min_cap_gap": 2.11722047,
+    "fault_zero_commands": true,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "20.4",
+        "state": "WaitingForScan",
+        "reason": "scan_sector_invalid",
+        "yaw_deg": "-22.6345424",
+        "x": "1.57040812",
+        "y": "-0.184155562"
+      }
+    ],
+    "csv": "dead_end_partial_08_original.csv"
+  },
+  {
+    "name": "dead_end_partial_08",
+    "version": "new",
+    "config": {
+      "width": 0.8,
+      "dead-end": true,
+      "depth": 2,
+      "fault": "partial"
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 90.9,
+    "final_yaw": 89.7921882,
+    "final_reason": "following_right_wall",
+    "fault_scans": 24,
+    "min_cap_gap": 0.148718376,
+    "fault_zero_commands": false,
+    "fault_motion": true,
+    "left_turn_episodes": [
+      {
+        "start_time": 58.0,
+        "end_time": 60.9,
+        "angle_degrees": 97.28094064
+      },
+      {
+        "start_time": 65.4,
+        "end_time": 68.9,
+        "angle_degrees": 117.527556
+      },
+      {
+        "start_time": 73.9,
+        "end_time": 74.6,
+        "angle_degrees": 20.995147600000003
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "15.1",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-2.6416394",
+        "x": "1.17084067",
+        "y": "-0.123041621"
+      },
+      {
+        "time": "24.9",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.185897653",
+        "x": "1.66105217",
+        "y": "-0.126354784"
+      },
+      {
+        "time": "28.5",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3641672",
+        "x": "1.66454852",
+        "y": "-0.126439452"
+      },
+      {
+        "time": "35",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1855057",
+        "x": "1.66515185",
+        "y": "-0.445424497"
+      },
+      {
+        "time": "58",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-89.9055304",
+        "x": "1.64267767",
+        "y": "-2.08294449"
+      },
+      {
+        "time": "60.9",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "7.37541024",
+        "x": "1.64288733",
+        "y": "-2.08852637"
+      },
+      {
+        "time": "65.4",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-19.9758298",
+        "x": "1.86153815",
+        "y": "-2.11483069"
+      },
+      {
+        "time": "68.9",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "97.5517262",
+        "x": "1.86486161",
+        "y": "-2.11591754"
+      },
+      {
+        "time": "73.9",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "54.0547128",
+        "x": "1.92447268",
+        "y": "-1.87937155"
+      },
+      {
+        "time": "74.6",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "75.0498604",
+        "x": "1.92643867",
+        "y": "-1.87648179"
+      }
+    ],
+    "csv": "dead_end_partial_08_new.csv"
+  },
+  {
+    "name": "dead_end_side_loss_06",
+    "version": "original",
+    "config": {
+      "width": 0.6,
+      "dead-end": true,
+      "depth": 2,
+      "fault": "transient_right"
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 78.3,
+    "final_yaw": 90.1173712,
+    "final_reason": "following_right_wall",
+    "fault_scans": 9,
+    "min_cap_gap": 0.108240503,
+    "fault_zero_commands": true,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 30.6,
+        "end_time": 32.6,
+        "angle_degrees": 65.22551530000001
+      },
+      {
+        "start_time": 52.1,
+        "end_time": 54.7,
+        "angle_degrees": 87.00162974
+      },
+      {
+        "start_time": 56.1,
+        "end_time": 58.6,
+        "angle_degrees": 83.51621369200001
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "20.2",
+        "state": "WaitingForScan",
+        "reason": "scan_sector_invalid",
+        "yaw_deg": "-22.5557198",
+        "x": "1.57091649",
+        "y": "-0.0911978026"
+      },
+      {
+        "time": "21.1",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-23.295284",
+        "x": "1.57528126",
+        "y": "-0.093043845"
+      },
+      {
+        "time": "26.2",
+        "state": "FindWall",
+        "reason": "unbounded_right_search",
+        "yaw_deg": "-90.0714737",
+        "x": "1.77143677",
+        "y": "-0.332133695"
+      },
+      {
+        "time": "30.6",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-160.288506",
+        "x": "1.65303522",
+        "y": "-0.502401406"
+      },
+      {
+        "time": "32.6",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-95.0629907",
+        "x": "1.64977505",
+        "y": "-0.503666635"
+      },
+      {
+        "time": "52.1",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-90.3330264",
+        "x": "1.64279369",
+        "y": "-2.04989438"
+      },
+      {
+        "time": "54.7",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-3.33139666",
+        "x": "1.64296266",
+        "y": "-2.05545512"
+      },
+      {
+        "time": "56.1",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-0.565964492",
+        "x": "1.74853188",
+        "y": "-2.05653598"
+      },
+      {
+        "time": "58.6",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "82.9502492",
+        "x": "1.75409988",
+        "y": "-2.05639176"
+      }
+    ],
+    "csv": "dead_end_side_loss_06_original.csv"
+  },
+  {
+    "name": "dead_end_side_loss_06",
+    "version": "new",
+    "config": {
+      "width": 0.6,
+      "dead-end": true,
+      "depth": 2,
+      "fault": "transient_right"
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 85.2,
+    "final_yaw": 89.4897026,
+    "final_reason": "following_right_wall",
+    "fault_scans": 8,
+    "min_cap_gap": 0.180101202,
+    "fault_zero_commands": true,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 58.0,
+        "end_time": 63.5,
+        "angle_degrees": 186.676859
+      },
+      {
+        "start_time": 68.0,
+        "end_time": 68.9,
+        "angle_degrees": 27.441909700000004
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "14.9",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-0.89251573",
+        "x": "1.17397968",
+        "y": "-0.0440545874"
+      },
+      {
+        "time": "24.6",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.187959102",
+        "x": "1.65921639",
+        "y": "-0.046144555"
+      },
+      {
+        "time": "29",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3662306",
+        "x": "1.66271274",
+        "y": "-0.0462293287"
+      },
+      {
+        "time": "35.1",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1872836",
+        "x": "1.66337001",
+        "y": "-0.345214502"
+      },
+      {
+        "time": "58",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-89.816715",
+        "x": "1.64281193",
+        "y": "-1.97894787"
+      },
+      {
+        "time": "63.5",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "96.860144",
+        "x": "1.64303095",
+        "y": "-1.98452948"
+      },
+      {
+        "time": "68",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "45.9347309",
+        "x": "1.70656362",
+        "y": "-1.77684736"
+      },
+      {
+        "time": "68.9",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "73.3766406",
+        "x": "1.70892841",
+        "y": "-1.77427135"
+      }
+    ],
+    "csv": "dead_end_side_loss_06_new.csv"
+  },
+  {
+    "name": "dead_end_front_loss_06",
+    "version": "original",
+    "config": {
+      "width": 0.6,
+      "dead-end": true,
+      "depth": 2,
+      "fault": "transient_front"
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 78.3,
+    "final_yaw": 90.1164496,
+    "final_reason": "following_right_wall",
+    "fault_scans": 9,
+    "min_cap_gap": 0.108438986,
+    "fault_zero_commands": true,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 29.7,
+        "end_time": 31.7,
+        "angle_degrees": 65.2255154
+      },
+      {
+        "start_time": 52.1,
+        "end_time": 54.7,
+        "angle_degrees": 87.00164866
+      },
+      {
+        "start_time": 56.1,
+        "end_time": 58.6,
+        "angle_degrees": 83.516151229
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "25.3",
+        "state": "FindWall",
+        "reason": "unbounded_right_search",
+        "yaw_deg": "-90.0849088",
+        "x": "1.77151137",
+        "y": "-0.332066971"
+      },
+      {
+        "time": "29.7",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-160.332557",
+        "x": "1.6529827",
+        "y": "-0.502208068"
+      },
+      {
+        "time": "31.7",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-95.1070416",
+        "x": "1.64972156",
+        "y": "-0.503470789"
+      },
+      {
+        "time": "35.6",
+        "state": "WaitingForScan",
+        "reason": "scan_sector_invalid",
+        "yaw_deg": "-90.7172946",
+        "x": "1.64542199",
+        "y": "-0.806822281"
+      },
+      {
+        "time": "36.5",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-90.7118107",
+        "x": "1.64535227",
+        "y": "-0.812412317"
+      },
+      {
+        "time": "52.1",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-90.330896",
+        "x": "1.64275522",
+        "y": "-2.04967988"
+      },
+      {
+        "time": "54.7",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-3.32924734",
+        "x": "1.6429244",
+        "y": "-2.05524059"
+      },
+      {
+        "time": "56.1",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-0.579173029",
+        "x": "1.74849477",
+        "y": "-2.05633639"
+      },
+      {
+        "time": "58.6",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "82.9369782",
+        "x": "1.75406273",
+        "y": "-2.05619345"
+      }
+    ],
+    "csv": "dead_end_front_loss_06_original.csv"
+  },
+  {
+    "name": "dead_end_front_loss_06",
+    "version": "new",
+    "config": {
+      "width": 0.6,
+      "dead-end": true,
+      "depth": 2,
+      "fault": "transient_front"
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 85.2,
+    "final_yaw": 89.4896647,
+    "final_reason": "following_right_wall",
+    "fault_scans": 8,
+    "min_cap_gap": 0.180120435,
+    "fault_zero_commands": true,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 58.0,
+        "end_time": 63.5,
+        "angle_degrees": 186.6768678
+      },
+      {
+        "start_time": 68.0,
+        "end_time": 68.9,
+        "angle_degrees": 27.44194360000001
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "14.9",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-0.89251573",
+        "x": "1.17397968",
+        "y": "-0.0440545874"
+      },
+      {
+        "time": "24.6",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.187959102",
+        "x": "1.65921639",
+        "y": "-0.046144555"
+      },
+      {
+        "time": "28.2",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3662308",
+        "x": "1.66271273",
+        "y": "-0.0462293486"
+      },
+      {
+        "time": "34.3",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1872836",
+        "x": "1.66337",
+        "y": "-0.345214522"
+      },
+      {
+        "time": "58",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-89.8168082",
+        "x": "1.64281247",
+        "y": "-1.97892864"
+      },
+      {
+        "time": "63.5",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "96.8600596",
+        "x": "1.64303148",
+        "y": "-1.98451024"
+      },
+      {
+        "time": "68",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "45.9355979",
+        "x": "1.70656264",
+        "y": "-1.776827"
+      },
+      {
+        "time": "68.9",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "73.3775415",
+        "x": "1.7089274",
+        "y": "-1.77425095"
+      }
+    ],
+    "csv": "dead_end_front_loss_06_new.csv"
+  },
+  {
+    "name": "corner_blind_hold_06",
+    "version": "original",
+    "config": {
+      "width": 0.6,
+      "fault": "blind",
+      "max-time": 65
+    },
+    "outcome": "blind_sector_hold",
+    "process_code": 0,
+    "completed": false,
+    "entered": false,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 65.0,
+    "final_yaw": -23.2953292,
+    "final_reason": "scan_sector_invalid",
+    "fault_scans": 449,
+    "min_cap_gap": null,
+    "fault_zero_commands": true,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "20.2",
+        "state": "WaitingForScan",
+        "reason": "scan_sector_invalid",
+        "yaw_deg": "-22.5557198",
+        "x": "1.57091649",
+        "y": "-0.0911978026"
+      }
+    ],
+    "csv": "corner_blind_hold_06_original.csv"
+  },
+  {
+    "name": "corner_blind_hold_06",
+    "version": "new",
+    "config": {
+      "width": 0.6,
+      "fault": "blind",
+      "max-time": 65
+    },
+    "outcome": "blind_sector_hold",
+    "process_code": 0,
+    "completed": false,
+    "entered": false,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 65.0,
+    "final_yaw": -25.9710598,
+    "final_reason": "manoeuvre_timeout",
+    "fault_scans": 397,
+    "min_cap_gap": null,
+    "fault_zero_commands": true,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "14.9",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-0.89251573",
+        "x": "1.17397968",
+        "y": "-0.0440545874"
+      },
+      {
+        "time": "24.6",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.187959102",
+        "x": "1.65921639",
+        "y": "-0.046144555"
+      },
+      {
+        "time": "44.9",
+        "state": "Stopped",
+        "reason": "manoeuvre_timeout",
+        "yaw_deg": "-25.9710598",
+        "x": "1.66271274",
+        "y": "-0.0462293287"
+      }
+    ],
+    "csv": "corner_blind_hold_06_new.csv"
+  },
+  {
+    "name": "dead_end_rotated_60",
+    "version": "original",
+    "config": {
+      "width": 0.6,
+      "dead-end": true,
+      "depth": 2,
+      "rotation": 60
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 71.5,
+    "final_yaw": 89.2036008,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.107936641,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 47.1,
+        "end_time": 51.3,
+        "angle_degrees": 142.0072521
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "47.1",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-91.1598157",
+        "x": "1.65246393",
+        "y": "-2.05113398"
+      },
+      {
+        "time": "51.3",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "50.8474364",
+        "x": "1.6525527",
+        "y": "-2.05669463"
+      }
+    ],
+    "csv": "dead_end_rotated_60_original.csv"
+  },
+  {
+    "name": "dead_end_rotated_60",
+    "version": "new",
+    "config": {
+      "width": 0.6,
+      "dead-end": true,
+      "depth": 2,
+      "rotation": 60
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 84.45,
+    "final_yaw": 89.5302599,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.173117765,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 57.2,
+        "end_time": 62.7,
+        "angle_degrees": 186.66805190000002
+      },
+      {
+        "start_time": 67.2,
+        "end_time": 68.1,
+        "angle_degrees": 27.464470299999995
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "14.8",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-0.969946802",
+        "x": "1.16623585",
+        "y": "-0.0440092426"
+      },
+      {
+        "time": "24.6",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.0360220559",
+        "x": "1.65647338",
+        "y": "-0.0449642461"
+      },
+      {
+        "time": "28.2",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.2142936",
+        "x": "1.65996994",
+        "y": "-0.0450397678"
+      },
+      {
+        "time": "34.3",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.0353464",
+        "x": "1.66142006",
+        "y": "-0.344022147"
+      },
+      {
+        "time": "57.2",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-90.0200688",
+        "x": "1.64350724",
+        "y": "-1.98592636"
+      },
+      {
+        "time": "62.7",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "96.6479831",
+        "x": "1.64370626",
+        "y": "-1.99151526"
+      },
+      {
+        "time": "67.2",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "47.0490766",
+        "x": "1.7053637",
+        "y": "-1.78413308"
+      },
+      {
+        "time": "68.1",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "74.5135469",
+        "x": "1.70767743",
+        "y": "-1.78151112"
+      }
+    ],
+    "csv": "dead_end_rotated_60_new.csv"
+  },
+  {
+    "name": "dead_end_edge_2m",
+    "version": "original",
+    "config": {
+      "width": 0.8,
+      "dead-end": true,
+      "depth": 2,
+      "edge": 2
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 83.65,
+    "final_yaw": 89.9045603,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.104658942,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 55.0,
+        "end_time": 57.6,
+        "angle_degrees": 87.01513689
+      },
+      {
+        "start_time": 61.4,
+        "end_time": 63.9,
+        "angle_degrees": 83.55860051799999
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "55",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-90.5403393",
+        "x": "2.25438492",
+        "y": "-2.15456927"
+      },
+      {
+        "time": "57.6",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-3.52520241",
+        "x": "2.25453401",
+        "y": "-2.16011486"
+      },
+      {
+        "time": "61.4",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-0.226385818",
+        "x": "2.55046734",
+        "y": "-2.16015052"
+      },
+      {
+        "time": "63.9",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "83.3322147",
+        "x": "2.55603336",
+        "y": "-2.15997127"
+      }
+    ],
+    "csv": "dead_end_edge_2m_original.csv"
+  },
+  {
+    "name": "dead_end_edge_2m",
+    "version": "new",
+    "config": {
+      "width": 0.8,
+      "dead-end": true,
+      "depth": 2,
+      "edge": 2
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 98.0,
+    "final_yaw": 89.7354596,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.15177505,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 65.1,
+        "end_time": 68.1,
+        "angle_degrees": 100.7169863
+      },
+      {
+        "start_time": 72.6,
+        "end_time": 76.1,
+        "angle_degrees": 117.4888626
+      },
+      {
+        "start_time": 81.0,
+        "end_time": 81.7,
+        "angle_degrees": 21.021415999999995
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "22.6",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-1.10696421",
+        "x": "1.76873186",
+        "y": "-0.141724044"
+      },
+      {
+        "time": "32.4",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.0716882889",
+        "x": "2.25896783",
+        "y": "-0.143057363"
+      },
+      {
+        "time": "36",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.2499597",
+        "x": "2.26246434",
+        "y": "-0.143135061"
+      },
+      {
+        "time": "42.2",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.0710993",
+        "x": "2.26372214",
+        "y": "-0.447118282"
+      },
+      {
+        "time": "65.1",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-89.8923313",
+        "x": "2.24301366",
+        "y": "-2.08079971"
+      },
+      {
+        "time": "68.1",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "10.824655",
+        "x": "2.24322445",
+        "y": "-2.08637958"
+      },
+      {
+        "time": "72.6",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-20.83977",
+        "x": "2.46272039",
+        "y": "-2.11171999"
+      },
+      {
+        "time": "76.1",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "96.6490926",
+        "x": "2.46602672",
+        "y": "-2.11285796"
+      },
+      {
+        "time": "81",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "55.1747243",
+        "x": "2.52386652",
+        "y": "-1.87997038"
+      },
+      {
+        "time": "81.7",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "76.1961403",
+        "x": "2.52577497",
+        "y": "-1.87704232"
+      }
+    ],
+    "csv": "dead_end_edge_2m_new.csv"
+  },
+  {
+    "name": "right_skew_minus8_06",
+    "version": "original",
+    "config": {
+      "width": 0.6,
+      "start-yaw": -8
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 33.05,
+    "final_yaw": -90.6574947,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 29.7,
+        "end_time": 31.7,
+        "angle_degrees": 65.2255155
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-8",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "25.3",
+        "state": "FindWall",
+        "reason": "unbounded_right_search",
+        "yaw_deg": "-89.8619846",
+        "x": "1.77104273",
+        "y": "-0.330819798"
+      },
+      {
+        "time": "29.7",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-160.040067",
+        "x": "1.65337601",
+        "y": "-0.501644534"
+      },
+      {
+        "time": "31.7",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-94.8145515",
+        "x": "1.65012135",
+        "y": "-0.502923887"
+      }
+    ],
+    "csv": "right_skew_minus8_06_original.csv"
+  },
+  {
+    "name": "right_skew_minus8_06",
+    "version": "new",
+    "config": {
+      "width": 0.6,
+      "start-yaw": -8
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 39.45,
+    "final_yaw": -95.5660169,
+    "final_reason": "following_with_distance_only",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-8",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "14.9",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-0.742917232",
+        "x": "1.17256669",
+        "y": "-0.0458318587"
+      },
+      {
+        "time": "24.6",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.191582341",
+        "x": "1.6578043",
+        "y": "-0.0478441548"
+      },
+      {
+        "time": "28.2",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3698543",
+        "x": "1.66130064",
+        "y": "-0.0479291695"
+      },
+      {
+        "time": "34.3",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1909071",
+        "x": "1.661939",
+        "y": "-0.346914384"
+      }
+    ],
+    "csv": "right_skew_minus8_06_new.csv"
+  },
+  {
+    "name": "right_skew_plus8_08",
+    "version": "original",
+    "config": {
+      "width": 0.8,
+      "start-yaw": 8
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 29.25,
+    "final_yaw": -97.8130253,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "8",
+        "x": "0",
+        "y": "0"
+      }
+    ],
+    "csv": "right_skew_plus8_08_original.csv"
+  },
+  {
+    "name": "right_skew_plus8_08",
+    "version": "new",
+    "config": {
+      "width": 0.8,
+      "start-yaw": 8
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 40.3,
+    "final_yaw": -96.1814807,
+    "final_reason": "following_with_distance_only",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "8",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "15.2",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-2.75115",
+        "x": "1.16933697",
+        "y": "-0.121659014"
+      },
+      {
+        "time": "25",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.186127849",
+        "x": "1.65954628",
+        "y": "-0.125050776"
+      },
+      {
+        "time": "28.6",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3643972",
+        "x": "1.66304262",
+        "y": "-0.125135458"
+      },
+      {
+        "time": "35.1",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1857357",
+        "x": "1.66364468",
+        "y": "-0.444120506"
+      }
+    ],
+    "csv": "right_skew_plus8_08_new.csv"
+  },
+  {
+    "name": "right_offset_left_06",
+    "version": "original",
+    "config": {
+      "width": 0.6,
+      "start-y": 0.05
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 29.0,
+    "final_yaw": -97.7006109,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0.05"
+      }
+    ],
+    "csv": "right_offset_left_06_original.csv"
+  },
+  {
+    "name": "right_offset_left_06",
+    "version": "new",
+    "config": {
+      "width": 0.6,
+      "start-y": 0.05
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 39.85,
+    "final_yaw": -96.8118385,
+    "final_reason": "following_with_distance_only",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0.05"
+      },
+      {
+        "time": "15",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-1.77096946",
+        "x": "1.17338645",
+        "y": "-0.0335335422"
+      },
+      {
+        "time": "24.75",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.166770375",
+        "x": "1.66111449",
+        "y": "-0.0360832076"
+      },
+      {
+        "time": "28.35",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3450409",
+        "x": "1.66461086",
+        "y": "-0.0361667083"
+      },
+      {
+        "time": "34.7",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1662902",
+        "x": "1.66534245",
+        "y": "-0.347651566"
+      }
+    ],
+    "csv": "right_offset_left_06_new.csv"
+  },
+  {
+    "name": "right_offset_right_08",
+    "version": "original",
+    "config": {
+      "width": 0.8,
+      "start-y": -0.05
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 29.0,
+    "final_yaw": -97.898006,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "-0.05"
+      }
+    ],
+    "csv": "right_offset_right_08_original.csv"
+  },
+  {
+    "name": "right_offset_right_08",
+    "version": "new",
+    "config": {
+      "width": 0.8,
+      "start-y": -0.05
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 39.85,
+    "final_yaw": -96.6622216,
+    "final_reason": "following_with_distance_only",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "-0.05"
+      },
+      {
+        "time": "15",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-1.79719204",
+        "x": "1.17319753",
+        "y": "-0.133578331"
+      },
+      {
+        "time": "24.75",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.187218052",
+        "x": "1.66092359",
+        "y": "-0.136299379"
+      },
+      {
+        "time": "28.35",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.3654886",
+        "x": "1.66441993",
+        "y": "-0.136384127"
+      },
+      {
+        "time": "34.7",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.1867379",
+        "x": "1.66504036",
+        "y": "-0.447869226"
+      }
+    ],
+    "csv": "right_offset_right_08_new.csv"
+  },
+  {
+    "name": "dead_end_slower_response",
+    "version": "original",
+    "config": {
+      "width": 0.8,
+      "dead-end": true,
+      "depth": 2.5,
+      "lag": 0.2
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 93.7,
+    "final_yaw": 89.9363425,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.104623596,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 30.0,
+        "end_time": 32.1,
+        "angle_degrees": 64.62968240000001
+      },
+      {
+        "start_time": 58.1,
+        "end_time": 60.8,
+        "angle_degrees": 87.72411446
+      },
+      {
+        "start_time": 64.9,
+        "end_time": 67.6,
+        "angle_degrees": 87.67835154
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "25.5",
+        "state": "FindWall",
+        "reason": "unbounded_right_search",
+        "yaw_deg": "-88.7270711",
+        "x": "1.77160779",
+        "y": "-0.41835944"
+      },
+      {
+        "time": "30",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-160.821491",
+        "x": "1.65168755",
+        "y": "-0.593105887"
+      },
+      {
+        "time": "32.1",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-96.1918086",
+        "x": "1.64472342",
+        "y": "-0.595835106"
+      },
+      {
+        "time": "58.1",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "-90.0929298",
+        "x": "1.64223905",
+        "y": "-2.65266233"
+      },
+      {
+        "time": "60.8",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-2.36881534",
+        "x": "1.64293586",
+        "y": "-2.66452962"
+      },
+      {
+        "time": "64.9",
+        "state": "TurnLeft",
+        "reason": "front_sector_priority",
+        "yaw_deg": "0.19933226",
+        "x": "1.95420637",
+        "y": "-2.66076745"
+      },
+      {
+        "time": "67.6",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "87.8776838",
+        "x": "1.96612339",
+        "y": "-2.66001147"
+      }
+    ],
+    "csv": "dead_end_slower_response_original.csv"
+  },
+  {
+    "name": "dead_end_slower_response",
+    "version": "new",
+    "config": {
+      "width": 0.8,
+      "dead-end": true,
+      "depth": 2.5,
+      "lag": 0.2
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": true,
+    "returned": true,
+    "contact": false,
+    "final_time": 103.5,
+    "final_yaw": 89.8666823,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": 0.145539928,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 64.1,
+        "end_time": 67.1,
+        "angle_degrees": 97.96424159
+      },
+      {
+        "start_time": 71.6,
+        "end_time": 75.1,
+        "angle_degrees": 114.3538075
+      },
+      {
+        "start_time": 80.2,
+        "end_time": 81.0,
+        "angle_degrees": 21.158388400000007
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "15.2",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "-2.62359175",
+        "x": "1.17283451",
+        "y": "-0.123407833"
+      },
+      {
+        "time": "24.8",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "0.131670723",
+        "x": "1.65421346",
+        "y": "-0.124269814"
+      },
+      {
+        "time": "28.25",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.036792",
+        "x": "1.66168516",
+        "y": "-0.124587319"
+      },
+      {
+        "time": "34.9",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-89.8682913",
+        "x": "1.66360619",
+        "y": "-0.447071687"
+      },
+      {
+        "time": "64.1",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-89.8790152",
+        "x": "1.64376964",
+        "y": "-2.58134932"
+      },
+      {
+        "time": "67.1",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "8.08522639",
+        "x": "1.6445066",
+        "y": "-2.59326953"
+      },
+      {
+        "time": "71.6",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-19.1656455",
+        "x": "1.86379194",
+        "y": "-2.61701116"
+      },
+      {
+        "time": "75.1",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "95.188162",
+        "x": "1.87097347",
+        "y": "-2.61909046"
+      },
+      {
+        "time": "80.2",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "56.4269793",
+        "x": "1.92823658",
+        "y": "-2.37712848"
+      },
+      {
+        "time": "81",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "77.5853677",
+        "x": "1.93205412",
+        "y": "-2.37077825"
+      }
+    ],
+    "csv": "dead_end_slower_response_new.csv"
+  },
+  {
+    "name": "attached_obstacle_06",
+    "version": "original",
+    "config": {
+      "width": 0.6,
+      "obstacle": true
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 30.3,
+    "final_yaw": -97.7264744,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      }
+    ],
+    "csv": "attached_obstacle_06_original.csv"
+  },
+  {
+    "name": "attached_obstacle_06",
+    "version": "new",
+    "config": {
+      "width": 0.6,
+      "obstacle": true
+    },
+    "outcome": "navigation_incomplete",
+    "process_code": 0,
+    "completed": false,
+    "entered": false,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 180.0,
+    "final_yaw": 29.4896151,
+    "final_reason": "manoeuvre_timeout",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 7.4,
+        "end_time": 8.4,
+        "angle_degrees": 31.804455400000002
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "7.4",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-10.1740802",
+        "x": "0.493972491",
+        "y": "-0.033768643"
+      },
+      {
+        "time": "8.4",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "21.6303752",
+        "x": "0.497433236",
+        "y": "-0.034267206"
+      },
+      {
+        "time": "9.7",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "29.1017152",
+        "x": "0.551310583",
+        "y": "-0.00799527217"
+      },
+      {
+        "time": "39.75",
+        "state": "Stopped",
+        "reason": "manoeuvre_timeout",
+        "yaw_deg": "29.4896151",
+        "x": "0.841594809",
+        "y": "0.156191446"
+      }
+    ],
+    "csv": "attached_obstacle_06_new.csv"
+  },
+  {
+    "name": "attached_obstacle_08",
+    "version": "original",
+    "config": {
+      "width": 0.8,
+      "obstacle": true
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 30.55,
+    "final_yaw": -97.8035804,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "19.6",
+        "state": "FindWall",
+        "reason": "unbounded_right_search",
+        "yaw_deg": "2.06700528",
+        "x": "1.42355962",
+        "y": "-0.159186118"
+      },
+      {
+        "time": "19.9",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "-1.62126749",
+        "x": "1.44051961",
+        "y": "-0.159017096"
+      }
+    ],
+    "csv": "attached_obstacle_08_original.csv"
+  },
+  {
+    "name": "attached_obstacle_08",
+    "version": "new",
+    "config": {
+      "width": 0.8,
+      "obstacle": true
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 56.5,
+    "final_yaw": -95.4233601,
+    "final_reason": "following_with_distance_only",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [
+      {
+        "start_time": 6.9,
+        "end_time": 8.5,
+        "angle_degrees": 51.9564929
+      },
+      {
+        "start_time": 27.85,
+        "end_time": 30.3,
+        "angle_degrees": 81.8183176
+      }
+    ],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      },
+      {
+        "time": "6.9",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-22.4324371",
+        "x": "0.458462633",
+        "y": "-0.0811779223"
+      },
+      {
+        "time": "8.5",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "29.5240558",
+        "x": "0.461734063",
+        "y": "-0.0824136043"
+      },
+      {
+        "time": "8.8",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "28.9983476",
+        "x": "0.470165974",
+        "y": "-0.0775249974"
+      },
+      {
+        "time": "18.35",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "18.6561723",
+        "x": "0.919987282",
+        "y": "0.0813241383"
+      },
+      {
+        "time": "21.95",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-68.5221184",
+        "x": "0.92332361",
+        "y": "0.0823731893"
+      },
+      {
+        "time": "27.8",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-71.3428956",
+        "x": "1.01651743",
+        "y": "-0.188531209"
+      },
+      {
+        "time": "27.85",
+        "state": "TurnLeft",
+        "reason": "avoiding_front_obstacle",
+        "yaw_deg": "-71.3429352",
+        "x": "1.01698395",
+        "y": "-0.189912907"
+      },
+      {
+        "time": "30.3",
+        "state": "FollowWall",
+        "reason": "front_obstacle_cleared",
+        "yaw_deg": "10.4753824",
+        "x": "1.01770547",
+        "y": "-0.191820608"
+      },
+      {
+        "time": "32.6",
+        "state": "AdvanceRight",
+        "reason": "advancing_past_measured_edge",
+        "yaw_deg": "2.2024861",
+        "x": "1.17481593",
+        "y": "-0.17713801"
+      },
+      {
+        "time": "42.25",
+        "state": "TurnRight",
+        "reason": "right_pivot_ready",
+        "yaw_deg": "-0.297190618",
+        "x": "1.65752898",
+        "y": "-0.177919778"
+      },
+      {
+        "time": "45.85",
+        "state": "FindWall",
+        "reason": "right_heading_reached",
+        "yaw_deg": "-87.4754675",
+        "x": "1.66102516",
+        "y": "-0.178011237"
+      },
+      {
+        "time": "51.3",
+        "state": "FollowWall",
+        "reason": "right_wall_reacquired",
+        "yaw_deg": "-90.2955417",
+        "x": "1.66128036",
+        "y": "-0.444497554"
+      }
+    ],
+    "csv": "attached_obstacle_08_new.csv"
+  },
+  {
+    "name": "archived_settings_08",
+    "version": "original",
+    "config": {
+      "width": 0.8,
+      "target": 0.2,
+      "lost": 0.45,
+      "max-time": 65
+    },
+    "outcome": "goal_completed",
+    "process_code": 0,
+    "completed": true,
+    "entered": true,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 28.5,
+    "final_yaw": -99.6891617,
+    "final_reason": "following_right_wall",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      }
+    ],
+    "csv": "archived_settings_08_original.csv"
+  },
+  {
+    "name": "archived_settings_08",
+    "version": "new",
+    "config": {
+      "width": 0.8,
+      "target": 0.2,
+      "lost": 0.45,
+      "max-time": 65
+    },
+    "outcome": "navigation_incomplete",
+    "process_code": 0,
+    "completed": false,
+    "entered": false,
+    "approached": false,
+    "returned": false,
+    "contact": false,
+    "final_time": 65.0,
+    "final_yaw": -30.0684722,
+    "final_reason": "right_wall_unobserved",
+    "fault_scans": 0,
+    "min_cap_gap": null,
+    "fault_zero_commands": false,
+    "fault_motion": false,
+    "left_turn_episodes": [],
+    "state_changes": [
+      {
+        "time": "0",
+        "state": "FollowWall",
+        "reason": "following_right_wall",
+        "yaw_deg": "0",
+        "x": "0",
+        "y": "0"
+      }
+    ],
+    "csv": "archived_settings_08_new.csv"
+  }
+]

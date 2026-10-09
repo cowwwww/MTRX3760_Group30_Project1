@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>mtrx3760_wall_follow_trial</name>
+  <version>0.1.0</version>
+  <description>Project 1 sensor-driven TurtleBot3 right-wall follower.</description>
+  <maintainer email="group30@example.com">MTRX3760 Group 30</maintainer>
+  <license>Proprietary</license>
+  <buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+  <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+  <depend condition="$ROS_VERSION == 1">roscpp</depend>
+  <depend condition="$ROS_VERSION == 2">rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend condition="$ROS_VERSION == 2">diagnostic_msgs</depend>
+  <exec_depend condition="$ROS_VERSION == 2">launch_ros</exec_depend>
+  <exec_depend condition="$ROS_VERSION == 2">ament_index_python</exec_depend>
+  <exec_depend condition="$ROS_VERSION == 1">roslaunch</exec_depend>
+  <test_depend condition="$ROS_VERSION == 2">rclpy</test_depend>
+  <test_depend condition="$ROS_VERSION == 2">rmw_cyclonedds_cpp</test_depend>
+  <export>
+    <build_type condition="$ROS_VERSION == 1">catkin</build_type>
+    <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+  </export>
+</package>

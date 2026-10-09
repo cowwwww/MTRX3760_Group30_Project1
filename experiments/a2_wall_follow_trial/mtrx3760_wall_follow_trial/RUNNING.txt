@@ -1,0 +1,4 @@
+See ../README.md in the distribution for the evidence, control explanation,
+exact Jazzy build/test commands, recording procedure and physical test matrix.
+ROS 2 physical launch now defaults to TwistStamped; plain Twist remains selectable.
+The existing ROS 1 adapter was updated for odometry feedback but was not built here.
