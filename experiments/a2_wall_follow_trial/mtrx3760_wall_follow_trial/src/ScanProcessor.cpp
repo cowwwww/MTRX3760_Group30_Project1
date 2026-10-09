@@ -85,9 +85,38 @@ ScanProcessor::Clearance ScanProcessor::MeasureClearance(const LaserScan& scan, 
     };
     result.frontUnknownSpan=maximumGap(frontBearings,false)*(s.frontStop+s.bodyFront+std::fabs(s.laserX));
     result.pivotUnknownSpan=maximumGap(bearings,true)*(radius+std::hypot(s.laserX,s.laserY));
-    result.frontValid=wide.valid && direct.valid && result.frontUnknownSpan<=s.maxUnobservedSpan;
+    result.frontValid=wide.valid && direct.valid && result.frontUnknownSpan<=s.maxFrontUnobservedSpan;
     result.pivotValid=result.pivotUnknownSpan<=s.maxUnobservedSpan;
     return result;
+}
+
+bool ScanProcessor::RightWallAngle(const LaserScan& scan, const Settings& s,
+                                   double rightDistance, double& angle)
+{
+    // Fit a local line to rays near the right wall. Do not require any
+    // particular front-right or rear-right ray to be valid.
+    // Restrict longitudinal reach so corner/end-wall returns cannot dominate.
+    double sx=0, sy=0, sxx=0, sxy=0;
+    int count=0;
+    for (std::size_t i=0;i<scan.ranges.size();++i)
+    {
+        const double a=scan.angleMin+i*scan.angleIncrement+s.laserYaw;
+        const double delta=std::atan2(std::sin(a+pi/2),std::cos(a+pi/2));
+        if (std::fabs(delta)>pi/4) continue;
+        const double r=scan.ranges[i];
+        if (!std::isfinite(r) || r<scan.rangeMin || r>scan.rangeMax) continue;
+        const double x=r*std::cos(a), y=r*std::sin(a);
+        if (std::fabs(x)>0.30 || std::fabs(y+rightDistance)>0.10) continue;
+        sx+=x; sy+=y; sxx+=x*x; sxy+=x*y; ++count;
+    }
+    const double denom=count*sxx-sx*sx;
+    if (count<10 || denom<0.015) return false;
+    const double slope=(count*sxy-sx*sy)/denom;
+    if (std::fabs(slope)>0.65) return false;
+    const double intercept=(sy-slope*sx)/count;
+    if (std::fabs(intercept+rightDistance)>0.06) return false;
+    angle=-std::atan(slope);
+    return true;
 }
 
 ScanProcessor::Reading ScanProcessor::Opening(const LaserScan& scan,const Settings& s,
