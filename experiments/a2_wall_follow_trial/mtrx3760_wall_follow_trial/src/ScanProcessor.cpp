@@ -134,17 +134,44 @@ ScanProcessor::Reading ScanProcessor::Opening(const LaserScan& scan,const Settin
     Reading gap; gap.distance=std::numeric_limits<double>::infinity();
     if (!std::isfinite(distance) || distance<=0.0 || !std::isfinite(heading)) return gap;
     const double tx=std::cos(heading),ty=std::sin(heading);
+    unsigned int noReturnRun=0, longestNoReturnRun=0;
     for (std::size_t i=0;i<scan.ranges.size();++i)
     {
         const double r=scan.ranges[i],a=scan.angleMin+i*scan.angleIncrement+s.laserYaw;
-        if (!std::isfinite(r) || r<=0.0 || r<scan.rangeMin || r>scan.rangeMax) continue;
+        const bool noReturn=std::isinf(r) && r>0.0;
+        const bool finiteHit=std::isfinite(r) && r>=scan.rangeMin && r<=scan.rangeMax;
+        if (!noReturn && !finiteHit) { noReturnRun=0; continue; }
         const double normal=ty*std::cos(a)-tx*std::sin(a);
-        if (normal<=1e-6 || r*normal<distance+0.10) continue;
+        if (normal<=1e-6) { noReturnRun=0; continue; }
         const double along=distance*(tx*std::cos(a)+ty*std::sin(a))/normal;
-        if (along < -s.bodyRear || along > s.cornerLookahead) continue;
-        ++gap.usable; gap.distance=std::min(gap.distance,along);
+        if (along < -s.bodyRear || along > s.cornerLookahead)
+        { noReturnRun=0; continue; }
+        if (finiteHit)
+        {
+            noReturnRun=0;
+            if (r*normal<distance+0.10) continue;
+            ++gap.finiteEvidence;
+        }
+        else
+        {
+            // +inf is only evidence of open space where the predicted
+            // old wall plane is actually within the LiDAR's usable range.
+            // Use a contiguous forward-right patch, never rearward rays.
+            const double crossingRange=distance/normal;
+            if (along<0.0 || crossingRange>scan.rangeMax-0.10)
+            { noReturnRun=0; continue; }
+            const double bodyBearing=std::atan2(std::sin(a),std::cos(a));
+            if (bodyBearing < -pi/2-0.05 || bodyBearing > -pi/4)
+            { noReturnRun=0; continue; }
+            ++gap.noReturnEvidence;
+            longestNoReturnRun=std::max(longestNoReturnRun,++noReturnRun);
+        }
+        ++gap.usable;
+        gap.distance=std::min(gap.distance,along);
     }
-    gap.valid=gap.usable>=3;
+    // Existing finite-hit evidence works as before. No-return-only
+    // inference demands a continuous angular patch, not stray missing rays.
+    gap.valid=gap.finiteEvidence>=3 || longestNoReturnRun>=5;
     return gap;
 }
 }
