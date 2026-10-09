@@ -35,7 +35,11 @@ ScanProcessor::Reading ScanProcessor::Sector(const LaserScan& scan, double centr
         nearestAngle = std::min(nearestAngle, error);
         const double range = scan.ranges[i];
         // No +inf free-space contract was verified for the physical LD19.
-        if (std::isfinite(range) && range > 0.0 &&
+        // Restore the A2/LDS convention: +inf means no return within range.
+        // NaN, -inf, zero and invalid finite values remain unusable.
+        if (std::isinf(range) && range > 0.0)
+            values.push_back(scan.rangeMax);
+        else if (std::isfinite(range) && range > 0.0 &&
                  range >= scan.rangeMin && range <= scan.rangeMax)
             values.push_back(range);
     }
@@ -64,14 +68,20 @@ ScanProcessor::Clearance ScanProcessor::MeasureClearance(const LaserScan& scan, 
     for (std::size_t i=0;i<scan.ranges.size();++i)
     {
         const double r=scan.ranges[i], a=scan.angleMin+i*scan.angleIncrement+s.laserYaw;
-        if (!std::isfinite(r) || r<=0.0 || r<scan.rangeMin || r>scan.rangeMax) continue;
+        const bool noReturn=std::isinf(r) && r>0.0;
+        if (!noReturn && (!std::isfinite(r) || r<=0.0 ||
+                          r<scan.rangeMin || r>scan.rangeMax)) continue;
         const double angle=std::atan2(std::sin(a),std::cos(a));
+        // +inf carries an observed bearing (the driver reported no nearby
+        // return); it is not a measured obstacle, so do not put it into
+        // geometric collision calculations.
+        bearings.push_back(angle);
+        if (std::fabs(angle)<=35.0*pi/180.0) frontBearings.push_back(angle);
+        if (noReturn) continue;
         const double x=s.laserX+r*std::cos(a), y=s.laserY+r*std::sin(a);
         result.pivot=std::min(result.pivot,std::hypot(x,y)-radius);
         if (x>=-s.bodyRear && std::fabs(y)<=s.bodyHalfWidth+s.clearanceMargin)
             result.front=std::min(result.front,x-s.bodyFront);
-        bearings.push_back(angle);
-        if (std::fabs(angle)<=35.0*pi/180.0) frontBearings.push_back(angle);
     }
     const auto maximumGap=[](std::vector<double> angles,bool circular)
     {
@@ -85,9 +95,37 @@ ScanProcessor::Clearance ScanProcessor::MeasureClearance(const LaserScan& scan, 
     };
     result.frontUnknownSpan=maximumGap(frontBearings,false)*(s.frontStop+s.bodyFront+std::fabs(s.laserX));
     result.pivotUnknownSpan=maximumGap(bearings,true)*(radius+std::hypot(s.laserX,s.laserY));
-    result.frontValid=wide.valid && direct.valid && result.frontUnknownSpan<=s.maxUnobservedSpan;
+    result.frontValid=wide.valid && direct.valid && result.frontUnknownSpan<=s.maxFrontUnobservedSpan;
     result.pivotValid=result.pivotUnknownSpan<=s.maxUnobservedSpan;
     return result;
+}
+
+bool ScanProcessor::RightWallAngle(const LaserScan& scan, const Settings& s,
+                                   double rightDistance, double& angle)
+{
+    // Local least-squares line fit. Corner estimate, never cruise feedback.
+    // Require spatial spread to reject clusters from a single edge or corner.
+    double sx=0.0,sy=0.0,sxx=0.0,sxy=0.0;
+    int count=0;
+    for (std::size_t i=0;i<scan.ranges.size();++i)
+    {
+        const double a=scan.angleMin+i*scan.angleIncrement+s.laserYaw;
+        const double delta=std::atan2(std::sin(a+pi/2),std::cos(a+pi/2));
+        if (std::fabs(delta)>pi/4) continue;
+        const double r=scan.ranges[i];
+        if (!std::isfinite(r) || r<scan.rangeMin || r>scan.rangeMax) continue;
+        const double x=r*std::cos(a), y=r*std::sin(a);
+        if (std::fabs(x)>0.30 || std::fabs(y+rightDistance)>0.10) continue;
+        sx+=x; sy+=y; sxx+=x*x; sxy+=x*y; ++count;
+    }
+    const double denominator=count*sxx-sx*sx;
+    if (count<10 || denominator<0.015) return false;
+    const double slope=(count*sxy-sx*sy)/denominator;
+    if (std::fabs(slope)>0.65) return false;
+    const double intercept=(sy-slope*sx)/count;
+    if (std::fabs(intercept+rightDistance)>0.06) return false;
+    angle=-std::atan(slope);
+    return true;
 }
 
 ScanProcessor::Reading ScanProcessor::Opening(const LaserScan& scan,const Settings& s,
