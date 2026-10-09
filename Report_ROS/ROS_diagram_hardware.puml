@@ -1,0 +1,23 @@
+@startuml
+
+skinparam shadowing false
+skinparam usecase {
+  BackgroundColor White
+  BorderColor Black
+  FontSize 13
+}
+skinparam ArrowFontSize 12
+skinparam nodesep 40
+skinparam ranksep 55
+
+usecase "TurtleBot3Platform\n(hardware drivers)" as Platform
+usecase "WallFollowerNode" as Follower
+usecase "Rviz" as Rviz
+
+Platform --> Follower : lidar_ranges
+Platform --> Follower : robot_odometry
+Follower --> Platform : drive_velocity_command
+Follower --> Rviz     : travelled_path
+Platform --> Rviz     : lidar_ranges
+Platform --> Rviz     : camera_image
+@enduml

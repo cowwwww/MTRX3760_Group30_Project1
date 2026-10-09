@@ -1,0 +1,24 @@
+@startuml
+
+skinparam shadowing false
+skinparam usecase {
+  BackgroundColor White
+  BorderColor Black
+  FontSize 13
+}
+skinparam ArrowFontSize 12
+skinparam nodesep 40
+skinparam ranksep 55
+
+usecase "TurtleBot3Platform\n(Gazebo simulation)" as Platform
+usecase "Turtlebot3Drive" as Drive
+usecase "Rviz" as Rviz
+
+Platform --> Drive : lidar_ranges
+Platform --> Drive : robot_odometry
+Drive --> Platform : drive_velocity_command
+Drive --> Rviz     : target_waypoints
+Platform --> Rviz  : lidar_ranges
+Platform --> Rviz  : robot_odometry
+Platform --> Rviz  : camera_image
+@enduml
