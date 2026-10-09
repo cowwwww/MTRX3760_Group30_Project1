@@ -26,3 +26,34 @@ A1 Gazebo uses a separate waypoint controller; it does not call this `WallFollow
 
 For regression tests, before/after comparisons and the A3 design explanation,
 see `../../validation/A3_REFACTOR.md`.
+
+## Connecting to Turtlebot
+
+1. Connect to turtlebot (TB3-30)
+2. Check you can reach tb3
+```bash
+nmcli -t -f active,ssid dev wifi | grep '^yes'
+ping -c 3 <ip>
+```
+3. SSH in
+```bash
+ssh ubuntu@<ip>
+```
+- First connection: it asks "Are you sure you want to continue connecting?" Type yes
+- Success: the prompt changes to something like ```ubuntu@<robot-hostname>:~$```. You're now typing on the robot
+4. Start the drivers
+```bash
+echo $RMW_IMPLEMENTATION $ROS_DOMAIN_ID $TURTLEBOT3_MODEL $LDS_MODEL    # see what's already set
+ros2 launch turtlebot3_bringup robot.launch.py
+```
+- If ```TURTLEBOT3_MODEL``` or ```LDS_MODEL``` is empty, set them first. For example export ```TURTLEBOT3_MODEL=burger LDS_MODEL=LDS-01```
+5. Robot is now publishing topics, make PC see the topics
+```bash
+source /opt/ros/jazzy/setup.bash
+source ~/mtrx3760_ws/install/setup.bash
+export ROS_DOMAIN_ID=<the value you saw on the robot in step 3>
+export RMW_IMPLEMENTATION=<the value you saw on the robot in step 3>   # leave unset if the robot's was empty
+unset ROS_LOCALHOST_ONLY
+ros2 topic list
+```
+
