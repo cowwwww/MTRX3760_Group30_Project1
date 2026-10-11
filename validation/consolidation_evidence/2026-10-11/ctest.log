@@ -1,0 +1,75 @@
+Internal ctest changing into directory: /tmp/group30_final/build/mtrx3760_project1
+Test project /tmp/group30_final/build/mtrx3760_project1
+      Start  1: controller_settings
+ 1/31 Test  #1: controller_settings ......................   Passed    0.00 sec
+      Start  2: controller_scan_geometry
+ 2/31 Test  #2: controller_scan_geometry .................   Passed    0.00 sec
+      Start  3: controller_wall_heading
+ 3/31 Test  #3: controller_wall_heading ..................   Passed    0.00 sec
+      Start  4: controller_side_dropout
+ 4/31 Test  #4: controller_side_dropout ..................   Passed    0.00 sec
+      Start  5: controller_no_return_opening
+ 5/31 Test  #5: controller_no_return_opening .............   Passed    0.00 sec
+      Start  6: controller_physical_coverage_tolerance
+ 6/31 Test  #6: controller_physical_coverage_tolerance ...   Passed    0.01 sec
+      Start  7: controller_physical_regression
+ 7/31 Test  #7: controller_physical_regression ...........   Passed    0.01 sec
+      Start  8: controller_original_a2_cruise
+ 8/31 Test  #8: controller_original_a2_cruise ............   Passed    0.00 sec
+      Start  9: controller_unknown_scan
+ 9/31 Test  #9: controller_unknown_scan ..................   Passed    0.00 sec
+      Start 10: controller_stale_inputs
+10/31 Test #10: controller_stale_inputs ..................   Passed    0.00 sec
+      Start 11: controller_obstacle_priority
+11/31 Test #11: controller_obstacle_priority .............   Passed    0.00 sec
+      Start 12: controller_sensor_recovery
+12/31 Test #12: controller_sensor_recovery ...............   Passed    0.00 sec
+      Start 13: controller_pose_jump
+13/31 Test #13: controller_pose_jump .....................   Passed    0.00 sec
+      Start 14: controller_no_progress
+14/31 Test #14: controller_no_progress ...................   Passed    0.05 sec
+      Start 15: controller_corridor_widths
+15/31 Test #15: controller_corridor_widths ...............   Passed    0.77 sec
+      Start 16: controller_corner_approaches
+16/31 Test #16: controller_corner_approaches .............   Passed    1.95 sec
+      Start 17: controller_right_junction
+17/31 Test #17: controller_right_junction ................   Passed    0.26 sec
+      Start 18: controller_end_wall
+18/31 Test #18: controller_end_wall ......................   Passed    0.51 sec
+      Start 19: controller_second_corner
+19/31 Test #19: controller_second_corner .................   Passed    0.45 sec
+      Start 20: controller_corner_dropouts
+20/31 Test #20: controller_corner_dropouts ...............***Failed    1.40 sec
+corner_dropout_0.800000_-0.200000 failed x=0.101526 y=-0.0555904 yaw=-0.947639 reason=right_wall_unobserved
+FAIL corner_dropouts: Persistent narrow sector holes prevent turn on skewed approach
+
+      Start 21: controller_obstacle_in_corner
+21/31 Test #21: controller_obstacle_in_corner ............   Passed    0.14 sec
+      Start 22: controller_sensor_outage_corner
+22/31 Test #22: controller_sensor_outage_corner ..........   Passed    0.25 sec
+      Start 23: controller_dead_end
+23/31 Test #23: controller_dead_end ......................   Passed    0.41 sec
+      Start 24: controller_bounds
+24/31 Test #24: controller_bounds ........................   Passed    0.27 sec
+      Start 25: trajectory_spacing
+25/31 Test #25: trajectory_spacing .......................   Passed    0.01 sec
+      Start 26: trajectory_capacity
+26/31 Test #26: trajectory_capacity ......................   Passed    0.02 sec
+      Start 27: trajectory_invalid_data
+27/31 Test #27: trajectory_invalid_data ..................   Passed    0.01 sec
+      Start 28: trajectory_frame_reset
+28/31 Test #28: trajectory_frame_reset ...................   Passed    0.01 sec
+      Start 29: trajectory_time_reset
+29/31 Test #29: trajectory_time_reset ....................   Passed    0.01 sec
+      Start 30: trajectory_pose_copy
+30/31 Test #30: trajectory_pose_copy .....................   Passed    0.01 sec
+      Start 31: ros2_adapter_integration
+31/31 Test #31: ros2_adapter_integration .................   Passed   14.58 sec
+
+97% tests passed, 1 tests failed out of 31
+
+Total Test time (real) =  21.15 sec
+
+The following tests FAILED:
+	 20 - controller_corner_dropouts (Failed)
+Errors while running CTest

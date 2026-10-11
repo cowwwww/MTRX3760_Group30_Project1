@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Record one default-maze run using the repository's real Gazebo launch and A1 node.
+"""Record one default-maze run using the repository's real Gazebo launch and shared controller.
 
-Source Jazzy and the built A1 workspace before running this file. No physical
+Source Jazzy and the built consolidated workspace before running this file. No physical
 robot is used. Exit detection is specific to default_maze's east exit.
 """
 import argparse
@@ -122,7 +122,7 @@ def main():
     next_progress = 0.0
     exit_detector = EastExitDetector()
     try:
-        simulation = start('maze_launch', ['ros2', 'launch', 'tb3_maze', 'maze.launch.py'])
+        simulation = start('maze_launch', ['ros2', 'launch', 'mtrx3760_project1', 'maze.launch.py', 'gui:=false', 'rviz:=false', 'controller:=false'])
         pose_log = (output / 'ground_truth_reader.log').open('w')
         handles.append(pose_log)
         pose_reader = subprocess.Popen(['gz', 'topic', '-e', '--json-output', '-t',
@@ -138,10 +138,10 @@ def main():
             if controller is None and state['scan_count'] and state['odom_count'] and state['world']:
                 initial_world = state['world']
                 initial_odom = state['odom']
-                controller = start('wall_follower', ['ros2', 'run', 'tb3_maze', 'turtlebot3_drive',
-                    '--ros-args', '-p', 'use_sim_time:=true'])
+                controller = start('wall_follower', ['ros2', 'launch', 'mtrx3760_project1', 'wall_follower.launch.py',
+                    'use_sim_time:=true'])
                 result = 'TIME_LIMIT'
-                print('Sensors ready; started production A1 right-wall follower.', flush=True)
+                print('Sensors ready; started shared right-wall follower.', flush=True)
             if controller is not None and controller.poll() is not None:
                 result = 'CONTROLLER_EXITED'
                 break
@@ -182,7 +182,7 @@ def main():
         report = dict(state, result=result, initial_world=initial_world,
                       initial_odom=initial_odom, wall_seconds=time.monotonic()-started,
                       hardware=False, ros_domain=202, gz_partition=os.environ['GZ_PARTITION'],
-                      world_name='default_maze', model='burger_cam', controller='tb3_maze/turtlebot3_drive',
+                      world_name='default_maze', model='burger_cam', controller='mtrx3760_project1/turtlebot3_drive',
                       crossed_east_portal=exit_detector.crossed_portal,
                       exit_criterion='Cross east opening at x=2.425, 0.825<y<1.575, then x>2.60 m')
         (output / 'result.json').write_text(json.dumps(report, indent=2) + '\n')

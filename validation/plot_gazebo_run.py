@@ -17,7 +17,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run', required=True, type=Path)
     parser.add_argument('--world', type=Path, default=Path(__file__).resolve().parents[1] /
-                        'A1 Maze Simulation/tb3_maze/worlds/default_maze.world')
+                        'src/mtrx3760_project1/worlds/default_maze.world')
     args = parser.parse_args()
     with (args.run / 'trajectory.csv').open() as handle:
         rows = [{key: float(value) if value else None for key, value in row.items()}
@@ -37,7 +37,7 @@ def main():
     ax.scatter(*points[0], color='#198754', s=60, zorder=3, label='Start')
     ax.scatter(*points[-1], color='#c73e3e', s=60, zorder=3, label='Recorded exit')
     ax.set(xlabel='World x (m)', ylabel='World y (m)', xlim=(-2.7, 3.0), ylim=(-1.9, 1.9),
-           title='A1 right-wall follower — default Gazebo maze, 7 October 2026')
+           title='Shared right-wall follower — default Gazebo maze')
     ax.set_aspect('equal')
     ax.grid(alpha=0.15)
     ax.legend(loc='upper left', fontsize=8)

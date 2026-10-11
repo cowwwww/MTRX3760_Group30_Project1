@@ -1,23 +1,23 @@
 @startuml
-
+left to right direction
 skinparam shadowing false
-skinparam usecase {
-  BackgroundColor White
-  BorderColor Black
-  FontSize 13
-}
-skinparam ArrowFontSize 12
-skinparam nodesep 40
-skinparam ranksep 55
-
-usecase "TurtleBot3Platform\n(hardware drivers)" as Platform
-usecase "WallFollowerNode" as Follower
-usecase "Rviz" as Rviz
-
-Platform --> Follower : lidar_ranges
-Platform --> Follower : robot_odometry
-Follower --> Platform : drive_velocity_command
-Follower --> Rviz     : travelled_path
-Platform --> Rviz     : lidar_ranges
-Platform --> Rviz     : camera_image
+skinparam usecaseBackgroundColor White
+skinparam usecaseBorderColor Black
+skinparam nodesep 65
+skinparam ranksep 85
+usecase "robotis::turtlebot3::TurtleBot3" as Robot
+usecase "rclcpp::Node\n(LD19 driver; class inferred)" as Lidar
+usecase "project1::ros2::WallFollowerNode" as Follower
+usecase "robotis::turtlebot3::DiffDriveController" as Odom
+Lidar --> Follower : /scan : LaserScan
+Robot --> Odom : /joint_states : JointState
+Robot --> Odom : /imu : Imu
+Odom --> Follower : /odom : Odometry
+Follower --> Robot : /cmd_vel : TwistStamped
+note bottom
+Physical bringup: turtlebot3_bringup, LDS_MODEL=LDS-04, LDROBOT LD19.
+The LD19 ROS node class is inferred from upstream; verify the installed driver.
+Optional RViz consumes /trajectory : Path and /scan : LaserScan.
+Middleware discovery and diagnostic topics are omitted.
+end note
 @enduml
