@@ -9,12 +9,10 @@ The simulation launch adds the maze, simulated sensors and visualisation.
 
 - `src/mtrx3760_project1/`: the final controller, tests, configuration, launch files,
   maze worlds and RViz configuration.
-- `third_party/`: one copy of the TurtleBot3 description and Gazebo dependencies,
-  including the camera-equipped Burger model used for A1.
+- TurtleBot3 simulation packages are not copied into this repository; install them
+  with `sudo apt install ros-jazzy-turtlebot3-gazebo ros-jazzy-turtlebot3-description`.
 - `Report_ROS/`: editable design diagram sources.
-- `validation/`: test tools and dated historical evidence. Historical results are
-  not evidence of a new revision; see `docs/CONSOLIDATION.md`.
-- `docs/`: consolidation provenance, validation status and submission checklist.
+- `validation/`: maze-exit test tools and the Gazebo run evidence for this program.
 
 Earlier A1, A2, A3 and experiment implementations are available through Git
 history, not parallel source folders in the final checkout. No history was rewritten.
@@ -29,7 +27,7 @@ publisher, the message dependencies in package.xml, and Cyclone DDS for the test
 cd /home/james/mtrx3760/MTRX3760_Group30_Project1
 source /opt/ros/jazzy/setup.bash
 colcon --log-base /home/james/mtrx3760_ws/consolidated/log build \
-  --base-paths src third_party \
+  --base-paths src \
   --build-base /home/james/mtrx3760_ws/consolidated/build \
   --install-base /home/james/mtrx3760_ws/consolidated/install \
   --cmake-args -DBUILD_TESTING=ON
@@ -85,10 +83,8 @@ python3 validation/gazebo_maze_check.py --output /tmp/group30-maze --timeout 500
 The Gazebo checker uses a separate localhost ROS domain and Gazebo partition,
 records camera images and trajectory, and checks the actual east exit crossing.
 For core tests without ROS, configure with `-DPROJECT1_ROS_VERSION=`.
-Read `docs/CONSOLIDATION.md` for actual results and unresolved failures.
 
 ## Submission
 
-Follow `docs/SUBMISSION_CHECKLIST.md`. Commit the reviewed final changes before
-producing the Git log, source appendix and full-history bundle. Physical
-functionality is assessed by the live tutor demonstration, not offline tests.
+The final commit on `main` is the demonstrated and graded program. Earlier A1, A2
+and A3 versions are in the Git history only.
