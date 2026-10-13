@@ -1,3 +1,10 @@
+//----------------------------------------------------------------------------
+// File:    WallFollowerNode.h
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: ROS 2 node: subscribes to scan and odometry, runs the WallFollower
+//          each tick, and publishes velocity commands, the trajectory and
+//          diagnostics.
+//----------------------------------------------------------------------------
 #ifndef PROJECT1_ROS2_WALL_FOLLOWER_NODE_H
 #define PROJECT1_ROS2_WALL_FOLLOWER_NODE_H
 

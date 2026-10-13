@@ -1,4 +1,10 @@
-// Independent finite-segment raycasting and closed-loop controller checks.
+//----------------------------------------------------------------------------
+// File:    wall_controller_tests.cpp
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: Regression tests: walls are raycast into simulated scans to check
+//          closed-loop controller behaviour at corners, dead ends and sensor
+//          dropouts.
+//----------------------------------------------------------------------------
 #include "project1/WallFollower.h"
 #include "project1/ScanProcessor.h"
 #include <algorithm>

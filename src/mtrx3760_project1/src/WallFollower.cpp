@@ -1,4 +1,10 @@
-// Retains A2's sector medians, distance/heading feedback and front hysteresis.
+//----------------------------------------------------------------------------
+// File:    WallFollower.cpp
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: Implements the WallFollower states. Keeps A2's sector medians,
+//          distance/heading feedback and front hysteresis, with bounded corner
+//          feedback from odometry.
+//----------------------------------------------------------------------------
 #include "project1/WallFollower.h"
 #include <algorithm>
 #include <cmath>

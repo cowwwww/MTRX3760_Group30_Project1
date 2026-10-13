@@ -1,3 +1,9 @@
+//----------------------------------------------------------------------------
+// File:    trajectory_recorder_tests.cpp
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: Unit tests for TrajectoryRecorder pose spacing, capacity, frame and
+//          time resets, and pose copying.
+//----------------------------------------------------------------------------
 #include "project1/ros2/TrajectoryRecorder.h"
 #include <cmath>
 #include <iostream>

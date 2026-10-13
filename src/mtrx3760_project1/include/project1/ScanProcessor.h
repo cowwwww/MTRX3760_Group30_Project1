@@ -1,4 +1,9 @@
-// Angular sector selection and scan validity checks.
+//----------------------------------------------------------------------------
+// File:    ScanProcessor.h
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: Static LiDAR helpers: angular sector readings, front and pivot
+//          clearance, right-wall angle and right-opening evidence.
+//----------------------------------------------------------------------------
 #ifndef PROJECT1_SCANPROCESSOR_H
 #define PROJECT1_SCANPROCESSOR_H
 

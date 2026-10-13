@@ -1,3 +1,9 @@
+//----------------------------------------------------------------------------
+// File:    ScanProcessor.cpp
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: Implements sector selection, body-clearance measurement, wall-angle
+//          fitting and right-opening detection on a LaserScan.
+//----------------------------------------------------------------------------
 #include "project1/ScanProcessor.h"
 
 #include <algorithm>

@@ -1,3 +1,9 @@
+//----------------------------------------------------------------------------
+// File:    TrajectoryRecorder.cpp
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: Implements pose spacing, the capacity limit and frame/time resets
+//          for the recorded trajectory.
+//----------------------------------------------------------------------------
 #include "project1/ros2/TrajectoryRecorder.h"
 #include <rclcpp/time.hpp>
 #include <cmath>

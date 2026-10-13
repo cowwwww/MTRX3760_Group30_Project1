@@ -1,4 +1,9 @@
-// ROS-independent scan input and velocity output values.
+//----------------------------------------------------------------------------
+// File:    ControlTypes.h
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: ROS-independent value types: the laser scan passed into the
+//          controller and the velocity command it returns.
+//----------------------------------------------------------------------------
 #ifndef PROJECT1_CONTROLTYPES_H
 #define PROJECT1_CONTROLTYPES_H
 

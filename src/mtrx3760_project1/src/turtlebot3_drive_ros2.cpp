@@ -1,4 +1,9 @@
-// ROS 2 process lifecycle; the node and message helpers have separate files.
+//----------------------------------------------------------------------------
+// File:    turtlebot3_drive_ros2.cpp
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: Program entry point: creates the WallFollowerNode, runs the 50 ms
+//          control loop and sends a stop command before shutdown.
+//----------------------------------------------------------------------------
 #include "project1/ros2/WallFollowerNode.h"
 #include <chrono>
 #include <csignal>

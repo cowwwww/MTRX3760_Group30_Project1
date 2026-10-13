@@ -1,3 +1,9 @@
+//----------------------------------------------------------------------------
+// File:    WallFollowerNode.cpp
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: Implements parameter loading, the scan and odometry callbacks, the
+//          control tick, the stop command and diagnostics publishing.
+//----------------------------------------------------------------------------
 #include "project1/ros2/WallFollowerNode.h"
 #include <chrono>
 #include <cmath>

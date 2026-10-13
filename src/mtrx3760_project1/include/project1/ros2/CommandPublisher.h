@@ -1,3 +1,9 @@
+//----------------------------------------------------------------------------
+// File:    CommandPublisher.h
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: Publishes velocity commands as Twist or TwistStamped, selected by
+//          the stamped_cmd_vel parameter.
+//----------------------------------------------------------------------------
 #ifndef PROJECT1_ROS2_COMMAND_PUBLISHER_H
 #define PROJECT1_ROS2_COMMAND_PUBLISHER_H
 

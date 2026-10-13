@@ -1,3 +1,9 @@
+//----------------------------------------------------------------------------
+// File:    CommandPublisher.cpp
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: Creates the selected command publisher and converts a Velocity into
+//          the ROS message.
+//----------------------------------------------------------------------------
 #include "project1/ros2/CommandPublisher.h"
 
 namespace project1

@@ -1,4 +1,9 @@
-// Validated configuration for the right-wall controller.
+//----------------------------------------------------------------------------
+// File:    Settings.h
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: Controller configuration (wall distance, speeds, gains, robot and
+//          laser geometry, corner limits) loaded from parameters at start-up.
+//----------------------------------------------------------------------------
 #ifndef PROJECT1_SETTINGS_H
 #define PROJECT1_SETTINGS_H
 

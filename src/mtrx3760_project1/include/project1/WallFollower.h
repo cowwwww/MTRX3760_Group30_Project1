@@ -1,4 +1,9 @@
-// A2 sector-based right-wall steering, with bounded corner feedback.
+//----------------------------------------------------------------------------
+// File:    WallFollower.h
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: ROS-independent right-wall-following controller: a state machine for
+//          cruising, corner turns, front avoidance and safety stops.
+//----------------------------------------------------------------------------
 #ifndef PROJECT1_WALLFOLLOWER_H
 #define PROJECT1_WALLFOLLOWER_H
 #include "project1/ScanProcessor.h"

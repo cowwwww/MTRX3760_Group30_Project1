@@ -1,3 +1,9 @@
+//----------------------------------------------------------------------------
+// File:    Settings.cpp
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: Checks that all controller settings are finite, positive and
+//          consistently ordered before the controller starts.
+//----------------------------------------------------------------------------
 #include "project1/Settings.h"
 
 #include <cmath>

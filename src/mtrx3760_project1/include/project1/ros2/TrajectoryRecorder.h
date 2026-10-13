@@ -1,3 +1,9 @@
+//----------------------------------------------------------------------------
+// File:    TrajectoryRecorder.h
+// Project: MTRX3760 Project 1 - Hello, Turtlebots! (Group 30)
+// Purpose: Keeps a bounded nav_msgs::msg::Path of odometry poses so RViz can
+//          draw the robot's trajectory.
+//----------------------------------------------------------------------------
 #ifndef PROJECT1_ROS2_TRAJECTORY_RECORDER_H
 #define PROJECT1_ROS2_TRAJECTORY_RECORDER_H
 
